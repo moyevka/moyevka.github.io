@@ -30,7 +30,6 @@ twitter_username: moyevka
 github_username:  moyevka
 
 # Build settings
-theme: minima
 plugins:
   - jekyll-feed
 

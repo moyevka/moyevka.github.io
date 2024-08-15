@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include home_head.html %}
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            overflow-y: scroll;
+            scroll-behavior: auto;
+            scroll-snap-type: y mandatory;
+        }
+
+        .section {
+            height: 100vh;
+            scroll-snap-align: center;
+            scroll-snap-stop: always;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    {% assign sections = content | split: '<!-- split -->' %}
+    {% for section in sections %}
+    <div class="section">
+        {{ section }}
+    </div>
+    {% endfor %}
+</body>
+</html>
