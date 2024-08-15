@@ -6,21 +6,16 @@ layout: home
 title: moyevka!
 ---
 
-<p class="binary">moyevka</p>
+moyevka
 
 <!-- split -->
 
-## About Meeeeeee
-This is the second section. You can write a brief description about yourself or your website.
+there is nothing here right now
 
 <!-- split -->
 
-## Projects  
-
-This is the third section. Highlight some of your key projects or work here.
+there may be stuff here eventually
 
 <!-- split -->
 
-## Contact  
-
-This is the fourth section. Provide contact information or a call to action for visitors.
+goodbye!
