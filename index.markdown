@@ -4,13 +4,17 @@
 
 layout: home
 title: moyevka!
+tags: [test1, test2, test3, test4]
+test: augh
 ---
 
-moyevka
+{{ page.test }}
 
 <!-- split -->
 
-there is nothing here right now
+<p class="carle-title">HYBRID</p>  
+
+<!-- tagblock -->
 
 <!-- split -->
 

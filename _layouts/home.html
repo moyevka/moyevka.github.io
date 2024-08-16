@@ -16,9 +16,26 @@
             scroll-snap-align: center;
             scroll-snap-stop: always;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             padding: 20px;
+        }
+
+        .tags {
+            list-style-type: none; /* Remove bullet points */
+            padding: 0;
+            display: flex; /* Display list items in a horizontal row */
+            gap: 10px; /* Adjust the spacing between tags */
+        }
+
+        .tags li {
+            margin: 0;
+            padding: 5px 10px; /* Add padding inside the capsule */
+            background-color: #e0e0e0; /* Light gray background for the capsule */
+            border-radius: 20px; /* Rounded corners to create the capsule effect */
+            font-size: 14px; /* Adjust the font size as needed */
+            white-space: nowrap; /* Ensure the tag text doesn't wrap */
         }
     </style>
 </head>
@@ -26,7 +43,18 @@
     {% assign sections = content | split: '<!-- split -->' %}
     {% for section in sections %}
     <div class="section">
-        {{ section }}
+        {% if section contains '<!-- tagblock -->' %}
+        {{ section | markdownify }}
+        <div class="tag-list">
+            <ul class="tags">
+                {% for tag in page.tags %}
+                    <li>{{ tag }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% else %}
+        {{ section | markdownify }}
+        {% endif %}
     </div>
     {% endfor %}
 </body>
