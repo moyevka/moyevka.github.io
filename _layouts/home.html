@@ -42,20 +42,25 @@
 <body>
     {% assign sections = content | split: '<!-- split -->' %}
     {% for section in sections %}
-    <div class="section">
-        {% if section contains '<!-- tagblock -->' %}
-        {{ section | markdownify }}
-        <div class="tag-list">
-            <ul class="tags">
-                {% for tag in page.tags %}
-                    <li>{{ tag }}</li>
-                {% endfor %}
-            </ul>
-        </div>
+        {% if section contains '<!-- bg:' %}
+            {% assign bg_image = section | split: '<!-- bg:' | last | split: '-->' | first | strip%}
+            <div class="section" style="background-image: url('{{ bg_image }}'); background-repeat: no-repeat; background-position: center; background-size: auto;">
         {% else %}
-        {{ section | markdownify }}
+            <div class="section">
         {% endif %}
-    </div>
+            {% if section contains '<!-- tagblock -->' %}
+                {{ section | markdownify }}
+                <div class="tag-list">
+                    <ul class="tags">
+                        {% for tag in page.tags %}
+                            <li>{{ tag }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% else %}
+                {{ section | markdownify }}
+            {% endif %}
+        </div>
     {% endfor %}
 </body>
 </html>

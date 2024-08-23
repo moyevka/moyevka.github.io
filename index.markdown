@@ -12,6 +12,8 @@ test: augh
 
 <!-- split -->
 
+<!-- bg: ./assets/splash/temp.png -->
+
 <p class="carle-title">HYBRID</p>  
 
 <!-- tagblock -->
