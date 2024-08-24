@@ -14,7 +14,7 @@ test: augh
 
 <!-- bg: ./assets/splash/temp.png -->
 
-<p class="carle-title">HYBRID</p>  
+<p class="carle-title binary outlined">HYBRID</p>  
 
 <!-- tagblock -->
 

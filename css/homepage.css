@@ -61,7 +61,7 @@ body {
 }
 
 .binary {
-	filter: url(#binary);
+	filter: url(#binary) contrast(10);
 }
 
 .binary::selection {
@@ -78,3 +78,11 @@ body {
 	letter-spacing: -0.05em;
 	font-size: 60pt;
   }
+
+.outlined {
+	text-shadow:
+		3px 3px 0 #fff,
+    	-3px 3px 0 #fff,
+    	-3px -3px 0 #fff,
+    	3px -3px 0 #fff;
+}

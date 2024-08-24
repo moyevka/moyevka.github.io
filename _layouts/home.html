@@ -44,7 +44,7 @@
     {% for section in sections %}
         {% if section contains '<!-- bg:' %}
             {% assign bg_image = section | split: '<!-- bg:' | last | split: '-->' | first | strip%}
-            <div class="section" style="background-image: url('{{ bg_image }}'); background-repeat: no-repeat; background-position: center; background-size: auto;">
+            <div class="section" style="background-image: url('{{ bg_image }}'); background-repeat: no-repeat; background-position: center; background-size: auto 1325px; image-rendering: pixelated;">
         {% else %}
             <div class="section">
         {% endif %}
