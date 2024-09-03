@@ -25,6 +25,15 @@
     font-display: swap;
 }
 
+@font-face {
+    font-family: 'Matisse Pixelated';
+    src: url('fonts/MatissePixelated.woff2') format('woff2'),
+        url('fonts/MatissePixelated.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+
 /* #endregion */
 
 /* #region home style */
@@ -37,9 +46,8 @@ html {
 }
 
 p {
-	line-height: 24px;
-	margin: 0;
-	margin-bottom: 24px;
+	line-height: 21px;
+	max-width: 750px;
 }
 
 body {
@@ -47,12 +55,18 @@ body {
 	min-height: 100%;
 	overflow-x: hidden;
 	margin: 0;
-	-webkit-font-smoothing: antialiased;
-	text-rendering: optimizeLegibility;
-	-moz-osx-font-smoothing: grayscale;
 	min-height: 100%;
 	font-family: 'CMU Concrete', Helvetica, Arial, sans-serif;
-	font-size: 16px;
+	font-size: 17px;
+	text-align: center;
+}
+
+img {
+	position: relative;
+	height: auto;
+	width: auto;
+	margin-left: 50%;
+	transform: translateX(-50%);
 }
 
 ::selection {
@@ -61,7 +75,10 @@ body {
 }
 
 .binary {
-	filter: url(#binary) contrast(10);
+	font-family: 'Matisse Pixelated';
+	font-synthesis: none;
+	filter: url(#binary) contrast(1000);
+	text-align: left;
 }
 
 .binary::selection {
@@ -77,12 +94,25 @@ body {
 	font-style: italic;
 	letter-spacing: -0.05em;
 	font-size: 60pt;
+	text-align: center;
+	margin: 24pt;
   }
+
+.naps-title {
+	font-family: "DM Sans", sans-serif;
+	font-variation-settings: "opsz" 40;
+	font-style: italic;
+	font-weight: 1000;
+	font-size: 64pt;
+	letter-spacing: -0.04em;
+	margin: 24pt;
+	filter: url(#binary) contrast(1000);
+}
 
 .outlined {
 	text-shadow:
-		3px 3px 0 #fff,
-    	-3px 3px 0 #fff,
-    	-3px -3px 0 #fff,
-    	3px -3px 0 #fff;
+		3px 3px 0 #969696,
+    	-3px 3px 0 #969696,
+    	-3px -3px 0 #969696,
+    	3px -3px 0 #969696;
 }

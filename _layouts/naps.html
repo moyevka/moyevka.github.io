@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include global.html %}
+    <link rel="stylesheet" href="..\css\naps-voices.css">
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            overflow-y: visible;
+            scroll-behavior: auto;
+            scroll-snap-type: y mandatory;
+        }
+
+        .section {
+            height: 100vh;
+            scroll-snap-align: center;
+            scroll-snap-stop: always;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px; 
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            width: 1824px; /* 2 * 896px + 24px */
+            margin: 0 auto;
+            padding: 0 12px;
+        }
+
+        .column {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            max-width: 896px;
+            flex: 1;
+        }
+
+        .column + .column {
+            margin-left: 24px;
+        }
+    </style>
+</head>
+<body>
+    {% assign sections = content | split: '<!-- split -->' %}
+    {% for section in sections %}
+        {% if section contains '<!-- columns -->' %}
+            <div class="section">
+                <div class="container">
+                    <div class="column">
+                        {{ section | split: '<!-- column-break -->' | first }}
+                    </div>
+                    <div class="column">
+                        {{ section | split: '<!-- column-break -->' | last }}
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            <div class="section">
+                {{ section }}
+            </div>
+        {% endif %}
+    {% endfor %}
+
+</body>
+<!-- snap binary elements to pixel grid  -->
+<script type="text/javascript">
+const range = document.createRange();
+document.querySelectorAll('.binary').forEach(e => {
+    range.setStartBefore(e.childNodes[0]);
+    range.setEndAfter(e.childNodes[0]);
+    e.style.width = `${range.getBoundingClientRect().width}px`;
+    e.style.transform = `scaleX(${Math.ceil(e.getBoundingClientRect().width) / e.getBoundingClientRect().width})`;
+    e.style.translate = `${-(e.getBoundingClientRect().left - Math.floor(e.getBoundingClientRect().left)) + 0.5}px`
+})
+</script>
+</html>

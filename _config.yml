@@ -31,12 +31,13 @@ github_username:  moyevka
 plugins:
   - jekyll-feed
 
-# tags
-tags:
-  - name: test1
-  - name: test2
-  - name: test3
-  - name: test4
+# collections
+collections   :
+  naps        :
+    output    : true
+
+exclude:
+  - sitesource.code-workspace
 
 # Exclude from processing.
 # The following items will not be processed, by default.

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    {% include home_head.html %}
+    {% include global.html %}
     <style>
         body {
             margin: 0;
@@ -19,7 +19,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 20px;
+            padding: 20px; 
         }
 
         .tags {
@@ -32,10 +32,11 @@
         .tags li {
             margin: 0;
             padding: 5px 10px; /* Add padding inside the capsule */
-            background-color: #e0e0e0; /* Light gray background for the capsule */
+            background-color: #fff; /* Light gray background for the capsule */
             border-radius: 20px; /* Rounded corners to create the capsule effect */
-            font-size: 14px; /* Adjust the font size as needed */
             white-space: nowrap; /* Ensure the tag text doesn't wrap */
+            border: 2px solid black;
+            outline: #969696 solid 4px;
         }
     </style>
 </head>
@@ -63,4 +64,15 @@
         </div>
     {% endfor %}
 </body>
+<!-- snap binary elements to pixel grid  -->
+<script type="text/javascript">
+const range = document.createRange();
+document.querySelectorAll('.binary').forEach(e => {
+    range.setStartBefore(e.childNodes[0]);
+    range.setEndAfter(e.childNodes[0]);
+    e.style.width = `${range.getBoundingClientRect().width}px`;
+    e.style.transform = `scaleX(${Math.ceil(e.getBoundingClientRect().width) / e.getBoundingClientRect().width})`;
+    e.style.translate = `${-(e.getBoundingClientRect().left - Math.floor(e.getBoundingClientRect().left)) + 0.5}px`
+})
+</script>
 </html>
