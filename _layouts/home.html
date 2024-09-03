@@ -6,7 +6,7 @@
         body {
             margin: 0;
             height: 100vh;
-            overflow-y: scroll;
+            overflow-y: visible;
             scroll-behavior: auto;
             scroll-snap-type: y mandatory;
         }
@@ -66,6 +66,7 @@
 </body>
 <!-- snap binary elements to pixel grid  -->
 <script type="text/javascript">
+document.addEventListener("DOMContentLoaded", function() {
 const range = document.createRange();
 document.querySelectorAll('.binary').forEach(e => {
     range.setStartBefore(e.childNodes[0]);
@@ -73,6 +74,7 @@ document.querySelectorAll('.binary').forEach(e => {
     e.style.width = `${range.getBoundingClientRect().width}px`;
     e.style.transform = `scaleX(${Math.ceil(e.getBoundingClientRect().width) / e.getBoundingClientRect().width})`;
     e.style.translate = `${-(e.getBoundingClientRect().left - Math.floor(e.getBoundingClientRect().left)) + 0.5}px`
-})
+    });
+});
 </script>
 </html>

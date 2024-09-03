@@ -1,9 +1,18 @@
 /* #region local fonts */
 
 @font-face {
-    font-family: 'Naps Voices';
-    src: url('fonts/NapsVoices.woff2') format('woff2'),
-        url('fonts/NapsVoices.woff') format('woff');
+    font-family: 'Naps (Keys)';
+    src: url('fonts/naps/NapsKeys.woff2') format('woff2'),
+        url('fonts/naps/NapsKeys.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Naps (Choux)';
+    src: url('fonts/naps/NapsChoux.woff2') format('woff2'),
+        url('fonts/naps/NapsChoux.woff') format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -12,7 +21,21 @@
 /* #endregion */
 
 /* #region styles */
-.choux {
-	font-family: 'Naps Voices', 'CMU Concrete', Helvetica, Arial, sans-serif;
+.random-voice:hover {
+	text-decoration: underline;
+}
+
+
+.Choux {
+	font-family: 'Naps (Choux)', 'CMU Concrete', Helvetica, Arial, sans-serif;
 	font-size: 20px;
+	line-height: 19px;
+}
+
+.Keys {
+	font-family: 'Naps (Keys)', 'CMU Concrete', Helvetica, Arial, sans-serif;
+	font-size: 19px;
+	line-height: 21px;
+	position:relative;
+	top: -1px;
 }

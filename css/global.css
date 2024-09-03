@@ -57,7 +57,7 @@ body {
 	margin: 0;
 	min-height: 100%;
 	font-family: 'CMU Concrete', Helvetica, Arial, sans-serif;
-	font-size: 17px;
+	font-size: 18px;
 	text-align: center;
 }
 
@@ -76,15 +76,10 @@ img {
 
 .binary {
 	font-family: 'Matisse Pixelated';
+	font-size: 17px;
 	font-synthesis: none;
 	filter: url(#binary) contrast(1000);
 	text-align: left;
-}
-
-.binary::selection {
-	background:black;
-	color:white;
-	filter: url(#binary);
 }
 
 .carle-title {
@@ -103,16 +98,25 @@ img {
 	font-variation-settings: "opsz" 40;
 	font-style: italic;
 	font-weight: 1000;
-	font-size: 64pt;
+	font-size: 65pt;
 	letter-spacing: -0.04em;
 	margin: 24pt;
 	filter: url(#binary) contrast(1000);
 }
 
+a.naps-title {
+	color:black;
+	text-decoration: none;
+}
+
+a.naps-title:hover {
+	text-decoration: underline;
+}
+
 .outlined {
 	text-shadow:
-		3px 3px 0 #969696,
-    	-3px 3px 0 #969696,
-    	-3px -3px 0 #969696,
-    	3px -3px 0 #969696;
+		3px 3px 0 #fff,
+    	-3px 3px 0 #fff,
+    	-3px -3px 0 #fff,
+    	3px -3px 0 #fff;
 }

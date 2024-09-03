@@ -14,7 +14,7 @@ test: moyevka!
 
 <!-- bg: ./assets/splash/naps-splash.png -->
 
-<p class="naps-title outlined">naps!</p>  
+<p><a href="/naps/" class="naps-title outlined">naps!</a></p>  
 
 <!-- tagblock -->
 
