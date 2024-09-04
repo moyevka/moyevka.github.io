@@ -3,20 +3,18 @@
 <head>
     {% include global.html %}
     <link rel="stylesheet" href="..\css\naps-voices.css">
-    <link rel="preload" href="..\css\fonts\naps\NapsKeys.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="..\css\fonts\naps\NapsChoux.woff2" as="font" type="font/woff2" crossorigin>
     <style>
         body {
             margin: 0;
             height: 100vh;
-            overflow-y: visible;
+            overflow-y: scroll;
             scroll-behavior: auto;
             scroll-snap-type: y mandatory;
         }
 
         .section {
             height: 100vh;
-            scroll-snap-align: center;
+            scroll-snap-align: start end;
             scroll-snap-stop: always;
             display: flex;
             flex-direction: column;
@@ -44,6 +42,28 @@
 
         .column + .column {
             margin-left: 24px;
+        }
+
+        .image-gallery {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100vh; 
+            overflow-y: scroll; 
+            padding: 20px;
+            box-sizing: border-box;
+            scroll-snap-type: y proximity; 
+            scrollbar-width: none;
+        }
+
+        .image-gallery::-webkit-scrollbar {
+            width: 0;
+            height: 0;
+        }
+
+        .gallery-item {
+            scroll-snap-align: center;
         }
     </style>
 </head>
@@ -73,7 +93,7 @@
 <script type="text/javascript">
 document.addEventListener("DOMContentLoaded", function() {
 
-const voices = ['Choux', 'Keys']
+const voices = ['Choux', 'Keys', 'Sorrel']
 document.querySelectorAll('.random-voice').forEach(v => {
     let voiceChosen = voices[Math.floor(Math.random() * voices.length)];
     v.classList.add(voiceChosen);
@@ -87,7 +107,23 @@ document.querySelectorAll('.binary').forEach(e => {
     e.style.width = `${Math.ceil(range.getBoundingClientRect().width)}px`;
     e.style.transform = `scaleX(${Math.ceil(e.getBoundingClientRect().width) / e.getBoundingClientRect().width})`;
     e.style.translate = `${-(e.getBoundingClientRect().left - Math.floor(e.getBoundingClientRect().left))}px`
-    });
+});
+
+function galleryFix() {
+    const viewportHeight = window.innerHeight;
+    const galleries = document.querySelectorAll('.image-gallery');
+    galleries.forEach(function(gallery) {
+        const firstImage = gallery.querySelector('.gallery-item:first-child');
+        const lastImage = gallery.querySelector('.gallery-item:last-child')
+        const firstImageHeight = firstImage.getBoundingClientRect().height;
+        const lastImageHeight = lastImage.getBoundingClientRect().height;
+        gallery.style.paddingTop = `${(viewportHeight / 2) - (firstImageHeight / 2)}px`;
+        gallery.style.paddingBottom = `${(viewportHeight / 2) - (lastImageHeight / 2)}px`;
+});
+};
+
+setTimeout(galleryFix, 10);
+
 });
 </script>
 </html>

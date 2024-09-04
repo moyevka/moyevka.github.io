@@ -65,8 +65,6 @@ img {
 	position: relative;
 	height: auto;
 	width: auto;
-	margin-left: 50%;
-	transform: translateX(-50%);
 }
 
 ::selection {
@@ -100,7 +98,7 @@ img {
 	font-weight: 1000;
 	font-size: 65pt;
 	letter-spacing: -0.04em;
-	margin: 24pt;
+	margin: 20pt;
 	filter: url(#binary) contrast(1000);
 }
 
@@ -119,4 +117,41 @@ a.naps-title:hover {
     	-3px 3px 0 #fff,
     	-3px -3px 0 #fff,
     	3px -3px 0 #fff;
+}
+
+/* Styling for the overlay */
+.image-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+/* Styling for the viewer image */
+.viewer-image {
+    max-width: 90%;
+    max-height: 90%;
+    transform-origin: center;
+	transition: transform 0.2s ease;
+	cursor: zoom-in;
+}
+
+.naps-img {
+	transition: transform 0s;
+	image-rendering: pixelated;
+}
+
+/* Zoomed in state */
+.viewer-image.zoomed {
+    transform: scale(2);
+}
+
+.clickable {
+    cursor: pointer;
 }

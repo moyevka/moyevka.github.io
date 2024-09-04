@@ -31,6 +31,12 @@ github_username:  moyevka
 plugins:
   - jekyll-feed
 
+defaults:
+  - scope:
+      path: "assets"
+    values:
+      image: true
+
 # collections
 collections   :
   naps        :
