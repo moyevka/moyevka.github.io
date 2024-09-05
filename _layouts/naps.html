@@ -10,6 +10,7 @@
             overflow-y: scroll;
             scroll-behavior: auto;
             scroll-snap-type: y mandatory;
+            overscroll-behavior: auto;
         }
 
         .section {
@@ -20,13 +21,14 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 20px; 
+            overscroll-behavior: auto;
         }
 
         .container {
             display: flex;
             justify-content: center;
-            width: 1224px; /* 2 * 896px + 24px */
+            width: 33%;
+            min-width: 1220px;
             margin: 0 auto;
             padding: 0 12px;
         }
@@ -36,35 +38,19 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            max-width: 600px;
+            max-width: 50%;
             flex: 1;
         }
 
         .column + .column {
             margin-left: 24px;
         }
-
-        .image-gallery {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            height: 100vh; 
-            overflow-y: scroll; 
-            padding: 20px;
-            box-sizing: border-box;
-            scroll-snap-type: y proximity; 
-            scrollbar-width: none;
+        
+        .top-spacer, .bottom-spacer {
+            width: 100%;
+            display: block;
         }
 
-        .image-gallery::-webkit-scrollbar {
-            width: 0;
-            height: 0;
-        }
-
-        .gallery-item {
-            scroll-snap-align: center;
-        }
     </style>
 </head>
 <body>
@@ -93,21 +79,27 @@
 <script type="text/javascript">
 document.addEventListener("DOMContentLoaded", function() {
 
-const voices = ['Choux', 'Keys', 'Sorrel']
-document.querySelectorAll('.random-voice').forEach(v => {
-    let voiceChosen = voices[Math.floor(Math.random() * voices.length)];
-    v.classList.add(voiceChosen);
-    v.setAttribute('title',"i'm "+voiceChosen+"!");
-});
+function randomVoice () {
+    const voices = ['Choux', 'Keys', 'Sorrel']
+    document.querySelectorAll('.random-voice').forEach(v => {
+        let voiceChosen = voices[Math.floor(Math.random() * voices.length)];
+        v.classList.add(voiceChosen);
+        v.setAttribute('title',"i'm "+voiceChosen+"!");
+    });
+};
 
-const range = document.createRange();
-document.querySelectorAll('.binary').forEach(e => {
-    range.setStartBefore(e.childNodes[0]);
-    range.setEndAfter(e.childNodes[0]);
-    e.style.width = `${Math.ceil(range.getBoundingClientRect().width)}px`;
-    e.style.transform = `scaleX(${Math.ceil(e.getBoundingClientRect().width) / e.getBoundingClientRect().width})`;
-    e.style.translate = `${-(e.getBoundingClientRect().left - Math.floor(e.getBoundingClientRect().left))}px`
-});
+randomVoice();
+
+function binaryFix() {
+    const range = document.createRange();
+    document.querySelectorAll('.binary').forEach(e => {
+        range.setStartBefore(e.childNodes[0]);
+        range.setEndAfter(e.childNodes[0]);
+      e.style.width = `${Math.ceil(range.getBoundingClientRect().width)}px`;
+        e.style.transform = `scaleX(${Math.ceil(e.getBoundingClientRect().width) / e.getBoundingClientRect().width})`;
+        e.style.translate = `${-(e.getBoundingClientRect().left - Math.floor(e.getBoundingClientRect().left))}px`
+    });
+};
 
 function galleryFix() {
     const viewportHeight = window.innerHeight;
@@ -117,12 +109,43 @@ function galleryFix() {
         const lastImage = gallery.querySelector('.gallery-item:last-child')
         const firstImageHeight = firstImage.getBoundingClientRect().height;
         const lastImageHeight = lastImage.getBoundingClientRect().height;
-        gallery.style.paddingTop = `${(viewportHeight / 2) - (firstImageHeight / 2)}px`;
-        gallery.style.paddingBottom = `${(viewportHeight / 2) - (lastImageHeight / 2)}px`;
-});
+
+        // Calculate the required height for spacing divs
+        const topSpacingHeight = (viewportHeight / 2) - (firstImageHeight / 2);
+        const bottomSpacingHeight = (viewportHeight / 2) - (lastImageHeight / 2);
+
+        // Create or update top spacer div and its child
+        let topSpacer = gallery.querySelector('.top-spacer');
+        if (!topSpacer) {
+            topSpacer = document.createElement('div');
+            topSpacer.classList.add('top-spacer');
+            const topSpacerChild = document.createElement('div');
+            topSpacerChild.classList.add('spacer-child');
+            topSpacer.appendChild(topSpacerChild);
+            gallery.insertBefore(topSpacer, firstImage);
+        }
+        topSpacer.firstElementChild.style.height = `${topSpacingHeight}px`;
+
+        // Create or update bottom spacer div and its child
+        let bottomSpacer = gallery.querySelector('.bottom-spacer');
+        if (!bottomSpacer) {
+            bottomSpacer = document.createElement('div');
+            bottomSpacer.classList.add('bottom-spacer');
+            const bottomSpacerChild = document.createElement('div');
+            bottomSpacerChild.classList.add('spacer-child');
+            bottomSpacer.appendChild(bottomSpacerChild);
+            gallery.appendChild(bottomSpacer);
+        }
+        bottomSpacer.firstElementChild.style.height = `${bottomSpacingHeight}px`;
+    });
 };
 
-setTimeout(galleryFix, 10);
+window.onload = (event) => {
+  console.log("fully loaded");
+  binaryFix();
+  galleryFix();
+  removeSplash();
+};
 
 });
 </script>

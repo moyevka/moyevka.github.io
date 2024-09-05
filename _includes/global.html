@@ -27,6 +27,23 @@
     </defs>
 </svg>
 
+<!-- whiteout opener -->
+<script>
+const splash = document.createElement('div');
+splash.classList.add('opener');
+document.body.appendChild(splash);
+
+function removeSplash(){
+    const splash = document.querySelector('.opener');
+    if (splash) {
+        splash.style.opacity = '0';
+        setTimeout(() => {
+            splash.remove();
+        }, 1000);
+    }
+}
+</script>
+
 <!-- image viewer -->
 <script>
 document.addEventListener('DOMContentLoaded', function () {
@@ -44,42 +61,77 @@ const images = document.querySelectorAll('.clickable');
                 viewerImage.src = image.src;
                 viewerImage.className = 'viewer-image';
 
+                const closeMessage = document.createElement('div');
+                closeMessage.innerText = 'right-click anywhere to close';
+                closeMessage.className = 'close-message';
+
                 if (image.classList.contains('naps-img')) {
                     viewerImage.classList.add('naps-img');
+                    closeMessage.classList.add('binary');
                 }
 
+                overlay.appendChild(closeMessage);
                 overlay.appendChild(viewerImage);
                 document.body.appendChild(overlay);
 
-                // Zoom in on click
+                setTimeout(() => {
+                    overlay.style.opacity = 1;
+                }, 100);
+
+                // Handle zoom-in with mouse position offset
                 viewerImage.addEventListener('click', function (e) {
-                    e.stopPropagation();
+                    e.stopPropagation(); 
                     if (!isZoomed) {
+                        const rect = viewerImage.getBoundingClientRect();
+                        const percentX = ((e.clientX - rect.left) / rect.width);
+                        const percentY = ((e.clientY - rect.top) / rect.height);
+                        viewerImage.style.transformOrigin = `${percentX * 100}% ${percentY * 100}%`;
+
                         viewerImage.classList.add('zoomed');
                         isZoomed = true;
-                        viewerImage.style.cursor = 'zoom-out';
+                        overlay.style.cursor = 'zoom-out';
                     } else {
                         viewerImage.classList.remove('zoomed');
                         isZoomed = false;
-                        viewerImage.style.cursor = 'zoom-in';
+                        overlay.style.cursor = 'zoom-in';
+                    }
+                });
+                
+                // Continuously update transformOrigin on mousemove when zoomed
+                overlay.addEventListener('mousemove', function (e) {
+                    if (isZoomed) {
+                        const rect = viewerImage.getBoundingClientRect();
+                        const percentX = ((e.clientX - rect.left) / rect.width);
+                        const percentY = ((e.clientY - rect.top) / rect.height);
+                        viewerImage.style.transformOrigin = `${percentX * 100}% ${percentY * 100}%`;
                     }
                 });
 
+                function closeViewer() {
+                    overlay.style.opacity = 0;
+                    setTimeout(() => {
+                        document.body.removeChild(overlay);
+                        overlay = null;
+                        viewerImage = null;
+                        isZoomed = false;
+                    }, 100);
+                };
+
                 // Exit viewer on overlay click
                 overlay.addEventListener('click', function () {
-                    document.body.removeChild(overlay);
-                    overlay = null;
-                    viewerImage = null;
-                    isZoomed = false;
+                    if (!isZoomed) {
+                        closeViewer();
+                    } else {
+                        viewerImage.classList.remove('zoomed');
+                        isZoomed = false;
+                        overlay.style.cursor = 'zoom-in';
+                    }
                 });
 
                 // Exit viewer on right-click anywhere
                 overlay.addEventListener('contextmenu', function (e) {
                     e.preventDefault();
-                    document.body.removeChild(overlay);
-                    overlay = null;
-                    viewerImage = null;
-                    isZoomed = false;
+                    closeViewer();
                 });
             }
         });
