@@ -67,14 +67,22 @@
 <!-- snap binary elements to pixel grid  -->
 <script type="text/javascript">
 document.addEventListener("DOMContentLoaded", function() {
-const range = document.createRange();
-document.querySelectorAll('.binary').forEach(e => {
-    range.setStartBefore(e.childNodes[0]);
-    range.setEndAfter(e.childNodes[0]);
-    e.style.width = `${range.getBoundingClientRect().width}px`;
-    e.style.transform = `scaleX(${Math.ceil(e.getBoundingClientRect().width) / e.getBoundingClientRect().width})`;
-    e.style.translate = `${-(e.getBoundingClientRect().left - Math.floor(e.getBoundingClientRect().left)) + 0.5}px`
-    });
+    function binaryFix() {
+        const range = document.createRange();
+        document.querySelectorAll('.binary').forEach(e => {
+            range.setStartBefore(e.childNodes[0]);
+            range.setEndAfter(e.childNodes[0]);
+            e.style.width = `${Math.ceil(range.getBoundingClientRect().width)}px`;
+            e.style.transform = `scaleX(${Math.ceil(e.getBoundingClientRect().width) / e.getBoundingClientRect().width})`;
+            e.style.translate = `${-(e.getBoundingClientRect().left - Math.floor(e.getBoundingClientRect().left))}px`
+        });
+    };
+
+window.onload = (event) => {
+  console.log("fully loaded");
+  binaryFix();
+  removeSplash();
+};
 });
 </script>
 </html>
