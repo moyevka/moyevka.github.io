@@ -45,26 +45,70 @@ html {
 	overflow-x: hidden;
 }
 
-p {
-	line-height: 21px;
-	max-width: 750px;
-}
-
 body {
+	margin: 0;
+	height: 100vh;
+	overflow-y: scroll;
+	scroll-behavior: auto;
+	scroll-snap-type: y mandatory;
+	overscroll-behavior: auto;
 	font-weight: normal;
 	min-height: 100%;
-	overflow-x: hidden;
 	margin: 0;
-	min-height: 100%;
 	font-family: 'CMU Concrete', Helvetica, Arial, sans-serif;
 	font-size: 18px;
 	text-align: center;
+}
+
+.section {
+	height: 100vh;
+	scroll-snap-align: start end;
+	scroll-snap-stop: always;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	overscroll-behavior: auto;
+	overflow: clip;
+}
+
+.container {
+	display: flex;
+	justify-content: center;
+	width: 33%;
+	min-width: 1220px;
+	margin: 0 auto;
+	padding: 0 12px;
+}
+
+.column {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	max-width: 50%;
+	flex: 1;
+}
+
+.column + .column {
+	margin-left: 24px;
+}
+
+.top-spacer, .bottom-spacer {
+	width: 100%;
+	display: block;
+}
+
+p {
+	line-height: 21px;
+	max-width: 750px;
 }
 
 img {
 	position: relative;
 	height: auto;
 	width: auto;
+	max-height: 90vh;
 }
 
 ::selection {
@@ -154,6 +198,34 @@ a.naps-title:hover {
 	margin: 0%;
 	line-height: 0%;
 	padding: 2px;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.gallery-text {
+	display: flex;
+	justify-content: space-between;
+	line-height: 1;
+}
+
+.item-title.naps-title {
+	font-family: "DM Sans", sans-serif;
+	font-variation-settings: "opsz" 40;
+	font-style: normal;
+	font-weight: 1000;
+	font-size: 36pt;
+	margin: 0pt;
+	margin-top: 4pt;
+	letter-spacing: -0.04em;
+	filter: url(#binary) contrast(1000);
+}
+
+.item-subtitle {
+	margin-right: 0pt;
+	margin-top: 4pt;
+	max-width: 20%;
+	text-align: right;
 }
 
 .gallery-header {
@@ -190,6 +262,9 @@ a.naps-title:hover {
 .naps-img {
 	width: auto;
 	height: auto;
+}
+
+.viewer-image.naps-img {
 	max-width: none;
 	max-height: none;
 	image-rendering: pixelated;
@@ -197,6 +272,7 @@ a.naps-title:hover {
 
 .viewer-image.zoomed {
     transform: scale(2);
+	cursor: zoom-out;
 }
 
 .clickable {

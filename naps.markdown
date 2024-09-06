@@ -6,7 +6,7 @@ permalink: naps
 
 <!-- columns -->
 
-<img src="/assets/splash/thegirls-promo.png" title="the girls!" style="z-index:-1, margin-left:50%, transform:translateX(-50%)">
+<img src="/assets/splash/thegirls-promo.png" title="the girls!" style="z-index:-1; margin-left:50%; transform:translateX(-50%); max-height:none">
 
 <!-- column-break -->
 
