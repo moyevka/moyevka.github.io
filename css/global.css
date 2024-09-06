@@ -214,11 +214,11 @@ a.naps-title:hover {
 	font-variation-settings: "opsz" 40;
 	font-style: normal;
 	font-weight: 1000;
-	font-size: 36pt;
+	font-size: 42pt;
 	margin: 0pt;
 	margin-top: 4pt;
 	letter-spacing: -0.04em;
-	filter: url(#binary) contrast(1000);
+	filter: url(#binary);
 }
 
 .item-subtitle {

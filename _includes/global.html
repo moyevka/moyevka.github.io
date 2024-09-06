@@ -77,7 +77,6 @@ const images = document.querySelectorAll('.clickable');
                     overlay.style.opacity = 1;
                 }, 100);
 
-                // Handle zoom-in with mouse position offset
                 viewerImage.addEventListener('click', function (e) {
                     e.stopPropagation(); 
                     if (!isZoomed) {
@@ -96,7 +95,6 @@ const images = document.querySelectorAll('.clickable');
                     }
                 });
                 
-                // Continuously update transformOrigin on mousemove when zoomed
                 overlay.addEventListener('mousemove', function (e) {
                     if (isZoomed) {
                         const rect = viewerImage.getBoundingClientRect();
