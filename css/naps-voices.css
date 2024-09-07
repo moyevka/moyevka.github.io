@@ -34,25 +34,32 @@
 	text-decoration: underline;
 }
 
+/* 
+.Mara {
+	font-family: 'Naps (Mara)', Helvetica, Arial, sans-serif;
+	font-size: px;
+	line-height: px;
+    color:#f96b75;
+} 
+*/
 
 .Choux {
 	font-family: 'Naps (Choux)', Helvetica, Arial, sans-serif;
 	font-size: 20px;
 	line-height: 19px;
+    color:#7e9627;
 }
 
 .Keys {
 	font-family: 'Naps (Keys)', Helvetica, Arial, sans-serif;
 	font-size: 19px;
 	line-height: 21px;
-	position: relative;
-	top: -1px;
+    color:#f07d2c;
 }
 
 .Sorrel {
     font-family: 'Naps (Sorrel)', Helvetica, Arial, sans-serif;
 	font-size: 17px;
 	line-height: 25px;
-	position: relative;
-	top: -3px;
+    color:#364165;
 }

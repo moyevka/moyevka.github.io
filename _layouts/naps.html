@@ -80,6 +80,11 @@ function galleryFix() {
         }
         topSpacer.firstElementChild.style.height = `${topSpacingHeight}px`;
 
+        let mtgHeader = gallery.querySelector('#mtgHeader');
+        if (mtgHeader) {
+            topSpacer.firstElementChild.style.height = `0px`;
+        }
+
         // Create or update bottom spacer div and its child
         let bottomSpacer = gallery.querySelector('.bottom-spacer');
         if (!bottomSpacer) {
@@ -94,11 +99,39 @@ function galleryFix() {
     });
 };
 
+function outlining() {
+    const outlinedElements = document.querySelectorAll('#outlined');
+
+outlinedElements.forEach(outlinedElement => {
+  const span = document.createElement('span');
+  
+  // Copy the classes from the <p> element
+  span.className = outlinedElement.className;
+
+  // Add the new .outlining class
+  span.classList.add('outlining');
+  span.style.filter = `invert(1)`;
+
+  // Copy the content from the <p> element
+  span.innerHTML = outlinedElement.innerHTML;
+
+  // Append the new <span> as a child of the <p> element
+  outlinedElement.appendChild(span);
+});
+}
+
+
 window.onload = (event) => {
   console.log("fully loaded");
   binaryFix();
   galleryFix();
   removeSplash();
+  setTimeout(() => {
+    outlining()
+    }, 10);
+  setTimeout(() => {
+    binaryFix();
+    }, 15);
 };
 
 });

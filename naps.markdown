@@ -10,9 +10,15 @@ permalink: naps
 
 <!-- column-break -->
 
-<p class="naps-title">naps!</p>
-<P class="random-voice binary" style="white-space:nowrap">"Everybody needs a nap!"</p>
-<p class="binary" style="max-width:320px">naps is my pet project, where I explore and practice my design skills to accompany illustrations of my characters, including some guests!</p>
+<p class="naps-title" id="outlined">naps!</p>
+<P class="random-voice binary" style="white-space:nowrap" id="outlined">
+    "Everybody needs a nap!"
+</p>
+<p class="binary" style="max-width:320px" id="outlined">
+    naps is my pet project, where I explore and practice my design & typography skills to accompany illustrations of my characters along with some extra friends!<br><br>some outline code has been added that fucks up the pixel-perfect rendering lol
+</p>
+
+
 
 {% assign posts = site.naps | sort: "title" %}
 {% for post in posts %}
