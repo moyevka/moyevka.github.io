@@ -14,13 +14,13 @@ test: moyevka!
 
 <!-- bg -->
 
-<p><a href="/carle/" class="carle-title">CARLE</a></p>  
+<p><a href="/carle" class="carle-title">CARLE</a></p>  
 
 <!-- split -->
 
 <!-- bg: ./assets/splash/naps-splash.png -->
 
-<p><a href="/naps/" class="naps-title outlined">naps!</a></p>  
+<p><a href="/naps" class="naps-title outlined">naps!</a></p>  
 
 <!-- split -->
 
