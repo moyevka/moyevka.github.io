@@ -1,7 +1,7 @@
 ---
 layout: carle
 title: carle
-permalink: carle
+permalink: /carle/
 ---
 
 <div class="vimeo-wrapper" style="filter:brightness(75%)">

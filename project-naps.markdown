@@ -1,7 +1,7 @@
 ---
 layout: naps
 title: home
-permalink: naps
+permalink: /naps/
 ---
 
 <div class="container" style="max-width:1200px">
