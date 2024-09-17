@@ -12,11 +12,15 @@ test: moyevka!
 
 <!-- split -->
 
+<!-- bg -->
+
+<p><a href="/carle/" class="carle-title">CARLE</a></p>  
+
+<!-- split -->
+
 <!-- bg: ./assets/splash/naps-splash.png -->
 
-<p><a href="/naps" class="naps-title outlined">naps!</a></p>  
-
-<!-- tagblock -->
+<p><a href="/naps/" class="naps-title outlined">naps!</a></p>  
 
 <!-- split -->
 

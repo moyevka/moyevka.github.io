@@ -54,7 +54,6 @@ document.addEventListener("DOMContentLoaded", function() {
             range.setStartBefore(e.childNodes[0]);
             range.setEndAfter(e.childNodes[0]);
             e.style.width = `${Math.ceil(range.getBoundingClientRect().width)}px`;
-            e.style.transform = `scaleX(${Math.ceil(e.getBoundingClientRect().width) / e.getBoundingClientRect().width})`;
             e.style.translate = `${-(e.getBoundingClientRect().left - Math.floor(e.getBoundingClientRect().left))}px`
         });
     };

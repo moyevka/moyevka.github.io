@@ -40,7 +40,7 @@ defaults:
 # collections
 collections   :
   naps        :
-    output    : true
+  carle       :
 
 exclude:
   - sitesource.code-workspace

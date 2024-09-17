@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include global.html %}
+</head>
+<body>
+    {% assign sections = content | split: '<!-- split -->' %}
+    {% for section in sections %}
+        {% if section contains '<!-- columns -->' %}
+            <div class="section">
+                <div class="container">
+                    <div class="column">
+                        {{ section | split: '<!-- column-break -->' | first }}
+                    </div>
+                    <div class="column">
+                        {{ section | split: '<!-- column-break -->' | last }}
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            <div class="section">
+                {{ section }}
+            </div>
+        {% endif %}
+    {% endfor %}
+
+</body>
+<!-- randomise voice, snap binary elements to pixel grid  -->
+<script type="text/javascript">
+document.addEventListener("DOMContentLoaded", function() {
+
+function galleryFix() {
+    const viewportHeight = window.innerHeight;
+    const galleries = document.querySelectorAll('.image-gallery');
+    galleries.forEach(function(gallery) {
+        const firstImage = gallery.querySelector('.gallery-item:first-child');
+        const lastImage = gallery.querySelector('.gallery-item:last-child')
+        const firstImageHeight = firstImage.getBoundingClientRect().height;
+        const lastImageHeight = lastImage.getBoundingClientRect().height;
+
+        // Calculate the required height for spacing divs
+        const topSpacingHeight = (viewportHeight / 2) - (firstImageHeight / 2);
+        const bottomSpacingHeight = (viewportHeight / 2) - (lastImageHeight / 2);
+
+        // Create or update top spacer div and its child
+        let topSpacer = gallery.querySelector('.top-spacer');
+        if (!topSpacer) {
+            topSpacer = document.createElement('div');
+            topSpacer.classList.add('top-spacer');
+            const topSpacerChild = document.createElement('div');
+            topSpacerChild.classList.add('spacer-child');
+            topSpacer.appendChild(topSpacerChild);
+            gallery.insertBefore(topSpacer, firstImage);
+        }
+        topSpacer.firstElementChild.style.height = `${topSpacingHeight}px`;
+
+        let mtgHeader = gallery.querySelector('#mtgHeader');
+        if (mtgHeader) {
+            topSpacer.firstElementChild.style.height = `0px`;
+        }
+
+        // Create or update bottom spacer div and its child
+        let bottomSpacer = gallery.querySelector('.bottom-spacer');
+        if (!bottomSpacer) {
+            bottomSpacer = document.createElement('div');
+            bottomSpacer.classList.add('bottom-spacer');
+            const bottomSpacerChild = document.createElement('div');
+            bottomSpacerChild.classList.add('spacer-child');
+            bottomSpacer.appendChild(bottomSpacerChild);
+            gallery.appendChild(bottomSpacer);
+        }
+        bottomSpacer.firstElementChild.style.height = `${Math.floor(bottomSpacingHeight)}px`;
+    });
+};
+
+window.onload = (event) => {
+  console.log("fully loaded");
+  postGallery();
+  galleryFix();
+  removeSplash();
+};
+
+});
+</script>
+</html>

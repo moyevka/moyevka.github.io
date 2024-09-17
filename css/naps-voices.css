@@ -33,21 +33,27 @@
 .random-voice:hover {
 	text-decoration: underline;
 }
-
-/* 
+ 
 .Mara {
-	font-family: 'Naps (Mara)', Helvetica, Arial, sans-serif;
-	font-size: px;
-	line-height: px;
+	font-family: 'Naps (Choux)', Helvetica, Arial, sans-serif;
+	font-size: 20px;
+	line-height: 19px;
     color:#f96b75;
 } 
-*/
+
+.Mara.bg {
+    background:#f96b75;
+}
 
 .Choux {
 	font-family: 'Naps (Choux)', Helvetica, Arial, sans-serif;
 	font-size: 20px;
 	line-height: 19px;
     color:#7e9627;
+}
+
+.Choux.bg {
+    background:#7e9627;
 }
 
 .Keys {
@@ -57,9 +63,17 @@
     color:#f07d2c;
 }
 
+.Keys.bg {
+    background:#f07d2c;
+}
+
 .Sorrel {
     font-family: 'Naps (Sorrel)', Helvetica, Arial, sans-serif;
 	font-size: 17px;
 	line-height: 25px;
     color:#364165;
+}
+
+.Sorrel.bg {
+    background:#364165;
 }
