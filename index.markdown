@@ -124,7 +124,7 @@ test: moyevka!
         display:flex;
         justify-content:center;
         font-family: 'Lunchtype 22', Helvetica, Arial, sans-serif;
-        
+
     }
 </style>
 
@@ -132,7 +132,7 @@ test: moyevka!
     <div class="a4">
         <p>resume stuff placeholder text</p>
     </div>
-    <img src="/assets/splash/end.svg" style="max-height:unset;width:100vw;height:auto;position:absolute;bottom:0;z-index:-1">
+    <img src="/assets/splash/end.svg" style="max-height:unset;width:100vw;height:auto;position:absolute;bottom:0;z-index:unset">
 </div>
 
 <div class="snap"></div>
