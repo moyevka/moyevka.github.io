@@ -27,6 +27,15 @@
     font-display: swap;
 }
 
+@font-face {
+    font-family: 'Naps (Mara)';
+    src: url('fonts/naps/NapsMara.woff2') format('woff2'),
+        url('fonts/naps/NapsMara.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 /* #endregion */
 
 /* #region styles */
@@ -35,9 +44,9 @@
 }
  
 .Mara {
-	font-family: 'Naps (Choux)', Helvetica, Arial, sans-serif;
-	font-size: 20px;
-	line-height: 19px;
+	font-family: 'Naps (Mara)', Helvetica, Arial, sans-serif;
+	font-size: 21px;
+	line-height: 17px;
     color:#f96b75;
 } 
 

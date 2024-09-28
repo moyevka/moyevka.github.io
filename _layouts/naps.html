@@ -1,12 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="shortcut icon" href="/assets/site/favico-naps.png">
     {% include global.html %}
     <link rel="stylesheet" href="..\css\naps-voices.css">
     <link rel="preload" href="..\css\fonts\naps\NapsSorrel.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="..\css\fonts\naps\NapsKeys.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="..\css\fonts\naps\NapsChoux.woff2" as="font" type="font/woff2" crossorigin>
 </head>
+<style>
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+    
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background: transparent;
+    }
+    
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: black;
+        border-radius: 0;
+        border: solid 1px white;
+    }
+    
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: black;
+        border: unset;
+    }
+    .section {
+        padding: 0;
+    }
+</style>
 <body>
     {% assign sections = content | split: '<!-- split -->' %}
     {% for section in sections %}
@@ -14,11 +41,23 @@
             {{ section }}
         </div>
     {% endfor %}
-
 </body>
 <!-- randomise voice, snap binary elements to pixel grid  -->
 <script type="text/javascript">
 document.addEventListener("DOMContentLoaded", function() {
+
+function napsImgFix () {
+    let napsImg = document.querySelectorAll('.naps-img');
+    napsImg.forEach(img => {
+        const imgWidth = img.naturalWidth;
+        const currentWidth = img.getBoundingClientRect().width;
+        if (currentWidth == imgWidth) {
+            img.style.imageRendering = `pixelated`;
+        } else {
+            img.style.removeProperty('image-rendering');
+        }
+    })
+}
 
 function getRandomPoint(percentageRange) {
   return Math.random() * percentageRange;
@@ -55,11 +94,7 @@ function binaryFix() {
         range.setStartBefore(e.childNodes[0]);
         range.setEndAfter(e.childNodes[0]);
         e.style.width = `${Math.ceil(range.getBoundingClientRect().width)}px`;
-        
-        const left = e.getBoundingClientRect().left;
-        if (left % 1 === 0.5) { // Check if left ends in 0.5
-            e.style.translate = `${-(left - Math.floor(left))}px`;
-        }
+        e.style.translate = `${-(e.getBoundingClientRect().left - Math.floor(e.getBoundingClientRect().left))}px`;
     });
 };
 
@@ -107,22 +142,43 @@ function galleryFix() {
         }
     });
 };
+function setHeight() {
+    const bgItems = document.querySelectorAll('.bg-gallery-item');
+    const newHeight = firstItem.getBoundingClientRect().height;
+    console.log(`${newHeight}`)
+    document.querySelectorAll('.bg-gallery-item').forEach(item => {
+        item.style.height = `${newHeight}px`;
+    })
+};
+
+function marginFix() {
+    const headerItem = document.querySelector('.g-item.header');
+    const gallery = document.querySelector('.bg-gallery');
+    if (window.innerWidth < 1919) {
+        const headerHeight = headerItem.clientHeight;
+        gallery.style.marginTop = `${headerHeight}px`;
+    } else {
+        gallery.style.marginTop = '0';
+    }
+}
+
 
 window.onload = (event) => {
-  console.log("fully loaded");
-  postGallery();
-  binaryFix();
-  galleryFix();
-  removeSplash();
+    console.log("fully loaded");
+    postGallery();
+    binaryFix();
+    galleryFix();
+    removeSplash();
+    napsImgFix();
+    marginFix();
+    setHeight();
 };
 
 window.addEventListener("resize", () => {
-    binaryFix();
-});
-
-document.addEventListener('click', function (e) {
-    binaryFix();
-});
+    setHeight();
+    marginFix();
+    napsImgFix();
+})
 
 });
 </script>

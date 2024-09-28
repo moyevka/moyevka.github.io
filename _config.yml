@@ -41,6 +41,7 @@ defaults:
 collections   :
   naps        :
   carle       :
+  framed      :
 
 exclude:
   - sitesource.code-workspace

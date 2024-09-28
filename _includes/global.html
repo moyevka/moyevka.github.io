@@ -1,6 +1,7 @@
+<title> {{ page.title }} </title>
+
 <!-- links -->
 <link rel="manifest" href="/assets/site/site.webmanifest">
-<link rel="shortcut icon" href="/assets/site/favicon.ico">
 <link rel="stylesheet" href="\css\global.css">
 <link rel="preload" href="\css\fonts\MatissePixelated.woff2" as="font" crossorigin>
 <link rel="preload" href="\css\fonts\MatissePixelated.woff" as="font" crossorigin>
@@ -15,8 +16,13 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
 
+<!-- Atkinson Hyperlegible -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
 <!-- pixel filter -->
-<svg class="offscreen" width="0" height="0" xmlns="http://www.w3.org/2000/svg">
+<svg class="offscreen" width="0" height="0" xmlns="http://www.w3.org/2000/svg" style="position:fixed">
     <defs>
         <filter id="binary">
             <feComponentTransfer>
@@ -50,9 +56,9 @@ function rand(min, max) {
 }
 
 function postGallery() {
-    const gallery = document.querySelector('.post-gallery');
-    if (gallery) {
-        const postItems = document.querySelectorAll('.post-gallery .post-item');
+    const galleries = document.querySelectorAll('.post-gallery');
+    galleries.forEach(gallery => {
+        const postItems = gallery.querySelectorAll('.post-gallery .post-item');
         let zIndexes = Array.from({ length: postItems.length }, (_, i) => i + 1);
 
         // Check if the gallery.id includes 'randomSort'
@@ -66,6 +72,10 @@ function postGallery() {
             clusterPlace(postItems);
         }
 
+        if (gallery.id.includes('columnPlace')) {
+            columnPlace(postItems);
+        }
+
         // Pass randomSort to hoverSort
         hoverSort(postItems, randomSort);
 
@@ -74,7 +84,7 @@ function postGallery() {
                 dragMove(post);
             }
         });
-    }
+    });
 }
 
 function scatterPlace(postItems) {
@@ -186,18 +196,76 @@ function clusterPlace(postItems) {
     shuffledItems.forEach((post, index) => {
         const { x, y } = getNormalizedPosition(index, xBoundMin, xBoundMax, yBoundMin, yBoundMax);
 
-        // Apply jitter to x and y, multiplied by 100 as requested
         const xJittered = (x + (Math.random() * 0.05 - 0.025)) * 100;
         const yJittered = (y + (Math.random() * 0.05 - 0.025)) * 100;
 
-        // Set position, no random rotation
         post.style.position = 'absolute';
         post.style.left = `${xJittered - 10}%`;
         post.style.top = `${yJittered}%`;
 
-        // Store the position values in dataset for future reference
+        if (post.classList.contains('naps')) {
+            post.style.transform = `rotate(0deg)`;
+        } else {
+            const randomRotation = Math.random() * 6 - 3; // Random rotation between -3 and 3
+            post.style.transform = `rotate(${randomRotation}deg)`;
+            post.dataset.randomRotation = randomRotation; // Store for later use
+        }
+    });
+}
+
+function columnPlace(postItems) {
+    const viewportWidth = window.innerWidth;
+    const viewportHeight = window.innerHeight;
+
+    const shuffledItems = [...postItems].sort(() => Math.random() - 0.5);
+
+    const midIndex = Math.floor(shuffledItems.length / 2);
+    const leftPosts = shuffledItems.slice(0, midIndex);
+    const rightPosts = shuffledItems.slice(midIndex);
+
+    function getNormalizedPosition(index, xBoundMin, xBoundMax, yBoundMin, yBoundMax) {
+        index += 1; 
+        let x = (index * 0.245122333753) % 1;
+        let y = (index * 0.430159709002) % 1;
+
+        x = xBoundMin + x * (xBoundMax - xBoundMin);
+        y = yBoundMin + y * (yBoundMax - yBoundMin);
+
+        return { x, y };
+    }
+
+    leftPosts.forEach((post, index) => {
+        const { x, y } = getNormalizedPosition(index, 0, 0.25, 0.1, 1);
+        post.dataset.x = -x + 0.25;
+        post.dataset.y = y;
+    });
+
+    rightPosts.forEach((post, index) => {
+        const { x, y } = getNormalizedPosition(index, 0.75, 1, 0.1, 1);
         post.dataset.x = x;
         post.dataset.y = y;
+    });
+
+    shuffledItems.forEach((post, index) => {
+        let x = parseFloat(post.dataset.x) * viewportWidth;
+        let y = parseFloat(post.dataset.y) * viewportHeight;
+        
+        const postWidth = post.firstElementChild.getBoundingClientRect().width;
+        const postHeight = post.firstElementChild.getBoundingClientRect().height;
+
+        x -= postWidth / 2;
+        y -= postHeight / 2;
+
+        post.style.position = 'absolute';
+        post.style.left = `${((x / viewportWidth) * 100) + rand(-2, 2)}%`;
+        post.style.top = `${((y / viewportHeight) * 100) + rand(-2, 2)}%`;
+        if (post.classList.contains('randrot')) {
+            const randomRotation = Math.random() * 6 - 3; // Random rotation between -3 and 3
+            post.style.transform = `rotate(${randomRotation}deg)`;
+            post.dataset.randomRotation = randomRotation; // Store for later use
+        } else {
+            post.style.transform = `rotate(0deg)`;
+        }
     });
 }
 
@@ -282,14 +350,19 @@ function dragMove(post) {
             post.style.transform = `rotate(0deg)`;
         }
 
-        document.addEventListener('mousemove', onMouseMove);
-
-        post.onmouseup = function() {
+        function onMouseUp() {
             document.removeEventListener('mousemove', onMouseMove);
+            document.removeEventListener('mouseup', onMouseUp); // Clean up mouseup event listener
+            document.removeEventListener('mouseleave', onMouseUp); // Clean up mouseleave event listener
             post.style.cursor = 'grab';
             post.style.zIndex = 9997;
-            post.onmouseup = null;
-        };
+        }
+
+        document.addEventListener('mousemove', onMouseMove);
+        document.addEventListener('mouseup', onMouseUp); // Handle normal mouseup
+        document.addEventListener('mouseleave', onMouseUp); // Handle mouse leaving the document
+
+        post.onmouseup = null; // Reset inline mouseup handling
     };
 
     post.ondragstart = function() {
@@ -302,7 +375,7 @@ function dragMove(post) {
 <!-- image viewer -->
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-const images = document.querySelectorAll('.clickable');
+    const images = document.querySelectorAll('.clickable');
     let overlay, viewerImage, isZoomed = false;
 
     images.forEach(image => {
@@ -311,18 +384,19 @@ const images = document.querySelectorAll('.clickable');
             image.style.cursor = `grab`;
             function onMouseMove() {
                 isDragged = true;
+                console.log(`isDragged = ${isDragged}`);
             }
-            image.onmousedown = function(){
+            image.onmousedown = function () {
                 document.addEventListener('mousemove', onMouseMove);
                 image.style.cursor = `grabbing`;
             }
-            image.onmouseup = function(){
+            image.onmouseup = function () {
                 document.removeEventListener('mousemove', onMouseMove);
                 image.style.cursor = `grab`;
                 setTimeout(() => {
-                isDragged = false;
+                    isDragged = false;
                 }, 100);
-            }   
+            }
         }
         image.addEventListener('click', function () {
             if (isDragged) {
@@ -351,12 +425,19 @@ const images = document.querySelectorAll('.clickable');
                     viewerImage.classList.add('naps-img');
                     closeMessage.classList.add('binary');
                     viewerMessage.classList.add('binary');
+                    overlay.style.backdropFilter = `grayscale(100%)`;
                 }
 
                 if (image.classList.contains('carle-img')) {
                     closeMessage.classList.add("carle", "subtitle");
                     viewerMessage.classList.add("carle", "subtitle");
                     overlay.style.backdropFilter = `blur(10px)`;
+                }
+
+                if (image.classList.contains('framed-img')) {
+                    closeMessage.classList.add("framed", "viewer");
+                    viewerMessage.classList.add("framed", "viewer");
+                    overlay.style.backdropFilter = `blur(10px) grayscale(100%)`;
                 }
 
                 overlay.appendChild(closeMessage);
@@ -369,27 +450,54 @@ const images = document.querySelectorAll('.clickable');
                 }, 100);
 
                 viewerImage.addEventListener('click', function (e) {
-                    e.stopPropagation(); 
+                    e.stopPropagation();
                     if (!isZoomed) {
                         const rect = viewerImage.getBoundingClientRect();
                         const percentX = ((e.clientX - rect.left) / rect.width);
                         const percentY = ((e.clientY - rect.top) / rect.height);
                         viewerImage.style.transformOrigin = `${percentX * 100}% ${percentY * 100}%`;
 
-                        viewerImage.classList.add('zoomed');
+                        // Check if the image is a 'naps-img' and apply the specific zoom behavior
+                        if (viewerImage.classList.contains('naps-img')) {
+                            const imgWidth = viewerImage.naturalWidth;
+                            const currentWidth = viewerImage.getBoundingClientRect().width;
+                            const ratio = currentWidth / imgWidth;
+
+                            if (currentWidth > (imgWidth * 0.67)) {
+                                console.log('yap');
+                                viewerImage.classList.add('zoomed-naps');
+                                const scaleFactor = 2 * imgWidth / currentWidth;
+                                viewerImage.style.transform = `scale(${scaleFactor})`;
+                                viewerImage.style.imageRendering = 'pixelated';
+                             } else if (currentWidth < imgWidth) {
+                                viewerImage.classList.add('zoomed-naps');
+                                viewerImage.style.transform = `scale(${imgWidth / currentWidth})`;
+                                viewerImage.style.imageRendering = 'pixelated';
+                             } else {
+                                // Fallback case for handling other situations if needed
+                                viewerImage.classList.add('zoomed');
+                                viewerImage.style.imageRendering = 'pixelated';
+                            }
+                        } else {
+                            viewerImage.classList.add('zoomed');
+                        }
+
                         isZoomed = true;
                         overlay.style.cursor = 'zoom-out';
                         viewerImage.style.cursor = 'zoom-out';
                         viewerMessage.innerText = `now viewing: ${fileName} (${image.naturalHeight} x ${image.naturalWidth} pixels) / 2x`;
                     } else {
                         viewerImage.classList.remove('zoomed');
+                        viewerImage.classList.remove('zoomed-naps');
+                        viewerImage.style.removeProperty('transform');
+                        viewerImage.style.removeProperty('image-rendering');
                         isZoomed = false;
                         viewerImage.style.cursor = 'zoom-in';
                         overlay.style.cursor = 'default';
                         viewerMessage.innerText = `now viewing: ${fileName} (${image.naturalHeight} x ${image.naturalWidth} pixels) / 1x`;
                     }
                 });
-                
+
                 overlay.addEventListener('mousemove', function (e) {
                     if (isZoomed) {
                         const rect = viewerImage.getBoundingClientRect();
@@ -407,7 +515,7 @@ const images = document.querySelectorAll('.clickable');
                         viewerImage = null;
                         isZoomed = false;
                     }, 100);
-                };
+                }
 
                 // Exit viewer on overlay click
                 overlay.addEventListener('click', function () {

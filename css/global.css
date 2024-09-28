@@ -8,19 +8,114 @@
 /* https://transfonter.org/ */
 
 @font-face {
-    font-family: 'CMU Concrete';
-    src: url('fonts/CMUConcrete-Italic.woff2') format('woff2'),
-        url('fonts/CMUConcrete-Italic.woff') format('woff');
+    font-family: 'Career';
+    src: url('fonts/Career-webfont.woff2') format('woff2'),
+        url('fonts/Career-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Lunchtype 22';
+    src: url('fonts/lunchtype22-light-webfont.woff2') format('woff2'),
+        url('fonts/lunchtype22-light-webfont.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Lunchtype 22';
+    src: url('fonts/lunchtype22-medium-webfont.woff2') format('woff2'),
+        url('fonts/lunchtype22-medium-webfont.woff') format('woff');
     font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Lunchtype 22';
+    src: url('fonts/lunchtype22-regular-webfont.woff2') format('woff2'),
+        url('fonts/lunchtype22-regular-webfont.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'PP Fragment Text';
+    src: url('fonts/fragment/PPFragment-TextRegular.woff2') format('woff2'),
+        url('fonts/fragment/PPFragment-TextRegular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'PP Fragment Text';
+    src: url('fonts/fragment/PPFragment-TextRegularItalic.woff2') format('woff2'),
+        url('fonts/fragment/PPFragment-TextRegularItalic.woff') format('woff');
+    font-weight: normal;
     font-style: italic;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'CMU Concrete';
-    src: url('fonts/CMUConcrete-Roman.woff2') format('woff2'),
-        url('fonts/CMUConcrete-Roman.woff') format('woff');
-    font-weight: 500;
+    font-family: 'PP Fragment Sans';
+    src: url('fonts/fragment/PPFragment-SansRegular.woff2') format('woff2'),
+        url('fonts/fragment/PPFragment-SansRegular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'PP Fragment Sans';
+    src: url('fonts/fragment/PPFragment-SansRegularitalic.woff2') format('woff2'),
+        url('fonts/fragment/PPFragment-SansRegularitalic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'PP Fragment Glare';
+    src: url('fonts/fragment/PPFragment-GlareExtraBoldItalic.woff2') format('woff2'),
+        url('fonts/fragment/PPFragment-GlareExtraBoldItalic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'PP Fragment Glare';
+    src: url('fonts/fragment/PPFragment-GlareLightItalic.woff2') format('woff2'),
+        url('fonts/fragment/PPFragment-GlareLightItalic.woff') format('woff');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'PP Fragment Glare';
+    src: url('fonts/fragment/PPFragment-GlareLight.woff2') format('woff2'),
+        url('fonts/fragment/PPFragment-GlareLight.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'PP Fragment Glare';
+    src: url('fonts/fragment/PPFragment-GlareExtraBold.woff2') format('woff2'),
+        url('fonts/fragment/PPFragment-GlareExtraBold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Salisbury';
+    src: url('fonts/Salisbury-Bold.woff2') format('woff2'),
+        url('fonts/Salisbury-Bold.woff') format('woff');
+    font-weight: normal;
     font-style: normal;
     font-display: swap;
 }
@@ -34,6 +129,42 @@
     font-display: block;
 }
 
+@font-face {
+    font-family: 'Galano Grotesque';
+    src: url('fonts/GalanoGrotesque-Bold.woff2') format('woff2'),
+        url('fonts/GalanoGrotesque-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Galano Grotesque Alt';
+    src: url('fonts/GalanoGrotesqueAlt-Bold.woff2') format('woff2'),
+        url('fonts/GalanoGrotesqueAlt-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'PP Pangaia';
+    src: url('fonts/PPPangaia-BoldItalic.woff2') format('woff2'),
+        url('fonts/PPPangaia-BoldItalic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'PP Pangaia';
+    src: url('fonts/PPPangaia-Bold.woff2') format('woff2'),
+        url('fonts/PPPangaia-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
 /* #endregion */
 
 /* #region home style */
@@ -43,6 +174,18 @@ html {
 	-ms-text-size-adjust: 100%;
 	height: 100%;
 	overflow-x: hidden;
+}
+
+.snap {
+	scroll-snap-align: start;
+	scroll-snap-stop: always;
+	width:1px;
+	height:1px;
+	transform:translateY(1px)
+}
+
+.scroll-styled-h, .scroll-styled-v, html {
+	scrollbar-width: thin;
 }
 
 body {
@@ -55,13 +198,74 @@ body {
 	font-weight: normal;
 	min-height: 100%;
 	margin: 0;
-	font-family: 'CMU Concrete', Helvetica, Arial, sans-serif;
-	font-size: 18px;
+	font-family: 'PP Fragment Sans', Helvetica, Arial, sans-serif;
+	font-size: 14pt;
 	text-align: center;
 }
 
+i {
+	font-family:'PP Fragment Text', Helvetica, Arial, sans-serif;
+	font-style:italic
+}
+
+.framed i {
+	font-family:'Atkinson Hyperlegible', Helvetica, Arial, sans-serif;
+	font-style:italic;
+}
+
 p {
-	max-width:750px;
+	max-width:600px;
+}
+
+h1 {
+	font-family: 'DM Sans', Helvetica, Arial, sans-serif;
+	font-weight: 600;
+	font-style: normal;
+	font-size: 28pt;
+	letter-spacing: -0.025em;
+	margin: 12pt;
+}
+
+a {
+	color:#201010;
+	text-decoration: none;
+	transition: 0.1s ease;
+}
+
+a:visited {
+	color:#201010;
+}
+
+a:hover, a:visited:hover {
+	color: #f96a75;
+}
+
+.main-text {
+	font-family: 'PP Fragment Sans', Helvetica, Arial, sans-serif;
+	font-size: 14pt;
+	color: #201010
+}
+
+@media (max-width:2122px) {
+	.homebg {
+		min-width:2121px;
+		max-width:150%;
+		max-height:unset;
+	}
+}
+
+.bottom-tab {
+	top: -46pt;
+	left: 33pt;
+	position:absolute;
+	margin:0;
+	padding: 33pt;
+	padding-top: 14pt;
+	padding-bottom: 16pt;
+	border-top-left-radius: 10pt;
+	border-top-right-radius: 10pt;
+	background: linear-gradient(180deg, #f6f6f3, #ffffff);
+	max-width: 80%;
 }
 
 .section {
@@ -74,33 +278,46 @@ p {
 	align-items: center;
 	overscroll-behavior: auto;
 	overflow: clip;
-	position:relative;
+	position: relative;
+	padding:4vh;
 }
 
 .wide-content {
-	max-width:1440px;
-	width:100%;
+	max-width:90vw;
+	width:1440px;
 	margin:0 auto;
 }
 
 .container {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
-	max-width: 1440px;
-	width:100%;
-	margin: 0 auto; /* Center the container */
+	max-width: 90vw;
+	width: 1440px;
+	margin: 0 auto;
+}
+
+.container-item:first-child {
+	align-items: end;
+}
+.container-item:last-child {
+	align-items: start;
 }
   
 .container-item {
-	display: flex; /* Flexbox for centering content */
+	display: flex;
 	flex-flow: column;
-	justify-content: center; /* Center horizontally */
-	align-items: center; /* Center vertically */
+	justify-content: center;
+	align-items: center;
 	min-width: 100%;
 	text-align: center;
 }
-  
-/* Stack items vertically on screens smaller than 1200px */
+
+@media (max-height: 1000px) {
+	.wide-content {
+		max-width: 1250px;
+	}
+}
+
 @media (max-width: 1200px) {
 	.wide-content {
 		max-width:90vw;
@@ -111,6 +328,13 @@ p {
 	.container {
 		grid-template-columns: 1fr;
 		width:100%;
+	}
+
+	.container-item:first-child {
+		align-items: center;
+	}
+	.container-item:last-child {
+		align-items: center;
 	}
 
 	.container-item.footer {
@@ -148,6 +372,28 @@ img::selection {
 	background: black;
 }
 
+.carle-logo {
+	width:800px;
+	max-width:80vw;
+	filter: drop-shadow(2px 2px 4px black);
+	transition: all 0.1s ease;
+}
+
+.carle-logo.hover {
+	max-height:20vh;
+	scale:	100%;
+	filter: contrast(1)
+			brightness(1)
+			drop-shadow(2px 2px 4px black);
+}
+.carle-logo.hover:hover {
+	scale: 	101%;
+	filter: contrast(0)
+			brightness(2) 
+			drop-shadow(0px 0px 4px rgba(255, 255, 255, 0.75)) 
+			drop-shadow(2px 2px 8px rgba(0,0,0,0.5));
+}
+
 .carle {
 	font-family: "Montserrat", sans-serif;
 	font-optical-sizing: auto;
@@ -169,6 +415,7 @@ img::selection {
 	font-weight: 800;
 	font-style: normal;
 	letter-spacing: -0.05em;
+	text-align: center;
 }
 
 .carle.title::selection {
@@ -208,7 +455,6 @@ img::selection {
 	padding-left: 18pt;
 	padding-right: 18pt;
 	box-shadow: 2px 2px 4px black;
-	border: solid 2px black;
 	backdrop-filter: brightness(50%) blur(10px);
     -webkit-backdrop-filter: brightness(50%) blur(10px);
 }
@@ -245,9 +491,6 @@ img::selection {
 }
 
 .post-item {
-	max-width:20%;
-	max-height:20%;
-	min-width:20%;
 	margin: 0%;
 	line-height: 0%;
 	display: flex;
@@ -268,11 +511,13 @@ img::selection {
 }
 
 .post-item img {
-	width: 100%;
-	height: 100%;
+	max-width:20vw;
+	max-height:66vh;
 }
 
 .post-item.naps img {
+	max-width: none;
+	max-height: none;
 	width:unset;
 	height:unset;
 	image-rendering:pixelated;
@@ -301,6 +546,9 @@ img::selection {
 }
 
 .binary {
+	font-size:18px;
+	letter-spacing: 0;
+	position:relative;
 	font-family: 'Matisse Pixelated';
 	font-synthesis: none;
 	filter: url(#binary);
@@ -314,6 +562,7 @@ a.naps-title {
 }
 
 a.naps-title:hover {
+	color:black;
 	text-decoration: underline;
 }
 
@@ -327,6 +576,107 @@ a.naps-title:hover {
 	width:100%;
 }
 
+.framed {
+	font-family: "Atkinson Hyperlegible", Helvetica, sans-serif;
+	color: #dcdfd8;
+	font-size: 18px;
+	max-width: 100%;
+	margin: 18pt;
+	margin-top: 0;
+	text-align: left;
+}
+
+.framed a {
+	color:#56B6FB;
+	text-decoration: none;
+	transition: 0.1s ease;
+}
+
+.framed a:visited {
+	color:#56B6FB;
+}
+
+.framed a:hover, .framed a:visited:hover {
+	color: #CDEAFE;
+}
+
+.framed.title {
+	font-family: "Galano Grotesque Alt", Helvetica, sans-serif;
+	font-weight: bold;
+    font-style: normal;
+	font-size: 80pt;
+	max-width: 1080px;
+	line-height: 1;
+	margin: 10pt;
+}
+
+.framed.subtitle {
+	font-family: "Galano Grotesque Alt", Helvetica, sans-serif;
+	font-weight: bold;
+    font-style: normal;
+	font-size: 20pt;
+	letter-spacing: 0.2em;
+	color:#333333;
+	background-color:#dcdfd8;
+	padding: 5pt;
+	padding-left: 10pt;
+	padding-right: 10pt;
+	max-width: 1080px;
+	line-height: 1;
+	margin: 10pt;
+	margin-top: 0pt;
+	margin-bottom:20pt;
+}
+
+.framed.viewer {
+	font-family: "Galano Grotesque Alt", Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	font-style: normal;
+	font-size: 12pt;
+	margin: 0;
+	letter-spacing: 0.1em;
+}
+
+.fcard {
+	background-color: #333333;
+	border-radius: 14pt;
+	padding: 14pt;
+	padding-left: 18pt;
+	padding-right: 18pt;
+	box-shadow: 0px 3px 5px rgba(0,0,0,0.5);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.glow-hover {
+	transition: all 0.1s ease;
+}
+.glow-hover:hover {
+	scale: 101%;
+	filter:
+		brightness(1.2)
+		drop-shadow(0 0 2px #dcdfd8);
+}
+
+hr {
+	width:300px;
+	border-color: #cbc8c5;
+	display: block;
+	height: 1px;
+	padding: 0;
+}
+
+.framed hr {
+	width:100%;
+	border-color: #8a8a8a;
+	display: block;
+	height: 1px;
+	padding: 0;
+	margin:18pt;
+}
+
 .opener {
 	position:fixed;
 	top: 0;
@@ -338,7 +688,7 @@ a.naps-title:hover {
 	transition: opacity 0.05s ease-out;
 }
 
-/* #region image gallery */
+/* image gallery */
 .image-gallery {
 	display: flex;
 	flex-direction: column;
@@ -382,7 +732,6 @@ a.naps-title:hover {
 	margin: 0pt;
 	margin-top: 4pt;
 	letter-spacing: -0.04em;
-	filter: url(#binary);
 }
 
 .item-subtitle {
@@ -399,7 +748,7 @@ a.naps-title:hover {
 	z-index: 10;
 }
 
-/* #region image viewer */
+/* image viewer */
 .image-overlay {
     position: fixed;
     top: 0;
@@ -426,17 +775,19 @@ a.naps-title:hover {
 .naps-img {
 	width: auto;
 	height: auto;
-	image-rendering: pixelated;
 }
 
 .viewer-image.naps-img {
-	max-width: none;
-	max-height: none;
-	image-rendering: pixelated;
+	max-width: 90%;
+	max-height: 90%;
 }
 
 .viewer-image.zoomed {
     transform: scale(2);
+	cursor: zoom-out;
+}
+
+.viewer-image.zoomed-naps {
 	cursor: zoom-out;
 }
 
@@ -462,11 +813,15 @@ a.naps-title:hover {
     pointer-events: none; /* So it doesn't interfere with clicks */
 }
 
-/* #endregion */
-
 iframe {
-	width:1440px;
-	height:810px;
+	width: 100%;
+	aspect-ratio: 16 / 9;
+	height: auto;
+}
+
+.vertical {
+	max-height:90vh;
+	aspect-ratio: 2 / 3;
 }
 
 @media (max-width: 1440px) {
@@ -476,7 +831,7 @@ iframe {
 }
 }
 
-/* #region vimeo css */
+/* vimeo css */
 
 .vimeo-wrapper {
 	position: absolute;
@@ -510,4 +865,48 @@ iframe {
 	transform: translate(-50%, -50%);
  }
 
- /* #endregion */
+ .outlined {
+	filter: url(#binary)
+			drop-shadow(2px 0px 0 #fff) 
+			drop-shadow(-2px 0px 0 #fff) 
+			drop-shadow(0px 2px 0 #fff) 
+			drop-shadow(0px -2px 0 #fff)
+			drop-shadow(2px 2px 0 #fff) 
+			drop-shadow(2px -2px 0 #fff) 
+			drop-shadow(-2px -2px 0 #fff) 
+			drop-shadow(-2px 2px 0 #fff)
+ }
+
+ .pageend {
+	position: absolute;
+	bottom: 18px;
+	width: 600px;
+	max-width: 50%;
+ }
+
+ .endtext {
+	display:flex;
+	justify-content: space-between;
+ }
+
+ /* Scroll bar stylings */
+::-webkit-scrollbar {
+	width: 10px;
+	height: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+	background: white;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+	background: #888; 
+	border-radius: 5px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+	background: #555; 
+  }

@@ -5,66 +5,156 @@ tags: illustration, design
 ---
 
 <style>
-    .girlscontainer {
-        width: auto;
-        height: 100vh;
-        margin: 0 auto;
+    .g-container {
+        display: grid;
+        grid-template-columns: auto auto;
+        gap: 36px;
+        margin-left: 36px;
+        margin-right: 36px;
+    }
+
+    .g-item {
         display: flex;
-        justify-content: center;
         flex-direction: column;
+        justify-content:center;
+        width: auto;
         align-content: center;
+    }
+
+    .g-item.header {
+        width:460px;
+        align-items:end;
+    }
+
+    .g-item.header p {
+        text-align:right;
+    }
+
+    .g-gallery {
+        display: flex;
+        flex-direction: column;
         align-items: center;
-        scroll-behavior: auto;
-        scroll-snap-type: y mandatory;
-        scroll-snap-align: start;
-	    scroll-snap-stop: always;
+        justify-content: flex-start;
+        height: 100vh; 
+        overflow-y: scroll; 
+        box-sizing: border-box;
+        scroll-snap-type: y mandatory; 
+        scrollbar-width: none;
         overscroll-behavior: auto;
-        overflow: clip;
-        max-width: 90%;
     }
-    @media (max-width: 1200px) {
-        .girlscontainer {
-            height: 50vh;
-            max-width: 75%;
-        }
+
+    .g-gallery-item {
+        position:relative;
+        scroll-snap-align: start;
+        scroll-snap-stop: always;
+        min-height:100vh;
+        align-content:center;
     }
-    @media (max-width: 1000px) {
-        .girlscontainer {
-            height: 50vh;
-            max-width: 90%;
-        }
+
+    .g-gallery-item img {
+        border: solid 2px white;
+        max-width: 90vw;
+        width: auto;
+        image-rendering:-webkit-optimize-contrast
     }
+
+@media (max-width: 2104px) {
+    .g-item.header {
+        width:276px;
+    }
+}
+
+@media (max-width: 1919px) {
+    .g-container {
+		grid-template-columns: 1fr;
+		width:100%;
+	}
+    .g-gallery-item {
+        padding-bottom:36px;
+    }
+
+    .g-item.header {
+        width:600px;
+        align-items: center;
+        justify-self: center;
+        padding-top:36px;
+    }
+    .g-item.header p {
+        text-align:left;
+    }
+    .g-gallery {
+        height: unset;
+        scroll-snap-align: end;
+        scroll-snap-type: none;
+    }
+    .g-gallery-item {
+        padding-top: 0;
+        scroll-snap-align: end;
+        min-height: unset;
+    }
+}
 </style>
 
-<div class="girlscontainer" style="height:33vh">
-    <p class="naps-title" style="font-style:normal" id="mtgHeader">meet the girls!</p>
-    <p class="binary" style="max-width:600px">get to know Mara, Sorrel, Choux, and Keys: the 4 main characters of the naps project. each of these sheets aims to explore each character's personality through distinct visual themes, such as colour, background and fashion choice.</p>
-</div>
-<div class="girlscontainer">
-    <img src="/assets/naps/meet-the-girls/CharSheet-1-Mara.png" alt="CharSheet-1-Mara" class="clickable naps-img" style="width:100%;image-rendering:-webkit-optimize-contrast">
-        <div class="gallery-text" style="min-width:100%">
-            <span class="item-title naps-title"><span style="color:#f96b75">Mara</span> Saiph</span>
-            <span class="item-subtitle binary">a little bit of a ditz with a tendency to fixate, she's somehow equal parts insecure and carefree</span>
+<div class="g-container">
+    <div class="g-item header">
+        <p class="naps-title outlined" style="font-style:normal;line-height:1;font-size:56pt;margin:0;margin-bottom:18px">meet the girls!</p>
+        <p class="binary outlined">get to know Mara, Sorrel, Choux, and Keys, the 4 girls of the naps project, through these highly stylised stylesheets - summarising the design and personality of each of them. <br><br> these stylesheets were created with the goal of exploring each character's personality, through the way they dress, to the colours they prefer. this is where i really leaned into the dithered almost pixelated-halftone look of naps, with a limited colour palette used across the sheets to unify them together. individual identity was given through colour and background choice, with each character's key colour being paired with its complement, and distinct textures used to curate the aesthetic of each girl. <br><br> made in clip studio paint, illustrator</p>
+    </div>
+    <div class="g-item">
+        <div class="g-gallery">
+            <div class="g-gallery-item" id="mainScroller">
+                <img src="/assets/naps/meet-the-girls/CharSheet-1-Mara.png" alt="CharSheet-1-Mara" class="clickable naps-img">
+                <div class="gallery-text">
+                    <span class="item-title naps-title outlined"><span style="color:#f96b75">Mara</span> Saiph</span>
+                    <span class="item-subtitle binary outlined">a little bit of a ditz with a tendency to fixate, she's somehow equal parts insecure and carefree</span>
+                </div>
+            </div>
+            <div class="g-gallery-item">
+                <img src="/assets/naps/meet-the-girls/CharSheet-2-Sorrel.png" alt="CharSheet-2-Sorrel" class="clickable naps-img">
+                <div class="gallery-text">
+                    <span class="item-title naps-title outlined"><span style="color:#364165">Sorrel</span> Hu</span>
+                    <span class="item-subtitle binary outlined">catgirl with a capital C, she's as fierce as she is loyal, and one hell of a great friend. just don't annoy her.</span>
+                </div>
+            </div>
+            <div class="g-gallery-item">
+                <img src="/assets/naps/meet-the-girls/CharSheet-3-Choux.png" alt="CharSheet-3-Choux" class="clickable naps-img">
+                <div class="gallery-text">
+                    <span class="item-title naps-title outlined">Elodie "<span style="color:#7e9627">Choux</span>" Blythe</span>
+                    <span class="item-subtitle binary outlined">aloof, moody & quiet - you'd think she'd be quite judgmental, but she's surprisingly sweet underneath all that</span>
+                </div>
+            </div>
+            <div class="g-gallery-item">
+                <img src="/assets/naps/meet-the-girls/CharSheet-4-Keys.png" alt="CharSheet-4-Keys" class="clickable naps-img">
+                <div class="gallery-text">
+                    <span class="item-title naps-title outlined">Kishori "<span style="color:#f07d2c">Keys</span>" Bhasin</span>
+                    <span class="item-subtitle binary outlined">some may say she's a little too silly for her own good, but there's never a dull moment with her around</span>
+                </div>
+            </div>
         </div>
+    </div>
 </div>
-<div class="girlscontainer">
-        <img src="/assets/naps/meet-the-girls/CharSheet-2-Sorrel.png" alt="CharSheet-2-Sorrel" class="clickable naps-img" style="width:100%;image-rendering:-webkit-optimize-contrast">
-        <div class="gallery-text" style="min-width:100%">
-            <span class="item-title naps-title"><span style="color:#364165">Sorrel</span> Hu</span>
-            <span class="item-subtitle binary">catgirl with a capital C, she's as fierce as she is loyal, and one hell of a great friend. just don't annoy her.</span>
-        </div>
+<div class="bg-gallery" id="backgroundScroller" style="width:100%;position:absolute;top:0;margin:0;z-index:-1">
+    <div class="bg-gallery-item" style="padding:0;height:100vh;position:relative">
+        <img src="/assets/naps/meet-the-girls/mara-backdrop.png" style="width:auto;height:auto;position:absolute;bottom:-96px;left:0;image-rendering:pixelated">
+    </div>
+    <div class="bg-gallery-item" style="padding:0;height:100vh;position:relative">
+        <img src="/assets/naps/meet-the-girls/sorrel-backdrop.png" style="width:auto;height:auto;position:absolute;bottom:-96px;left:0;image-rendering:pixelated">
+    </div>
+    <div class="bg-gallery-item" style="padding:0;height:100vh;position:relative">
+        <img src="/assets/naps/meet-the-girls/choux-backdrop.png" style="width:auto;height:auto;position:absolute;bottom:-96px;left:0;image-rendering:pixelated">
+    </div>
+    <div class="bg-gallery-item" style="padding:0;height:100vh;position:relative">
+        <img src="/assets/naps/meet-the-girls/keys-backdrop.png" style="width:auto;height:auto;position:absolute;bottom:0;left:0;image-rendering:pixelated">
+    </div>
 </div>
-<div class="girlscontainer">
-    <img src="/assets/naps/meet-the-girls/CharSheet-3-Choux.png" alt="CharSheet-3-Choux" class="clickable naps-img" style="width:100%;image-rendering:-webkit-optimize-contrast">
-        <div class="gallery-text" style="min-width:100%">
-            <span class="item-title naps-title">Elodie "<span style="color:#7e9627">Choux</span>" Blythe</span>
-            <span class="item-subtitle binary">aloof, moody & quiet - you'd think she'd be quite judgmental, but she's surprisingly sweet underneath all that</span>
-        </div>
-</div>
-<div class="girlscontainer">
-    <img src="/assets/naps/meet-the-girls/CharSheet-4-Keys.png" alt="CharSheet-4-Keys" class="clickable naps-img" style="width:100%;image-rendering:-webkit-optimize-contrast">
-        <div class="gallery-text" style="min-width:100%">
-            <span class="item-title naps-title">Kishori "<span style="color:#f07d2c">Keys</span>" Bhasin</span>
-            <span class="item-subtitle binary">some may say she's a little too silly for her own good, but there's never a dull moment with her around</span>
-        </div>
-</div>
+
+<script>
+const gallery = document.querySelector('.g-gallery');
+const firstItem = document.getElementById("mainScroller");
+const backgroundScroller = document.getElementById("backgroundScroller");
+gallery.addEventListener('scroll', () => {
+    const topPosition = firstItem.getBoundingClientRect().top;
+    console.log(`${topPosition}`)
+    backgroundScroller.style.transform = `translateY(${topPosition}px)`;
+});
+</script>

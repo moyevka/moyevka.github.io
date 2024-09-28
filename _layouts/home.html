@@ -1,49 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="shortcut icon" href="/assets/site/favico.png">
     {% include global.html %}
     <style>
-        .tags {
-            list-style-type: none; /* Remove bullet points */
-            padding: 0;
-            display: flex; /* Display list items in a horizontal row */
-            gap: 10px; /* Adjust the spacing between tags */
-        }
-
-        .tags li {
-            margin: 0;
-            padding: 5px 10px; /* Add padding inside the capsule */
-            background-color: #fff; /* Light gray background for the capsule */
-            border-radius: 20px; /* Rounded corners to create the capsule effect */
-            white-space: nowrap; /* Ensure the tag text doesn't wrap */
-            border: 2px solid black;
-            outline: #969696 solid 4px;
+        body {
+            scroll-snap-type: y proximity;
         }
     </style>
 </head>
 <body>
-    {% assign sections = content | split: '<!-- split -->' %}
-    {% for section in sections %}
-        {% if section contains '<!-- bg:' %}
-            {% assign bg_image = section | split: '<!-- bg:' | last | split: '-->' | first | strip%}
-            <div class="section" style="background-image: url('{{ bg_image }}'); background-repeat: no-repeat; background-position: center; background-size: auto 1325px; image-rendering: pixelated;">
-        {% else %}
-            <div class="section">
-        {% endif %}
-            {% if section contains '<!-- tagblock -->' %}
-                {{ section | markdownify }}
-                <div class="tag-list">
-                    <ul class="tags">
-                        {% for tag in page.tags %}
-                            <li>{{ tag }}</li>
-                        {% endfor %}
-                    </ul>
-                </div>
-            {% else %}
-                {{ section | markdownify }}
-            {% endif %}
-        </div>
-    {% endfor %}
+    {{ content }}
 </body>
 <!-- snap binary elements to pixel grid  -->
 <script type="text/javascript">
@@ -60,6 +27,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 window.onload = (event) => {
   console.log("fully loaded");
+  postGallery();
   binaryFix();
   removeSplash();
 };

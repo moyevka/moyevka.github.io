@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="shortcut icon" href="/assets/site/favico-framed.png">
+    {% include global.html %}
+    <link rel="script" href="\css\comparisons.js">
+    <link rel="stylesheet" href="\css\comparisons.css">
+</head>
+<style>
+    body {
+        scroll-snap-type: none;
+    }
+    .section {
+        overflow-y: visible;
+        overflow-x: clip;
+    }
+    .scroll-styled-h, .scroll-styled-v, html {
+        scrollbar-color: #333 #272727;
+        scrollbar-width: thin;
+    }
+    .opener {
+        position:fixed;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #333;
+        z-index: 10000;
+        opacity: 1;
+        transition: opacity 0.1s ease-out;
+    }
+    .parallax-background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 200vh;
+        background-image: url('../assets/framed/svg/Topography.svg');
+        background-size: cover;
+        z-index: -1;
+        pointer-events: none; /* Prevent interaction with the background */
+    }
+</style>
+<body>
+    <div class="parallax-background"></div>
+    {% assign sections = content | split: '<!-- split -->' %}
+    {% for section in sections %}
+        <div class="section">
+            {{ section }}
+        </div>
+    {% endfor %}
+    <div class="section" style="min-height:unset;padding:0">
+        <div class="framed fcard" style="color:#8A8A8A;font-style:italic;width:960px;display:flex;justify-content:space-between;flex-direction: row;margin-bottom:4vh;">
+            <p style="margin:0">moyevka, for FRAMED</p>
+            <p style="margin:0">all assets on this page used with permission</p>
+        </div>
+    </div>
+</body>
+<!-- randomise voice, snap binary elements to pixel grid  -->
+<script type="text/javascript">
+document.body.addEventListener('scroll', function() {
+  const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+  const scrollHeight = document.body.scrollHeight - document.body.clientHeight;
+  
+  // Calculate how much of the page has been scrolled as a percentage
+  const scrollPercentage = scrollTop / scrollHeight;
+
+  const parallaxDiv = document.querySelector('.parallax-background');
+  
+  // Adjust the scroll speed and use percentage
+  const parallaxSpeed = 0.5; // Adjust this value to control the parallax effect
+  const y = scrollPercentage * 100 * parallaxSpeed; // 100 represents 100% of the scrollable area
+  
+  // Translate the background div based on the scroll percentage
+  parallaxDiv.style.transform = `translateY(${-y}%)`;
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+
+function galleryFix() {
+    const viewportHeight = window.innerHeight;
+    const galleries = document.querySelectorAll('.image-gallery');
+    galleries.forEach(function(gallery) {
+        const firstImage = gallery.querySelector('.gallery-item:first-child');
+        const lastImage = gallery.querySelector('.gallery-item:last-child')
+        const firstImageHeight = firstImage.getBoundingClientRect().height;
+        const lastImageHeight = lastImage.getBoundingClientRect().height;
+
+        // Calculate the required height for spacing divs
+        const topSpacingHeight = (viewportHeight / 2) - (firstImageHeight / 2);
+        const bottomSpacingHeight = (viewportHeight / 2) - (lastImageHeight / 2);
+
+        // Create or update top spacer div and its child
+        let topSpacer = gallery.querySelector('.top-spacer');
+        if (!topSpacer) {
+            topSpacer = document.createElement('div');
+            topSpacer.classList.add('top-spacer');
+            const topSpacerChild = document.createElement('div');
+            topSpacerChild.classList.add('spacer-child');
+            topSpacer.appendChild(topSpacerChild);
+            gallery.insertBefore(topSpacer, firstImage);
+        }
+        topSpacer.firstElementChild.style.height = `${topSpacingHeight}px`;
+
+        let mtgHeader = gallery.querySelector('#mtgHeader');
+        if (mtgHeader) {
+            topSpacer.firstElementChild.style.height = `0px`;
+        }
+
+        // Create or update bottom spacer div and its child
+        let bottomSpacer = gallery.querySelector('.bottom-spacer');
+        if (!bottomSpacer) {
+            bottomSpacer = document.createElement('div');
+            bottomSpacer.classList.add('bottom-spacer');
+            const bottomSpacerChild = document.createElement('div');
+            bottomSpacerChild.classList.add('spacer-child');
+            bottomSpacer.appendChild(bottomSpacerChild);
+            gallery.appendChild(bottomSpacer);
+        }
+        bottomSpacer.firstElementChild.style.height = `${Math.floor(bottomSpacingHeight)}px`;
+    });
+};
+
+window.onload = (event) => {
+  console.log("fully loaded");
+  postGallery();
+  galleryFix();
+  removeSplash();
+};
+
+});
+</script>
+</html>
