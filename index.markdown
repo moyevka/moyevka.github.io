@@ -34,7 +34,7 @@ test: moyevka!
 
 <div class="snap"></div>
 
-<div class="section" style="background-image: url('/assets/splash/naps-splash.png'); background-color:white; min-height:100vh; background-repeat: no-repeat; background-position: center; background-size: auto 1325px; image-rendering: pixelated;filter:drop-shadow(0px 0px 2px rgba(32, 16, 16, 0.5))" id="napsbg">
+<div class="section" style="background-image: url('/assets/splash/naps-splash.png'); background-color:white; min-height:100svh; background-repeat: no-repeat; background-position: center; background-size: auto 1325px; image-rendering: pixelated;filter:drop-shadow(0px 0px 2px rgba(32, 16, 16, 0.5))" id="napsbg">
     <p class="main-text bottom-tab"><i>scroll down to see my work!</i></p>
     <p><a href="/naps/" class="naps-title outlined">naps!</a></p>  
 </div>
@@ -76,7 +76,7 @@ test: moyevka!
 
 <div class="snap"></div>
 
-<div class="section" style="background-image: url('/assets/framed/svg/Topography.svg');height:100vh;background-size:cover;background-attachment:fixed;filter:drop-shadow(0px 0px 2px rgba(0,0,0,0.5))">
+<div class="section" style="background-image: url('/assets/framed/svg/Topography.svg');height:100svh;background-size:cover;background-attachment:fixed;filter:drop-shadow(0px 0px 2px rgba(0,0,0,0.5))">
     <p class="framed viewer bottom-tab" style="font-size:18pt;background:#333;letter-spacing:0em">FRAMED</p>
     <a href="/framed/" style="width:576px;max-width:80%">
         <img src="/assets/framed/svg/FramedLogoLarge.svg" title="visit the site!" class="glow-hover">

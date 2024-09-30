@@ -35,7 +35,7 @@ tags: illustration, design
         flex-direction: column;
         align-items: center;
         justify-content: flex-start;
-        height: 100vh; 
+        height: 100svh; 
         overflow-y: scroll; 
         box-sizing: border-box;
         scroll-snap-type: y mandatory; 
@@ -47,7 +47,7 @@ tags: illustration, design
         position:relative;
         scroll-snap-align: start;
         scroll-snap-stop: always;
-        min-height:100vh;
+        min-height:100svh;
         align-content:center;
     }
 
@@ -134,16 +134,16 @@ tags: illustration, design
     </div>
 </div>
 <div class="bg-gallery" id="backgroundScroller" style="width:100%;position:absolute;top:0;margin:0;z-index:-1">
-    <div class="bg-gallery-item" style="padding:0;height:100vh;position:relative">
+    <div class="bg-gallery-item" style="padding:0;height:100svh;position:relative">
         <img src="/assets/naps/meet-the-girls/mara-backdrop.png" style="width:auto;height:auto;position:absolute;bottom:-96px;left:0;image-rendering:pixelated">
     </div>
-    <div class="bg-gallery-item" style="padding:0;height:100vh;position:relative">
+    <div class="bg-gallery-item" style="padding:0;height:100svh;position:relative">
         <img src="/assets/naps/meet-the-girls/sorrel-backdrop.png" style="width:auto;height:auto;position:absolute;bottom:-96px;left:0;image-rendering:pixelated">
     </div>
-    <div class="bg-gallery-item" style="padding:0;height:100vh;position:relative">
+    <div class="bg-gallery-item" style="padding:0;height:100svh;position:relative">
         <img src="/assets/naps/meet-the-girls/choux-backdrop.png" style="width:auto;height:auto;position:absolute;bottom:-96px;left:0;image-rendering:pixelated">
     </div>
-    <div class="bg-gallery-item" style="padding:0;height:100vh;position:relative">
+    <div class="bg-gallery-item" style="padding:0;height:100svh;position:relative">
         <img src="/assets/naps/meet-the-girls/keys-backdrop.png" style="width:auto;height:auto;position:absolute;bottom:0;left:0;image-rendering:pixelated">
     </div>
 </div>
