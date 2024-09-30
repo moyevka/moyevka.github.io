@@ -9,7 +9,7 @@ test: moyevka!
     .section {
         scroll-snap-align:none;
         scroll-snap-stop:always;
-        height:100vh;
+        height:100svh;
         padding:0;
         position:sticky;
         top:0;
