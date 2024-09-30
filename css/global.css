@@ -237,7 +237,7 @@ h1 {
 }
 
 .site a:hover, .site a:visited:hover {
-	filter: invert(51%) sepia(79%) saturate(739%) hue-rotate(314deg) brightness(99%) contrast(97%);
+	filter: brightness(0) saturate(100%) invert(51%) sepia(79%) saturate(739%) hue-rotate(314deg) brightness(99%) contrast(97%);
 }
 
 .main-text {

@@ -131,11 +131,16 @@ test: moyevka!
             <p style="text-align:left;margin:12pt">Hi! My name's Ian, creating online under the pseudonym <span style="font-family:'DM Sans';font-weight:700">moyevka</span>. I hope my work's spoken for itself! Outside of all this creative stuff, I'm a karaoke nuisance, cat owner (that's them on this page!), and a pretty alright home cook.</p>
             <hr>
             <h1>about this site</h1> 
-            <p style="text-align:left;margin:12pt"> This site is written from scratch! Pure HTML, CSS and JS, with Jekyll for a modular authoring setup and to build the site, which is then hosted on Github Pages. No W*x, no S***resp*ce, no plugins at all. <br><br> A main goal for this website was to have each project's page be presented in a unique theme of its own, highlighting my understanding of the project's design goals and aesthetic. I like to think that I've accomplished that. <br><br> <i>By no means am I a web developer. I do not intend for this to be part of my jobscope.</i></p>
+            <p style="text-align:left;margin:12pt"> This site is written from scratch! Pure HTML, CSS and JS, with Jekyll for a modular authoring setup and to build the site, which is then hosted on Github Pages. No W*x, no S***resp*ce, no plugins at all. <br><br> A main goal for this website was to have each project's page be presented in a unique theme of its own, highlighting my understanding of the project's design goals and aesthetic. I like to think that I've accomplished that. <br><br> <i>I am not a web developer. Please don't ask me to make your website.</i></p>
         </div>
         <div class="grid-item divider"></div>
         <div class="grid-item">
-            <h1>contact</h1> 
+            <h1>reach out!</h1> 
+            <p style="margin:12pt" class="site">
+                <a href="mailto:contact@moyevka.work" target="_blank" style="text-decoration:unset">
+                    contact@moyevka.work
+                </a>
+            </p>
             <p style="margin:12pt" class="site">
                 <a href="https://x.com/moyevka" target="_blank" style="text-decoration:unset">
                     <img src="/assets/site/x-logo.svg" style="width:1em;vertical-align:sub"> @moyevka
