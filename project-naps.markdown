@@ -6,7 +6,7 @@ permalink: /naps/
 
 <div class="container" style="max-width:1200px">
     <div class="container-item" style="max-height:67vh;padding:0;align-items:center">
-        <img src="/assets/naps/thegirls-promo.png" title="the girls!" style="z-index:-1;max-height:none;image-rendering:pixelated">
+        <img src="/assets/naps/thegirls-promo.png" title="the girls!" class="naps-img" style="z-index:-1;max-height:none">
     </div>
     <div class="container-item footer" style="align-items:center">
         <div class="outlined" style="width:440px;height:128px">

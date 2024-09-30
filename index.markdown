@@ -34,10 +34,33 @@ test: moyevka!
 
 <div class="snap"></div>
 
-<div class="section" style="background-image: url('/assets/splash/naps-splash.png'); background-color:white; min-height:100vh; background-repeat: no-repeat; background-position: center; background-size: auto 1325px; image-rendering: pixelated;filter:drop-shadow(0px 0px 2px rgba(32, 16, 16, 0.5))">
+<div class="section" style="background-image: url('/assets/splash/naps-splash.png'); background-color:white; min-height:100vh; background-repeat: no-repeat; background-position: center; background-size: auto 1325px; image-rendering: pixelated;filter:drop-shadow(0px 0px 2px rgba(32, 16, 16, 0.5))" id="napsbg">
     <p class="main-text bottom-tab"><i>scroll down to see my work!</i></p>
     <p><a href="/naps/" class="naps-title outlined">naps!</a></p>  
 </div>
+
+<script>
+    const napsBg = document.getElementById('napsbg');
+    
+    if (napsBg) {
+        const scaleFactor = window.devicePixelRatio;
+        
+        if (scaleFactor !== 1) {
+            let bgSize;
+            if (scaleFactor >= 2) {
+                // For devicePixelRatio 2 and above
+                bgSize = `auto ${(2 / scaleFactor) * 1325}px`;
+            } else {
+                // For devicePixelRatio between 1 and 2
+                bgSize = `auto ${(1 / scaleFactor) * 1325}px`;
+            }
+            napsBg.style.backgroundSize = bgSize;
+        } else {
+            // Reset background-size if devicePixelRatio is 1
+            napsBg.style.removeProperty('background-size');
+        }
+    }
+</script>
 
 <div class="snap"></div>
 

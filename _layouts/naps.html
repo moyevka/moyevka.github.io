@@ -46,17 +46,41 @@
 <script type="text/javascript">
 document.addEventListener("DOMContentLoaded", function() {
 
-function napsImgFix () {
+function napsImgFix() {
     let napsImg = document.querySelectorAll('.naps-img');
-    napsImg.forEach(img => {
-        const imgWidth = img.naturalWidth;
-        const currentWidth = img.getBoundingClientRect().width;
-        if (currentWidth == imgWidth) {
-            img.style.imageRendering = `pixelated`;
-        } else {
-            img.style.removeProperty('image-rendering');
-        }
-    })
+    let binaryElements = document.querySelectorAll('.binary');
+
+    // Check if the devicePixelRatio is not 1
+    if (window.devicePixelRatio !== 1) {
+        // Set image-rendering to auto for all .naps-img elements
+        napsImg.forEach(img => {
+            img.style.imageRendering = 'auto';
+        });
+
+        // Adjust font-size for all .binary elements
+        binaryElements.forEach(el => {
+            const currentFontSize = window.getComputedStyle(el).fontSize;
+            const numericFontSize = parseFloat(currentFontSize); // Convert '18px' to 18
+            const newFontSize = (1 / window.devicePixelRatio) * numericFontSize;
+            el.style.fontSize = `${newFontSize}px`;
+        });
+    } else {
+        // Retain the original image-rendering behavior when devicePixelRatio is 1
+        napsImg.forEach(img => {
+            const imgWidth = img.naturalWidth;
+            const currentWidth = img.getBoundingClientRect().width;
+            if (currentWidth == imgWidth) {
+                img.style.imageRendering = 'pixelated';
+            } else {
+                img.style.removeProperty('image-rendering');
+            }
+        });
+
+        // Reset font-size for .binary elements if needed
+        binaryElements.forEach(el => {
+            el.style.removeProperty('font-size');
+        });
+    }
 }
 
 function getRandomPoint(percentageRange) {
@@ -166,10 +190,10 @@ function marginFix() {
 window.onload = (event) => {
     console.log("fully loaded");
     postGallery();
+    napsImgFix();
     binaryFix();
     galleryFix();
     removeSplash();
-    napsImgFix();
     marginFix();
     setHeight();
 };
@@ -201,7 +225,7 @@ if (window.devicePixelRatio !== 1) {
 
     // Add the message to the card
     const message = document.createElement('p');
-    message.innerHTML = `<strong>Your device scale is not 100%!</strong> <br> Content on this page will render incorrectly. <br> <span style="font-family:'DM Sans';font-size:12pt">DEBUG - current device scale factor: ${scaleFactor}</span>`;
+    message.innerHTML = `<strong>Your device scale is not 100%!</strong> <br> Content on this page will render incorrectly. <br> <span style="font-family:'DM Sans';font-size:12pt">DEBUG - current device scale factor: ${scaleFactor * 100}%</span>`;
     card.appendChild(message);
 
     // Create the button
@@ -218,7 +242,7 @@ if (window.devicePixelRatio !== 1) {
     overlay.appendChild(card);
     document.body.appendChild(overlay);
 }
-
 });
+
 </script>
 </html>
