@@ -182,6 +182,7 @@ window.addEventListener("resize", () => {
 
 if (window.devicePixelRatio !== 1) {
     // Create the overlay div
+    let scaleFactor = window.devicePixelRatio;
     const overlay = document.createElement('div');
     overlay.style.position = 'fixed';
     overlay.style.top = 0;
@@ -200,7 +201,7 @@ if (window.devicePixelRatio !== 1) {
 
     // Add the message to the card
     const message = document.createElement('p');
-    message.innerHTML = `<strong>Your device scale is not 100%!</strong> <br> Content on this page will render incorrectly.`;
+    message.innerHTML = `<strong>Your device scale is not 100%!</strong> <br> Content on this page will render incorrectly. <br> <span style="font-family:'DM Sans';font-size:12pt">DEBUG - current device scale factor: ${scaleFactor}</span>`;
     card.appendChild(message);
 
     // Create the button
