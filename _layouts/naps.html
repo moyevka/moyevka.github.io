@@ -61,8 +61,13 @@ function napsImgFix() {
         binaryElements.forEach(el => {
             const currentFontSize = window.getComputedStyle(el).fontSize;
             const numericFontSize = parseFloat(currentFontSize); // Convert '18px' to 18
-            const newFontSize = (1 / window.devicePixelRatio) * numericFontSize;
-            el.style.fontSize = `${newFontSize}px`;
+            if (window.devicePixelRatio >= 2) {
+                const newFontSize = (2 / window.devicePixelRatio) * numericFontSize;
+                el.style.fontSize = `${newFontSize}px`;
+            } else {
+                const newFontSize = (1 / window.devicePixelRatio) * numericFontSize;
+                el.style.fontSize = `${newFontSize}px`;
+            }
         });
     } else {
         // Retain the original image-rendering behavior when devicePixelRatio is 1
