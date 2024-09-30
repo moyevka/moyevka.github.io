@@ -62,8 +62,7 @@ function napsImgFix() {
             const currentFontSize = window.getComputedStyle(el).fontSize;
             const numericFontSize = parseFloat(currentFontSize); // Convert '18px' to 18
             if (window.devicePixelRatio >= 2) {
-                const newFontSize = (2 / window.devicePixelRatio) * numericFontSize;
-                el.style.fontSize = `${newFontSize}px`;
+                el.style.filter = `unset`;
             } else {
                 const newFontSize = (1 / window.devicePixelRatio) * numericFontSize;
                 el.style.fontSize = `${newFontSize}px`;
