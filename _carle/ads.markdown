@@ -4,16 +4,7 @@ layout: carle
 tags: design
 ---
 
-<div class="section">
-<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" style="position:absolute;display:flex;justify-content:center;z-index:-1">
-  <defs>
-    <radialGradient id="carle-Spotlight" cx="50%" cy="0%" r="100%" fx="50%" fy="0%">
-      <stop offset="0%" style="stop-color:#fccc85; stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#FC9800; stop-opacity:1" />
-    </radialGradient>
-  </defs>
-  <rect width="100%" height="100%" fill="url(#carle-Spotlight)" />
-</svg>
+<div class="section" style="background: radial-gradient(ellipse at top, #fccc85, #fc9800)">
 
 <p class="carle title white-text" style="z-index:100;max-width:50%">AD DESIGNS</p>
 <p class="carle white-text" style="z-index:100;max-width:50%">designed in Illustrator <br> copywriting done by marketing</p>

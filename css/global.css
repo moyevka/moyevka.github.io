@@ -180,8 +180,7 @@ html {
 	scroll-snap-align: start;
 	scroll-snap-stop: always;
 	width:1px;
-	height:1px;
-	transform:translateY(1px)
+	height:0.01px;
 }
 
 .scroll-styled-h, .scroll-styled-v, html {
@@ -226,18 +225,18 @@ h1 {
 	margin: 12pt;
 }
 
-a {
+.site a {
 	color:#201010;
 	text-decoration: none;
 	transition: 0.1s ease;
 }
 
-a:visited {
+.site a:visited {
 	color:#201010;
 }
 
-a:hover, a:visited:hover {
-	color: #f96a75;
+.site a:hover, .site a:visited:hover {
+	filter: invert(51%) sepia(79%) saturate(739%) hue-rotate(314deg) brightness(99%) contrast(97%);
 }
 
 .main-text {
@@ -266,6 +265,35 @@ a:hover, a:visited:hover {
 	border-top-right-radius: 10pt;
 	background: linear-gradient(180deg, #f6f6f3, #ffffff);
 	max-width: 80%;
+}
+
+.card {
+	padding: 14pt;
+	padding-left: 28pt;
+	padding-right:28pt;
+	border-radius: 10pt;
+	background: #f6f6f3;
+	filter: drop-shadow(0 0 2px rgba(32,16,16,0.5));
+}
+
+.card button {
+	padding-top: 10pt;
+	padding-bottom: 10pt;
+	padding-left: 20pt;
+	padding-right:20pt;
+	border-radius: 10pt;
+	background: #f6f6f3;
+	font-family: 'DM Sans', Helvetica, Arial, sans-serif;
+	font-size: 12pt;
+	font-weight: 800;
+	color: #201010;
+	border: unset;
+	transition: all 0.1s ease;
+	filter: drop-shadow(0 0 2px rgba(32,16,16,0.5));
+}
+
+.card button:hover {
+	filter: drop-shadow(0 0 4px rgba(32,16,16,0.75));
 }
 
 .section {
@@ -384,7 +412,7 @@ img::selection {
 	scale:	100%;
 	filter: contrast(1)
 			brightness(1)
-			drop-shadow(2px 2px 4px black);
+			drop-shadow(2px 2px 4px rgba(0,0,0,0.5));
 }
 .carle-logo.hover:hover {
 	scale: 	101%;
@@ -495,7 +523,7 @@ img::selection {
 	line-height: 0%;
 	display: flex;
 	filter: drop-shadow(2px 2px 4px black);
-	transition: all 0.1s, left 0.025s, top 0.025s;
+	transition: all 0.1s, left 0s, top 0s;
 	transform-origin: center;
 	scale: 95%;
 }
@@ -507,7 +535,7 @@ img::selection {
 	scale: 100%;
 	filter: none;
 	border: solid 1px black;
-	transition: all 0s, left 0.025s, top 0.025s;
+	transition: all 0s;
 }
 
 .post-item img {

@@ -4,7 +4,7 @@ layout: carle
 tags: design
 ---
 
-<div class="section">
+<div class="section" style="background: radial-gradient(ellipse at top, #e8dccf, #c0ae9b, #918477, #625d57, #373737)"> 
 <style>
   .image-gallery {
     padding-top:5vh;
@@ -31,16 +31,6 @@ tags: design
     }
   }
 </style>
-
-<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" style="position:absolute;display:flex;justify-content:center;z-index:-1">
-  <defs>
-    <radialGradient id="carle-SpotlightBlack" cx="50%" cy="0%" r="100%" fx="50%" fy="0%">
-      <stop offset="0%" style="stop-color:#575757; stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#2f2f2f; stop-opacity:1" />
-    </radialGradient>
-  </defs>
-  <rect width="100%" height="100%" fill="url(#carle-SpotlightBlack)" />
-</svg>
 
 <div class="container" style="gap:5vh">
     <div class="container-item" style="align-items:center">

@@ -41,11 +41,14 @@ test: moyevka!
 
 <div class="snap"></div>
 
-<div class="section" style="background-color:#FC9800;filter:drop-shadow(0px 0px 2px rgba(0,0,0,0.5))">
+<div class="section" style="background:radial-gradient(ellipse at bottom, #fccc85 0%, #fc9800 100%);filter:drop-shadow(0px 0px 2px rgba(0,0,0,0.5))">
     <p class="carle title white-text bottom-tab" style="margin:0;font-size:18pt;background:#fc9800;letter-spacing:0em;text-shadow: 1px 1px 2px rgba(0,0,0,0.5);">CARLE</p>
-    <a href="/carle/" class="carle title white-text">
+    <a href="/carle/" class="carle title white-text" style="z-index:2">
         <img src="/assets/carle/svg/carle-logo-stack.svg" class="carle-logo hover">
-    </a>  
+    </a> 
+    <div style="position:absolute;height:100%;width:100%;overflow:clip;display:flex;justify-content:center;align-items:center">
+        <img src="/assets/carle/svg/paint-2.svg" style="filter:drop-shadow(2px 2px 4px rgba(0,0,0,0.5));z-index:1;max-height:unset;width:2560px;min-width:2560px">
+    </div>
 </div>
 
 <div class="snap"></div>
@@ -77,23 +80,42 @@ test: moyevka!
     padding: 20px;
     text-align: center;
 }
+
+.grid-item.divider {
+    padding:0;
+    height:300px;
+    width:1px;
+    background-color:#cbc8c5
+}
+
+@media (max-width: 1200px) {
+	.bordered-grid {
+		grid-template-columns: 1fr;
+		width:672px;
+	}
+
+    .grid-item.divider {
+        height:1px;
+        width:300px;
+    }
+}
 </style>
 
 <div class="section" style="background: linear-gradient(180deg, #f6f6f3 75%, #deddda 100%);filter:drop-shadow(0px 0px 2px rgba(0,0,0,0.5));scroll-snap-align:start;scroll-snap-stop:always;position:relative;top:unset">
-    <p class="main-text bottom-tab" style="font-family:'DM Sans';font-weight:800;background:#f6f6f3">ABOUT ME!</p>
+    <p class="main-text bottom-tab" style="font-family:'DM Sans';font-weight:800;background:#f6f6f3">about me</p>
     <div class="bordered-grid" style="z-index:100;color:#201010">
         <div class="grid-item">
             <p style="text-align:left;margin:12pt">Hi! My name's Ian, creating online under the pseudonym <span style="font-family:'DM Sans';font-weight:700">moyevka</span>. I hope my work's spoken for itself! Outside of all this creative stuff, I'm a karaoke nuisance, cat owner (that's them on this page!), and a pretty alright home cook.</p>
             <hr>
             <h1>about this site</h1> 
-            <p style="text-align:left;margin:12pt"> This site is written from scratch! Pure HTML, CSS and JS, with Jekyll for a modular authoring setup and to build the site, which is then hosted on Github Pages. No plugins at all. <br><br> A main goal for this website was to have each project's page be presented in a unique theme of its own, highlighting my understanding of the project's design goals and aesthetic. I like to think that I've accomplished that.</p>
+            <p style="text-align:left;margin:12pt"> This site is written from scratch! Pure HTML, CSS and JS, with Jekyll for a modular authoring setup and to build the site, which is then hosted on Github Pages. No W*x, no S***resp*ce, no plugins at all. <br><br> A main goal for this website was to have each project's page be presented in a unique theme of its own, highlighting my understanding of the project's design goals and aesthetic. I like to think that I've accomplished that. <br><br> <i>By no means am I a web developer. I do not intend for this to be part of my jobscope.</i></p>
         </div>
-        <div class="grid-item" style="padding:0;height:300px;width:1px;background-color:#cbc8c5"></div>
+        <div class="grid-item divider"></div>
         <div class="grid-item">
             <h1>contact</h1> 
-            <p style="margin:12pt">
+            <p style="margin:12pt" class="site">
                 <a href="https://x.com/moyevka" target="_blank" style="text-decoration:unset">
-                    <img src="/assets/site/x-logo.svg" style="width:1em;filter:invert(1);vertical-align:sub"> @moyevka
+                    <img src="/assets/site/x-logo.svg" style="width:1em;vertical-align:sub"> @moyevka
                 </a>
             </p>
         </div>
@@ -110,29 +132,3 @@ test: moyevka!
     </div>
     <img src="/assets/splash/about-me.svg" style="max-height:unset;width:100vw;height:auto;position:absolute;bottom:0;z-index:-1">
 </div>
-
-<style>
-    .a4 {
-        width:1200px;
-        max-width:80%;
-        background:#f6f6f3;
-        aspect-ratio:1/1.41;
-        position:relative;  
-        top:-5vh;
-        border-radius: 10pt;
-        filter: drop-shadow(0px 0px 2px rgba(32, 16, 16, 0.25));
-        display:flex;
-        justify-content:center;
-        font-family: 'Lunchtype 22', Helvetica, Arial, sans-serif;
-
-    }
-</style>
-
-<div class="section" style="background:#deddda;scroll-snap-align:none;scroll-snap-stop:unset;position:relative;top:unset;height:auto;overflow:visible">
-    <div class="a4">
-        <p>resume stuff placeholder text</p>
-    </div>
-    <img src="/assets/splash/end.svg" style="max-height:unset;width:100vw;height:auto;position:absolute;bottom:0;z-index:unset">
-</div>
-
-<div class="snap"></div>

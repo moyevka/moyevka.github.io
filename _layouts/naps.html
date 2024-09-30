@@ -180,6 +180,44 @@ window.addEventListener("resize", () => {
     napsImgFix();
 })
 
+if (window.devicePixelRatio !== 1) {
+    // Create the overlay div
+    const overlay = document.createElement('div');
+    overlay.style.position = 'fixed';
+    overlay.style.top = 0;
+    overlay.style.left = 0;
+    overlay.style.width = '100%';
+    overlay.style.height = '100%';
+    overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+    overlay.style.zIndex = 10000;
+    overlay.style.display = 'flex';
+    overlay.style.justifyContent = 'center';
+    overlay.style.alignItems = 'center';
+
+    // Create the card div
+    const card = document.createElement('div');
+    card.className = 'card';
+
+    // Add the message to the card
+    const message = document.createElement('p');
+    message.innerHTML = `<strong>Your device scale is not 100%!</strong> <br> Content on this page will render incorrectly.`;
+    card.appendChild(message);
+
+    // Create the button
+    const button = document.createElement('button');
+    button.textContent = 'OKAY';
+    button.className = 'card';
+
+    // Add event listener to dismiss the overlay
+    button.addEventListener('click', () => {
+        document.body.removeChild(overlay);
+    });
+
+    card.appendChild(button);
+    overlay.appendChild(card);
+    document.body.appendChild(overlay);
+}
+
 });
 </script>
 </html>

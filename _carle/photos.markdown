@@ -4,16 +4,7 @@ layout: carle
 tags: photography
 ---
 
-<div class="section">
-<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" style="position:absolute;display:flex;justify-content:center;z-index:-1">
-  <defs>
-    <radialGradient id="carle-spotlightGray" cx="50%" cy="0%" r="100%" fx="50%" fy="0%">
-      <stop offset="0%" style="stop-color:#e8dccf; stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#373737; stop-opacity:1" />
-    </radialGradient>
-  </defs>
-  <rect width="100%" height="100%" fill="url(#carle-spotlightGray)" />
-</svg>
+<div class="section" style="background: radial-gradient(ellipse at top, #e8dccf, #373737)">
 
 <p class="carle title white-text" style="z-index:100;max-width:none">PHOTOGRAPHY</p>
 <p class="carle white-text" style="z-index:100">promotional photos shot on a Fujifim X-T3 <br> edited in Lightroom, cleaned in Photoshop</p>
