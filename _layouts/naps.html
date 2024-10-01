@@ -62,7 +62,14 @@ function napsImgFix() {
             const currentFontSize = window.getComputedStyle(el).fontSize;
             const numericFontSize = parseFloat(currentFontSize); // Convert '18px' to 18
             if (window.devicePixelRatio >= 2) {
-                el.style.filter = `unset`;
+                el.style.filter = ` drop-shadow(2px 0px 0 #fff) 
+                                    drop-shadow(-2px 0px 0 #fff) 
+                                    drop-shadow(0px 2px 0 #fff) 
+                                    drop-shadow(0px -2px 0 #fff)
+                                    drop-shadow(2px 2px 0 #fff) 
+                                    drop-shadow(2px -2px 0 #fff) 
+                                    drop-shadow(-2px -2px 0 #fff) 
+                                    drop-shadow(-2px 2px 0 #fff)`;
             } else {
                 const newFontSize = (1 / window.devicePixelRatio) * numericFontSize;
                 el.style.fontSize = `${newFontSize}px`;
@@ -229,12 +236,12 @@ if (window.devicePixelRatio !== 1) {
 
     // Add the message to the card
     const message = document.createElement('p');
-    message.innerHTML = `<strong>Your device scale is not 100%!</strong> <br> Content on this page will render incorrectly. <br> <span style="font-family:'DM Sans';font-size:12pt">DEBUG - current device scale factor: ${scaleFactor * 100}%</span>`;
+    message.innerHTML = `<strong>Your device scale is not 100%!</strong> <br> Content on this page may not display correctly. <br> <span style="font-family:'DM Sans';font-size:12pt">DEBUG - current device scale factor: ${scaleFactor * 100}%</span>`;
     card.appendChild(message);
 
     // Create the button
     const button = document.createElement('button');
-    button.textContent = 'OKAY';
+    button.textContent = 'I understand.';
     button.className = 'card';
 
     // Add event listener to dismiss the overlay
