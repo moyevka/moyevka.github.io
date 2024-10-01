@@ -49,7 +49,8 @@ test: moyevka!
             let bgSize;
             if (scaleFactor >= 2) {
                 // For devicePixelRatio 2 and above
-                bgSize = `auto ${(2 / scaleFactor) * 1325}px`;
+                bgSize = `unset`;
+                napsBg.style.imageRendering = `auto`;
             } else {
                 // For devicePixelRatio between 1 and 2
                 bgSize = `auto ${(1 / scaleFactor) * 1325}px`;

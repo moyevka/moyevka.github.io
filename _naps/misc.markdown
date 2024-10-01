@@ -30,7 +30,7 @@ tags: illustration
     <a href="/" class="button naps roundicon" title="Back to Home" style="padding:0.33rem;border-radius:0.33rem"><img src="/assets/site/back.svg"></a>
     <div class="endtext" style="display:flex;flex-direction:row;width:100%;margin-left:2em;margin-right:2em;padding-top:0;padding-bottom:0;justify-content:space-between;align-items:center">
         <p class="binary">Enjoy Your Time!!!</p>
-        <p class="binary">naps! by moyevka</p>
+        <p class="binary" style="text-align:right">naps! by moyevka</p>
     </div>
     <div class="button naps roundicon" id="scrollToTopBtn" title="Back to Top" style="padding:0.33rem;border-radius:0.33rem"><img src="/assets/site/top.svg"></div>
 </div>

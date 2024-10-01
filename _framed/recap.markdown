@@ -59,7 +59,7 @@ tags: design, data visualisation
 </style>
 
 <div class="wide-content fcard" style="padding-bottom:0">
-<p class="framed title" style="margin-bottom:0">A YEAR OF FRAMED</p>
+<p class="framed title" style="margin-bottom:0;text-align:center">A YEAR OF FRAMED</p>
 <hr>
 <p class="framed subtitle">A RECAP OF THE YEAR 2021</p>
 <div class="recap-grid">

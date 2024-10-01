@@ -327,49 +327,74 @@ function hoverSort(postItems, randomSort = false) {
 }
 
 function dragMove(post) {
-    post.onmousedown = function(event) {
+    let shiftX, shiftY;
+
+    function moveAt(pageX, pageY) {
         const postRect = post.getBoundingClientRect();
         const parentRect = post.parentElement.getBoundingClientRect();
 
-        let shiftX = event.clientX - postRect.left;
-        let shiftY = event.clientY - postRect.top;
+        // Calculate the new position in percentage
+        let leftPercent = ((pageX - shiftX - parentRect.left) / parentRect.width) * 100;
+        let topPercent = ((pageY - shiftY - parentRect.top) / parentRect.height) * 100;
 
-        function moveAt(pageX, pageY) {
-            // Calculate the new position in percentage
-            let leftPercent = ((pageX - shiftX - parentRect.left) / parentRect.width) * 100;
-            let topPercent = ((pageY - shiftY - parentRect.top) / parentRect.height) * 100;
+        // Set the position in %
+        post.style.left = `${leftPercent}%`;
+        post.style.top = `${topPercent}%`;
+    }
 
-            // Set the position in %
-            post.style.left = `${leftPercent}%`;
-            post.style.top = `${topPercent}%`;
+    function onMove(event) {
+        let pageX, pageY;
+        if (event.touches && event.touches.length > 0) {
+            pageX = event.touches[0].pageX;
+            pageY = event.touches[0].pageY;
+        } else {
+            pageX = event.pageX;
+            pageY = event.pageY;
         }
+        moveAt(pageX, pageY);
+        post.style.zIndex = 9998;
+        post.style.transform = `rotate(0deg)`;
+    }
 
-        function onMouseMove(event) {
-            moveAt(event.pageX, event.pageY);
-            post.style.zIndex = 9998;
-            post.style.transform = `rotate(0deg)`;
-        }
+    function onEnd() {
+        document.removeEventListener('mousemove', onMove);
+        document.removeEventListener('mouseup', onEnd);
+        document.removeEventListener('mouseleave', onEnd);
+        document.removeEventListener('touchmove', onMove);
+        document.removeEventListener('touchend', onEnd);
+        post.style.cursor = 'grab';
+        post.style.zIndex = 9997;
+    }
 
-        function onMouseUp() {
-            document.removeEventListener('mousemove', onMouseMove);
-            document.removeEventListener('mouseup', onMouseUp); // Clean up mouseup event listener
-            document.removeEventListener('mouseleave', onMouseUp); // Clean up mouseleave event listener
-            post.style.cursor = 'grab';
-            post.style.zIndex = 9997;
-        }
+    post.onmousedown = function(event) {
+        event.preventDefault(); // Prevent selection of elements
 
-        document.addEventListener('mousemove', onMouseMove);
-        document.addEventListener('mouseup', onMouseUp); // Handle normal mouseup
-        document.addEventListener('mouseleave', onMouseUp); // Handle mouse leaving the document
+        const postRect = post.getBoundingClientRect();
+        shiftX = event.clientX - postRect.left;
+        shiftY = event.clientY - postRect.top;
 
-        post.onmouseup = null; // Reset inline mouseup handling
+        post.style.cursor = 'grabbing';
+        document.addEventListener('mousemove', onMove);
+        document.addEventListener('mouseup', onEnd);
+        document.addEventListener('mouseleave', onEnd);
+    };
+
+    post.ontouchstart = function(event) {
+        event.preventDefault(); // Prevent scrolling during touch drag
+
+        const postRect = post.getBoundingClientRect();
+        shiftX = event.touches[0].clientX - postRect.left;
+        shiftY = event.touches[0].clientY - postRect.top;
+
+        post.style.cursor = 'grabbing';
+        document.addEventListener('touchmove', onMove);
+        document.addEventListener('touchend', onEnd);
     };
 
     post.ondragstart = function() {
         return false;
     };
 }
-
 </script>
 
 <!-- image viewer -->

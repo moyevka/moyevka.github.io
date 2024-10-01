@@ -26,7 +26,7 @@ tags: photography
 </style>
 
 <div class="fcard" style="z-index:100;padding-bottom:0">
-<p class="framed title" style="font-size:48pt">VIRTUAL PHOTOGRAPHY</p>
+<p class="framed title" style="font-size:48pt;text-align:center">VIRTUAL PHOTOGRAPHY</p>
 <p class="framed" style="text-align:center">some of my own screenshots that I've taken as part of FRAMED <br> postprocessed with Nuke</p>
 </div>
 

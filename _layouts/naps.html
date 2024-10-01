@@ -72,6 +72,7 @@ function napsImgFix() {
             const currentFontSize = window.getComputedStyle(el).fontSize;
             const numericFontSize = parseFloat(currentFontSize); // Convert '18px' to 18
             if (window.devicePixelRatio >= 2) {
+                const newFontSize = (4 / window.devicePixelRatio) * numericFontSize;
                 el.style.filter = ` drop-shadow(2px 0px 0 #fff) 
                                     drop-shadow(-2px 0px 0 #fff) 
                                     drop-shadow(0px 2px 0 #fff) 
@@ -80,6 +81,7 @@ function napsImgFix() {
                                     drop-shadow(2px -2px 0 #fff) 
                                     drop-shadow(-2px -2px 0 #fff) 
                                     drop-shadow(-2px 2px 0 #fff)`;
+                el.style.fontSize = `${newFontSize}px`;
             } else {
                 const newFontSize = (1 / window.devicePixelRatio) * numericFontSize;
                 el.style.fontSize = `${newFontSize}px`;
