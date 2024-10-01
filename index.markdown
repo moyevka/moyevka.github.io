@@ -138,7 +138,7 @@ test: moyevka!
             <h1>reach out!</h1> 
             <p style="margin:12pt" class="site">
                 <a href="mailto:contact@moyevka.work" target="_blank" style="text-decoration:unset">
-                    contact@moyevka.work
+                    <img src="/assets/site/mail.svg" style="width:1.5em;vertical-align:bottom"> contact@moyevka.work
                 </a>
             </p>
             <p style="margin:12pt" class="site">

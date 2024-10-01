@@ -203,6 +203,20 @@ body {
 	text-align: center;
 }
 
+.section {
+	min-height: 100svh;
+	scroll-snap-align: start end;
+	scroll-snap-stop: always;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	overscroll-behavior: auto;
+	overflow: clip;
+	position: relative;
+	padding:4vh;
+}
+
 i {
 	font-family:'PP Fragment Text', Helvetica, Arial, sans-serif;
 	font-style:italic
@@ -297,18 +311,86 @@ h1 {
 	filter: drop-shadow(0 0 4px rgba(32,16,16,0.75));
 }
 
-.section {
-	min-height: 100svh;
-	scroll-snap-align: start end;
-	scroll-snap-stop: always;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	overscroll-behavior: auto;
-	overflow: clip;
-	position: relative;
-	padding:4vh;
+.button {
+	padding-top: 10pt;
+	padding-bottom: 10pt;
+	padding-left: 20pt;
+	padding-right: 20pt;
+	border-radius: 10pt;
+	background: #f6f6f3;
+	font-family: 'DM Sans', Helvetica, Arial, sans-serif;
+	font-size: 1rem;
+	font-weight: 800;
+	color: #201010;
+	border: unset;
+	transition: all 0.1s ease;
+	filter: drop-shadow(0 0 2px rgba(32,16,16,0.5));
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.button.naps {
+	background:white;
+	filter: url(#binary) contrast(1000);
+	border: solid 1px black;
+	transition: unset;
+	z-index: 10000
+}
+
+.button.naps:hover {
+	filter: url(#binary) contrast(1000);
+	border: solid 2px black;
+	margin: -1px;
+}
+
+.button.carle {
+	background: transparent;
+	color:white;
+	filter: drop-shadow(2px 2px 4px black);
+	backdrop-filter: brightness(50%) blur(10px);
+}
+
+.button.framed {
+	background: #333;
+	filter: drop-shadow(0px 0px 5px rgba(0,0,0,0.75));
+}
+
+.button:hover {
+	filter: drop-shadow(0 0 4px rgba(32,16,16,0.75));
+}
+
+.button.carle:hover {
+	filter: drop-shadow(2px 2px 8px rgba(0,0,0,0.5));
+	backdrop-filter: brightness(25%) blur(10px);
+}
+
+.button.framed:hover {
+	filter: drop-shadow(0px 0px 10px rgba(0,0,0,0.5));
+}
+
+.roundicon {
+	padding: 0.75em;
+	font-size:unset;
+	line-height:0;
+	border-radius: 1000pt;
+}
+
+.roundicon img {
+	height: 1.5rem;
+	width: 1.5rem;
+	max-width: unset;
+	max-height: unset;
+}
+
+.framed.roundicon img {
+	filter:invert(95%) sepia(3%) saturate(344%) hue-rotate(44deg) brightness(92%) contrast(97%);
+}
+
+.framed.roundicon:hover img {
+	filter:
+	invert(95%) sepia(3%) saturate(344%) hue-rotate(44deg) brightness(92%) contrast(97%)
+	brightness(1.2)
+	drop-shadow(0 0 2px #dcdfd8);
 }
 
 .wide-content {
@@ -483,7 +565,7 @@ img::selection {
 	padding: 14pt;
 	padding-left: 18pt;
 	padding-right: 18pt;
-	box-shadow: 2px 2px 4px black;
+	filter: drop-shadow(2px 2px 4px black);
 	backdrop-filter: brightness(50%) blur(10px);
     -webkit-backdrop-filter: brightness(50%) blur(10px);
 }

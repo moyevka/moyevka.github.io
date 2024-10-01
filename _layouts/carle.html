@@ -18,13 +18,29 @@
 <body>
     {{ content }}
     <div class="snap"></div>
-    <div class="section blur-box" style="min-height:unset;height:auto;width:960px;display:flex;justify-content:space-between;flex-direction:row;margin:0 auto; margin-bottom: 14pt">
-        <p class="carle subtitle white-text" style="margin-left:14pt">CARLE</p>
-        <p class="carle subtitle white-text" style="margin-right:14pt">all assets on this page used with permission</p>
+    <div class="section" style="min-height:unset;height:auto;width:960px;max-width:90%;display:flex;justify-content:space-between;flex-direction:row;margin:0 auto;margin-bottom:14pt;overflow:visible">
+        <a href="/" class="button carle roundicon" title="Back to Home"><img src="/assets/site/back.svg" style="filter:invert(1)"></a>
+        <div class="carle subtitle blur-box" style="color:white;display:flex;flex-direction:row;width:100%;margin-left:2em;margin-right:2em;padding-top:0;padding-bottom:0;justify-content:space-between;">
+            <p>CARLE</p>
+            <p>all assets on this page used with permission</p>
+        </div>
+        <div class="button carle roundicon" id="scrollToTopBtn" title="Back to Top"><img src="/assets/site/top.svg" style="filter:invert(1)"></button>
     </div>
 </body>
 <!-- randomise voice, snap binary elements to pixel grid  -->
 <script type="text/javascript">
+
+const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+scrollToTopBtn.onclick = function() {
+    console.log('clicked');
+    document.body.scroll({
+        top: 0, 
+        left: 0, 
+        behavior: 'smooth' 
+    });
+};
+
 document.addEventListener("DOMContentLoaded", function() {
 
 function galleryFix() {

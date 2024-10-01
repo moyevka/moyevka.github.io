@@ -44,6 +44,16 @@
 </body>
 <!-- randomise voice, snap binary elements to pixel grid  -->
 <script type="text/javascript">
+const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+scrollToTopBtn.onclick = function() {
+    console.log('clicked');
+    document.body.scroll({
+        top: 0, 
+        left: 0, 
+        behavior: 'smooth' 
+    });
+};
 document.addEventListener("DOMContentLoaded", function() {
 
 function napsImgFix() {
