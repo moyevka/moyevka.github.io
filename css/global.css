@@ -305,10 +305,21 @@ h1 {
 	border: unset;
 	transition: all 0.1s ease;
 	filter: drop-shadow(0 0 2px rgba(32,16,16,0.5));
+	cursor: pointer;
 }
 
 .card button:hover {
 	filter: drop-shadow(0 0 4px rgba(32,16,16,0.75));
+}
+
+.navbuttons {
+	position: absolute;
+	top: 2rem;
+	left: 2rem;
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	z-index:10000;
 }
 
 .button {
@@ -360,7 +371,7 @@ h1 {
 }
 
 .button.carle:hover {
-	filter: drop-shadow(2px 2px 8px rgba(0,0,0,0.5));
+	filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.5));
 	backdrop-filter: brightness(25%) blur(10px);
 }
 
@@ -369,24 +380,24 @@ h1 {
 }
 
 .roundicon {
-	padding: 0.75em;
+	padding: 0.5em;
 	font-size:unset;
 	line-height:0;
 	border-radius: 1000pt;
 }
 
 .roundicon img {
-	height: 1.5rem;
-	width: 1.5rem;
+	height: 1.33rem;
+	width: 1.33rem;
 	max-width: unset;
 	max-height: unset;
 }
 
-.framed.roundicon img {
+.button.framed.roundicon img {
 	filter:invert(95%) sepia(3%) saturate(344%) hue-rotate(44deg) brightness(92%) contrast(97%);
 }
 
-.framed.roundicon:hover img {
+.button.framed.roundicon:hover img {
 	filter:
 	invert(95%) sepia(3%) saturate(344%) hue-rotate(44deg) brightness(92%) contrast(97%)
 	brightness(1.2)

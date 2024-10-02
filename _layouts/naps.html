@@ -41,6 +41,10 @@
             {{ section }}
         </div>
     {% endfor %}
+    <div class="navbuttons">
+        <a href="/" class="button naps roundicon" title="Back to Home" style="padding:0.33rem;border-radius:0.33rem"><img src="/assets/site/back.svg"></a>
+        <div class="button naps roundicon" id="scrollToTopBtn" title="Back to Top" style="padding:0.33rem;border-radius:0.33rem"><img src="/assets/site/top.svg"></div>
+    </div>
 </body>
 <!-- randomise voice, snap binary elements to pixel grid  -->
 <script type="text/javascript">
@@ -248,7 +252,8 @@ if (window.devicePixelRatio !== 1) {
 
     // Add the message to the card
     const message = document.createElement('p');
-    message.innerHTML = `<strong>Your device scale is not 100%!</strong> <br> Content on this page may not display correctly. <br> <span style="font-family:'DM Sans';font-size:12pt">DEBUG - current device scale factor: ${scaleFactor * 100}%</span>`;
+    let zoomFactor = (1/scaleFactor)*100;
+    message.innerHTML = `<strong>Your device scale is not 100%!</strong> <br> Content on this page may not display correctly. <br> <p style="font-family:'DM Sans';font-size:1rem">If you're on PC, set your browser zoom to <b>${zoomFactor.toFixed(3)}%</b> <br> and reload to view this page as it was intended.</p>`;
     card.appendChild(message);
 
     // Create the button
