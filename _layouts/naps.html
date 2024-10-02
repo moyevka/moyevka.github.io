@@ -46,6 +46,14 @@
         <div class="button naps roundicon" id="scrollToTopBtn" title="Back to Top" style="padding:0.33rem;border-radius:0.33rem"><img src="/assets/site/top.svg"></div>
     </div>
 </body>
+<script type="text/javascript">
+    fix_odd_viewport = () => {
+        document.body.style.width = "initial";
+        document.body.style.width = (document.body.clientWidth&~1)+"px";
+    }
+    addEventListener("resize", fix_odd_viewport);
+    fix_odd_viewport();
+</script>
 <!-- randomise voice, snap binary elements to pixel grid  -->
 <script type="text/javascript">
 const scrollToTopBtn = document.getElementById("scrollToTopBtn");
@@ -139,7 +147,6 @@ function randomVoice () {
 randomVoice();
 
 function binaryFix() {
-    const range = document.createRange();
     document.querySelectorAll('.binary').forEach(e => {
         let leftShift = -(e.getBoundingClientRect().left - Math.floor(e.getBoundingClientRect().left));
         let topShift = -(e.getBoundingClientRect().top - Math.floor(e.getBoundingClientRect().top));
@@ -226,6 +233,7 @@ window.addEventListener("resize", () => {
     setHeight();
     marginFix();
     napsImgFix();
+    binaryFix()
 })
 
 if (window.devicePixelRatio !== 1) {

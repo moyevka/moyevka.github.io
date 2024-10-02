@@ -95,6 +95,7 @@ tags: illustration, design
     .navbuttons#mtgGallery {
         visibility:hidden;
         height: 0;
+        opacity: 0
     }
 }
 </style>

@@ -122,8 +122,8 @@
 
 @font-face {
     font-family: 'Matisse Pixelated';
-    src: url('fonts/MatissePixelated.woff2') format('woff2'),
-        url('fonts/MatissePixelated.woff') format('woff');
+    src: url('fonts/MatissePixelatedRegular.woff2') format('woff2'),
+        url('fonts/MatissePixelatedRegular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: block;
@@ -319,7 +319,7 @@ h1 {
 	display: flex;
 	flex-direction: column;
 	gap: 1rem;
-	z-index:10000;
+	z-index: 9000;
 }
 
 .button {
@@ -676,7 +676,7 @@ img::selection {
 	font-synthesis: none;
 	filter: url(#binary);
 	text-align: left;
-	margin: 0;
+	perspective: 0;
 }
 
 a.naps-title {
@@ -860,8 +860,8 @@ hr {
 .item-subtitle {
 	margin-right: 0pt;
 	margin-top: 4pt;
-	max-width: 320px;
 	text-align: right;
+	max-width:320px;
 }
 
 .gallery-header {
