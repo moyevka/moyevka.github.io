@@ -46,14 +46,6 @@
         <div class="button naps roundicon" id="scrollToTopBtn" title="Back to Top" style="padding:0.33rem;border-radius:0.33rem"><img src="/assets/site/top.svg"></div>
     </div>
 </body>
-<script type="text/javascript">
-    fix_odd_viewport = () => {
-        document.body.style.width = "initial";
-        document.body.style.width = (document.body.clientWidth&~1)+"px";
-    }
-    addEventListener("resize", fix_odd_viewport);
-    fix_odd_viewport();
-</script>
 <!-- randomise voice, snap binary elements to pixel grid  -->
 <script type="text/javascript">
 const scrollToTopBtn = document.getElementById("scrollToTopBtn");
@@ -147,10 +139,14 @@ function randomVoice () {
 randomVoice();
 
 function binaryFix() {
+    const range = document.createRange();
     document.querySelectorAll('.binary').forEach(e => {
-        let leftShift = -(e.getBoundingClientRect().left - Math.floor(e.getBoundingClientRect().left));
-        let topShift = -(e.getBoundingClientRect().top - Math.floor(e.getBoundingClientRect().top));
-        e.style.transform = `translateX(${leftShift}px) translateY(${topShift}px)`;
+        range.setStartBefore(e.childNodes[0]);
+        range.setEndAfter(e.childNodes[0]);
+        var width = range.getBoundingClientRect().width;
+        var ceilWidth = Math.ceil(range.getBoundingClientRect().width);
+        var widthCalc = ceilWidth / width;
+        e.style.translate = `${-(e.getBoundingClientRect().left - Math.floor(e.getBoundingClientRect().left))}px`;
     });
 };
 
@@ -198,6 +194,7 @@ function galleryFix() {
         }
     });
 };
+
 function setHeight() {
     const bgItems = document.querySelectorAll('.bg-gallery-item');
     const newHeight = firstItem.getBoundingClientRect().height;
