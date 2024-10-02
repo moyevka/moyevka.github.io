@@ -44,14 +44,10 @@ scrollToTopBtn.onclick = function() {
         <p>visual artist, graphic designer, whatever you wanna call it, i just like to make stuff that looks cool. <br> let's create something together!</p>
     </div>
     <div class="card" style="position:absolute;bottom:20vh">
-        <p style="margin:12pt" class="site">
-            <a href="mailto:contact@moyevka.work" target="_blank" style="text-decoration:unset">
+        <p style="margin:12pt;text-align:left" class="site">
+            get in touch: <br>
+            <a href="mailto:contact@moyevka.work" target="_blank" style="font-family:'DM Sans';font-weight:800;text-decoration:unset">
                 <img src="/assets/site/mail.svg" style="width:1.5em;vertical-align:bottom"> contact@moyevka.work
-            </a>
-        </p>
-        <p style="margin:12pt" class="site">
-            <a href="https://x.com/moyevka" target="_blank" style="text-decoration:unset">
-                <img src="/assets/site/x-logo.svg" style="width:1em;vertical-align:sub"> @moyevka
             </a>
         </p>
     </div>
@@ -63,7 +59,10 @@ scrollToTopBtn.onclick = function() {
 
 <div class="section" style="background-image: url('/assets/splash/naps-splash.png'); background-color:white; min-height:100svh; background-repeat: no-repeat; background-position: center; background-size: auto 1325px; image-rendering: pixelated;filter:drop-shadow(0px 0px 2px rgba(32, 16, 16, 0.5))" id="napsbg">
     <p class="main-text bottom-tab"><i>scroll down to see my work!</i></p>
-    <p><a href="/naps/" class="naps-title outlined">naps!</a></p>  
+    <p><a href="/naps/" class="naps-title outlined">naps!</a></p>
+    <div class="card" style="position:absolute;bottom:4rem;z-index:5">
+        <p style="font-family:'DM Sans';font-weight:800;margin:0" class="site">personal | illustrative design, digital</p>
+    </div>  
 </div>
 
 <script>
@@ -100,6 +99,9 @@ scrollToTopBtn.onclick = function() {
     <div style="position:absolute;height:100%;width:100%;overflow:clip;display:flex;justify-content:center;align-items:center">
         <img src="/assets/carle/svg/paint-2.svg" style="filter:drop-shadow(2px 2px 4px rgba(0,0,0,0.5));z-index:1;max-height:unset;width:2560px;min-width:2560px">
     </div>
+    <div class="card" style="position:absolute;bottom:4rem;z-index:5">
+        <p style="font-family:'DM Sans';font-weight:800;margin:0" class="site">commercial | design & advertising, photovideo</p>
+    </div>  
 </div>
 
 <div class="snap"></div>
@@ -108,7 +110,10 @@ scrollToTopBtn.onclick = function() {
     <p class="framed viewer bottom-tab" style="font-size:18pt;background:#333;letter-spacing:0em">FRAMED</p>
     <a href="/framed/" style="width:576px;max-width:80%">
         <img src="/assets/framed/svg/FramedLogoLarge.svg" title="visit the site!" class="glow-hover">
-    </a>  
+    </a>
+    <div class="card" style="position:absolute;bottom:4rem;z-index:5">
+        <p style="font-family:'DM Sans';font-weight:800;margin:0" class="site">freelance | design & branding, digital</p>
+    </div>  
 </div>
 
 <div class="snap"></div>
@@ -154,17 +159,24 @@ scrollToTopBtn.onclick = function() {
 
 <div class="section" style="background: linear-gradient(180deg, #f6f6f3 75%, #deddda 100%);filter:drop-shadow(0px 0px 2px rgba(0,0,0,0.5));scroll-snap-align:start;scroll-snap-stop:always;position:relative;top:unset">
     <p class="main-text bottom-tab" style="font-family:'DM Sans';font-weight:800;background:#f6f6f3">about me</p>
-    <div class="bordered-grid" style="z-index:100;color:#201010">
+    <div class="card" style="position:absolute;bottom:2rem">
+        <p style="margin:0;color:#979593" class="site"><i>drag the cats away if they're blocking stuff</i></p>
+    </div>
+    <div class="bordered-grid" style="z-index:1;color:#201010">
         <div class="grid-item">
-            <p style="text-align:left;margin:12pt">Hi! My name's Ian, creating online under the pseudonym <span style="font-family:'DM Sans';font-weight:700">moyevka</span>. I hope my work's spoken for itself! Outside of all this creative stuff, I'm a karaoke nuisance, cat owner (that's them on this page!), and a pretty alright home cook.</p>
+            <p style="text-align:left;margin:12pt">Hi! My name's Ian, creating online under the pseudonym <span style="font-family:'DM Sans';font-weight:700">moyevka</span>. I hope my work's spoken for itself! If not, I'm a designer, artist, video editor, photographer, so on. I work well in Illustrator, Clip Studio Paint, Photoshop, Lightroom, Premiere Pro, After Effects, Blender, Nuke, and more. Outside of all this creative stuff, I'm a karaoke nuisance, cat owner (that's them on this page!), and a pretty alright home cook.</p>
             <hr>
             <h1>about this site</h1> 
-            <p style="text-align:left;margin:12pt"> This site is written from scratch! Pure HTML, CSS and JS, with Jekyll for a modular authoring setup and to build the site, which is then hosted on Github Pages. No W*x, no S***resp*ce, no plugins at all. <br><br> A main goal for this website was to have each project's page be presented in a unique theme of its own, highlighting my understanding of the project's design goals and aesthetic. I like to think that I've accomplished that. <br><br> <i>I am not a web developer. Please don't ask me to make your website.</i></p>
+            <p style="text-align:left;margin:12pt"> This site is written from scratch! Pure HTML, CSS and JS, with Jekyll for a modular authoring setup and to build the site, which is then hosted on Github Pages. No w*x, no sq**r*sp*c*, no plugins for anything. <br><br> A main goal for this website was to have each project's page be presented in a unique theme of its own, highlighting my understanding of the project's design goals and aesthetic. I like to think that I've accomplished that. <br><br> <i>I am not a web developer. Please don't ask me to make your website.</i></p>
         </div>
         <div class="grid-item divider"></div>
         <div class="grid-item">
-            <h1>reach out!</h1> 
-            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSe0wLA_ycFedm_7jBizZyQFjR3vct5g9Vvve8V61MB9wawtog/viewform?embedded=true" width="640" height="689" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+            <h1>find me here:</h1> 
+            <p style="margin:12pt" class="site">
+                <a href="mailto:contact@moyevka.work" target="_blank" style="text-decoration:unset">
+                    <img src="/assets/site/mail.svg" style="width:1.5em;vertical-align:bottom"> contact@moyevka.work
+                </a>
+            </p>
             <p style="margin:12pt" class="site">
                 <a href="https://x.com/moyevka" target="_blank" style="text-decoration:unset">
                     <img src="/assets/site/x-logo.svg" style="width:1em;vertical-align:sub"> @moyevka

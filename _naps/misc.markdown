@@ -5,10 +5,8 @@ tags: illustration
 ---
 
 
-<p class="naps-title">miscellaneous</p>
-<p class="binary">all my other illustrative work related to the naps project.</p>
-<p class="binary" style="visibility:hidden">br</p>
-<p class="binary">click & hold to drag images around, click once to inspect.</p>
+<p class="naps-title" style="z-index:1">miscellaneous</p>
+<p class="binary" style="z-index:1">all my other illustrative work related to the naps project. <br><br> click & hold to drag images around, click once to inspect.</p>
 
 
 <div class="post-gallery" id="columnPlace">
