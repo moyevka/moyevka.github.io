@@ -92,6 +92,10 @@ tags: illustration, design
         scroll-snap-align: end;
         min-height: unset;
     }
+    .navbuttons#mtgGallery {
+        visibility:hidden;
+        height: 0;
+    }
 }
 </style>
 
@@ -99,9 +103,17 @@ tags: illustration, design
     <div class="g-item header">
         <p class="naps-title outlined" style="font-style:normal;line-height:1;font-size:56pt;margin:0;margin-bottom:18px">meet the girls!</p>
         <p class="binary outlined">get to know Mara, Sorrel, Choux, and Keys, the 4 girls of the naps project, through these highly stylised stylesheets - summarising the design and personality of each of them. <br><br> these stylesheets were created with the goal of exploring each character's personality, through the way they dress, to the colours they prefer. this is where i really leaned into the dithered almost pixelated-halftone look of naps, with a limited colour palette used across the sheets to unify them together. individual identity was given through colour and background choice, with each character's key colour being paired with its complement, and distinct textures used to curate the aesthetic of each girl. <br><br> made in clip studio paint, illustrator</p>
+        <div id="mtgGallery" class="navbuttons" style="position:relative;left:unset;flex-flow:row">
+            <div class="button naps roundicon" id="previousItem" title="previous" style="padding:0.33rem;border-radius:0.33rem">
+                <img src="/assets/site/up.svg">
+            </div>
+            <div class="button naps roundicon" id="nextItem" title="next" style="padding:0.33rem;border-radius:0.33rem">
+                <img src="/assets/site/down.svg">
+            </div>
+        </div>
     </div>
-    <div class="g-item">
-        <div class="g-gallery">
+    <div class="g-item" style="flex-flow:row">
+        <div class="g-gallery" id="mtgGallery">
             <div class="g-gallery-item" id="mainScroller">
                 <img src="/assets/naps/meet-the-girls/CharSheet-1-Mara.png" alt="CharSheet-1-Mara" class="clickable naps-img">
                 <div class="gallery-text">
@@ -154,7 +166,86 @@ const firstItem = document.getElementById("mainScroller");
 const backgroundScroller = document.getElementById("backgroundScroller");
 gallery.addEventListener('scroll', () => {
     const topPosition = firstItem.getBoundingClientRect().top;
-    console.log(`${topPosition}`)
     backgroundScroller.style.transform = `translateY(${topPosition}px)`;
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const galleries = document.querySelectorAll('.navbuttons');
+
+    galleries.forEach(nav => {
+        const navId = nav.id;
+        const gallery = document.querySelector(`.g-gallery[id="${navId}"]`);
+        if (!gallery) return;
+
+        const prevBtn = nav.querySelector(`#previousItem${navId.replace('mtgGallery', '')}`);
+        const nextBtn = nav.querySelector(`#nextItem${navId.replace('mtgGallery', '')}`);
+
+        function getCurrentItemIndex() {
+            const items = Array.from(gallery.children);
+            let closestIndex = 0;
+            let closestDistance = Infinity;
+            items.forEach((item, index) => {
+                const itemTop = item.offsetTop;
+                const distance = Math.abs(gallery.scrollTop - itemTop);
+                if (distance < closestDistance) {
+                    closestDistance = distance;
+                    closestIndex = index;
+                }
+            });
+            return closestIndex;
+        }
+
+        function scrollToItem(index) {
+            const items = gallery.children;
+            const targetItem = items[index];
+            if (targetItem) {
+                gallery.scrollTo({
+                    top: targetItem.offsetTop,
+                    behavior: 'smooth'
+                });
+                updateButtonVisibility(index, items.length);
+            }
+        }
+
+        function updateButtonVisibility(currentIndex, totalItems) {
+            if (currentIndex === 0) {
+                prevBtn.style.visibility = 'hidden';
+            } else {
+                prevBtn.style.visibility = 'visible';
+            }
+
+            if (currentIndex === totalItems - 1) {
+                nextBtn.style.visibility = 'hidden';
+            } else {
+                nextBtn.style.visibility = 'visible';
+            }
+        }
+
+        prevBtn.addEventListener('click', function() {
+            const currentIndex = getCurrentItemIndex();
+            if (currentIndex > 0) {
+                scrollToItem(currentIndex - 1);
+            }
+        });
+
+        nextBtn.addEventListener('click', function() {
+            const currentIndex = getCurrentItemIndex();
+            if (currentIndex < gallery.children.length - 1) {
+                scrollToItem(currentIndex + 1);
+            }
+        });
+
+        let isScrolling;
+        gallery.addEventListener('scroll', function() {
+            window.clearTimeout(isScrolling);
+            isScrolling = setTimeout(function() {
+                const currentIndex = getCurrentItemIndex();
+                updateButtonVisibility(currentIndex, gallery.children.length);
+            }, 100);
+        });
+
+        const initialIndex = getCurrentItemIndex();
+        updateButtonVisibility(initialIndex, gallery.children.length);
+    });
 });
 </script>

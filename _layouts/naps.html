@@ -51,7 +51,6 @@
 const scrollToTopBtn = document.getElementById("scrollToTopBtn");
 
 scrollToTopBtn.onclick = function() {
-    console.log('clicked');
     document.body.scroll({
         top: 0, 
         left: 0, 
@@ -142,10 +141,9 @@ randomVoice();
 function binaryFix() {
     const range = document.createRange();
     document.querySelectorAll('.binary').forEach(e => {
-        range.setStartBefore(e.childNodes[0]);
-        range.setEndAfter(e.childNodes[0]);
-        e.style.width = `${Math.ceil(range.getBoundingClientRect().width)}px`;
-        e.style.translate = `${-(e.getBoundingClientRect().left - Math.floor(e.getBoundingClientRect().left))}px`;
+        let leftShift = -(e.getBoundingClientRect().left - Math.floor(e.getBoundingClientRect().left));
+        let topShift = -(e.getBoundingClientRect().top - Math.floor(e.getBoundingClientRect().top));
+        e.style.transform = `translateX(${leftShift}px) translateY(${topShift}px)`;
     });
 };
 
@@ -196,7 +194,6 @@ function galleryFix() {
 function setHeight() {
     const bgItems = document.querySelectorAll('.bg-gallery-item');
     const newHeight = firstItem.getBoundingClientRect().height;
-    console.log(`${newHeight}`)
     document.querySelectorAll('.bg-gallery-item').forEach(item => {
         item.style.height = `${newHeight}px`;
     })
@@ -220,9 +217,9 @@ window.onload = (event) => {
     napsImgFix();
     binaryFix();
     galleryFix();
-    removeSplash();
     marginFix();
     setHeight();
+    removeSplash();
 };
 
 window.addEventListener("resize", () => {

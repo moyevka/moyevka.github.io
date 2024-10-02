@@ -19,14 +19,41 @@ test: moyevka!
     }
 </style>
 
+<div class="navbuttons">
+    <div class="button roundicon" id="scrollToTopBtn" title="Back to Top"><img src="/assets/site/top.svg"></div>
+</div>
+
+<script>
+const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+scrollToTopBtn.onclick = function() {
+    document.body.scroll({
+        top: 0, 
+        left: 0, 
+        behavior: 'smooth' 
+    });
+};
+</script>
+
 <div class="snap"></div>
 
 <div class="section" style="background: linear-gradient(180deg, #f6f6f3 75%, #deddda 100%)">
-    <div style="text-align:left;max-width:520px;color:#201010">
+    <div style="text-align:left;max-width:505px;color:#201010">
         <p style="font-style:italic;left:36pt;bottom:-8pt;position:relative;margin:0;font-size:20pt;letter-spacing:-0.05em"><i>oh hey! it's</i></p>
         <p style="margin:0;font-family:'PP Pangaia';font-size:96pt;line-height:0.6;letter-spacing:-0.05em">moyevka!</p>
         <br>
-        <p>visual artist, graphic designer, whatever you wanna call it, <br> i just like to make stuff that looks cool. <br> let's create something together!</p>
+        <p>visual artist, graphic designer, whatever you wanna call it, i just like to make stuff that looks cool. <br> let's create something together!</p>
+    </div>
+    <div class="card" style="position:absolute;bottom:20vh">
+        <p style="margin:12pt" class="site">
+            <a href="mailto:contact@moyevka.work" target="_blank" style="text-decoration:unset">
+                <img src="/assets/site/mail.svg" style="width:1.5em;vertical-align:bottom"> contact@moyevka.work
+            </a>
+        </p>
+        <p style="margin:12pt" class="site">
+            <a href="https://x.com/moyevka" target="_blank" style="text-decoration:unset">
+                <img src="/assets/site/x-logo.svg" style="width:1em;vertical-align:sub"> @moyevka
+            </a>
+        </p>
     </div>
     <img src="/assets/splash/home-bottom.svg" class="homebg" style="width:auto;height:auto;position:absolute;bottom:0;left:0;z-index:-1">
     <img src="/assets/splash/home-top.svg" class="homebg" style="width:auto;height:auto;position:absolute;top:0;right:0;z-index:-1">
@@ -137,11 +164,7 @@ test: moyevka!
         <div class="grid-item divider"></div>
         <div class="grid-item">
             <h1>reach out!</h1> 
-            <p style="margin:12pt" class="site">
-                <a href="mailto:contact@moyevka.work" target="_blank" style="text-decoration:unset">
-                    <img src="/assets/site/mail.svg" style="width:1.5em;vertical-align:bottom"> contact@moyevka.work
-                </a>
-            </p>
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSe0wLA_ycFedm_7jBizZyQFjR3vct5g9Vvve8V61MB9wawtog/viewform?embedded=true" width="640" height="689" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
             <p style="margin:12pt" class="site">
                 <a href="https://x.com/moyevka" target="_blank" style="text-decoration:unset">
                     <img src="/assets/site/x-logo.svg" style="width:1em;vertical-align:sub"> @moyevka

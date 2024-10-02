@@ -409,7 +409,6 @@ document.addEventListener('DOMContentLoaded', function () {
             image.style.cursor = `grab`;
             function onMouseMove() {
                 isDragged = true;
-                console.log(`isDragged = ${isDragged}`);
             }
             image.onmousedown = function () {
                 document.addEventListener('mousemove', onMouseMove);
@@ -489,7 +488,6 @@ document.addEventListener('DOMContentLoaded', function () {
                             const ratio = currentWidth / imgWidth;
 
                             if (currentWidth > (imgWidth * 0.67)) {
-                                console.log('yap');
                                 viewerImage.classList.add('zoomed-naps');
                                 const scaleFactor = 2 * imgWidth / currentWidth;
                                 viewerImage.style.transform = `scale(${scaleFactor})`;

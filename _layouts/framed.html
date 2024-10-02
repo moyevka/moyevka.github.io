@@ -64,7 +64,6 @@
 const scrollToTopBtn = document.getElementById("scrollToTopBtn");
 
 scrollToTopBtn.onclick = function() {
-    console.log('clicked');
     document.body.scroll({
         top: 0, 
         left: 0, 
@@ -139,8 +138,11 @@ window.onload = (event) => {
   console.log("fully loaded");
   postGallery();
   galleryFix();
-  removeSplash();
 };
+
+setTimeout(() => {
+    removeSplash();
+}, 200);
 
 });
 </script>
