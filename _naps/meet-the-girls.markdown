@@ -27,7 +27,7 @@ tags: illustration, design
     }
 
     .g-item.header p {
-        text-align:right;
+        text-align:left;
     }
 
     .g-gallery {

@@ -855,7 +855,7 @@ hr {
 .item-subtitle {
 	margin-right: 0pt;
 	margin-top: 4pt;
-	text-align: right;
+	text-align: left;
 	max-width:320px;
 }
 

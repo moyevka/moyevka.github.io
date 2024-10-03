@@ -157,7 +157,7 @@ scrollToTopBtn.onclick = function() {
 }
 </style>
 
-<div class="section" style="background: linear-gradient(180deg, #f6f6f3 75%, #deddda 100%);filter:drop-shadow(0px 0px 2px rgba(0,0,0,0.5));scroll-snap-align:start;scroll-snap-stop:always;position:relative;top:unset;height:auto">
+<div class="section" style="background: linear-gradient(180deg, #f6f6f3 75%, #deddda 100%);filter:drop-shadow(0px 0px 2px rgba(0,0,0,0.5));scroll-snap-align:start;scroll-snap-stop:always;position:relative;top:unset;height:auto;padding-top:2rem;padding-bottom:2rem">
     <p class="main-text bottom-tab" style="font-family:'DM Sans';font-weight:800;background:#f6f6f3">about me</p>
     <div class="bordered-grid" style="z-index:1;color:#201010">
         <div class="grid-item">
@@ -165,6 +165,7 @@ scrollToTopBtn.onclick = function() {
             <hr>
             <h1>about this site</h1> 
             <p style="text-align:left;margin:12pt"> This site is written from scratch! Pure HTML, CSS and JS, with Jekyll for a modular authoring setup and to build the site, which is then hosted on Github Pages. No w*x, no sq**r*sp*c*, no plugins for anything. <br><br> A main goal for this website was to have each project's page be presented in a unique theme of its own, highlighting my understanding of the project's design goals and aesthetic. I like to think that I've accomplished that. <br><br> <i>I am not a web developer. Please don't ask me to make your website.</i></p>
+            <p style="margin:0;color:#979593" class="site"><i>drag the cats away if they're blocking stuff</i></p>
         </div>
         <div class="grid-item divider"></div>
         <div class="grid-item">
@@ -179,7 +180,6 @@ scrollToTopBtn.onclick = function() {
                     <img src="/assets/site/x-logo.svg" style="width:1em;vertical-align:sub"> @moyevka
                 </a>
             </p>
-            <p style="margin:0;color:#979593" class="site" style="align-self:bottom"><i>drag the cats away if they're blocking stuff</i></p>
         </div>
     </div>
     <div class="post-gallery" id="columnPlace-randomSort">
