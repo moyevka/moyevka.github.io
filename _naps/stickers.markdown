@@ -24,6 +24,7 @@ tags: illustration, design
                 {% endif %}
             {% endfor %}
         </div>
+        <div id="observer" style="position:absolute;height:20px;width:20px"></div>
     </div>
     <div class="container-item header" style="z-index:2;background:white;padding:48px">
         <p class="naps-title">stickers</p>
@@ -43,13 +44,17 @@ document.addEventListener('DOMContentLoaded', function() {
         const prevBtn = nav.querySelector(`#previousItem${navId.replace('stickerGallery', '')}`);
         const nextBtn = nav.querySelector(`#nextItem${navId.replace('stickerGallery', '')}`);
 
+        // Function to get the current item index based on center alignment
         function getCurrentItemIndex() {
             const items = Array.from(gallery.children);
+            const galleryCenter = gallery.clientHeight / 2 + gallery.scrollTop; // Center of the visible gallery area
             let closestIndex = 0;
             let closestDistance = Infinity;
+
             items.forEach((item, index) => {
-                const itemTop = item.offsetTop;
-                const distance = Math.abs(gallery.scrollTop - itemTop);
+                const itemCenter = item.offsetTop + (item.offsetHeight / 2); // Center of the item
+                const distance = Math.abs(galleryCenter - itemCenter); // Distance from the center of the gallery to the center of the item
+
                 if (distance < closestDistance) {
                     closestDistance = distance;
                     closestIndex = index;
@@ -63,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const targetItem = items[index];
             if (targetItem) {
                 gallery.scrollTo({
-                    top: targetItem.offsetTop,
+                    top: targetItem.offsetTop - (gallery.clientHeight / 2) + (targetItem.offsetHeight / 2), // Center the item
                     behavior: 'smooth'
                 });
                 updateButtonVisibility(index, items.length);
@@ -77,7 +82,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 prevBtn.style.visibility = 'visible';
             }
 
-            if (currentIndex === totalItems - 3) {
+            if (currentIndex === totalItems - 1) {
                 nextBtn.style.visibility = 'hidden';
             } else {
                 nextBtn.style.visibility = 'visible';
@@ -97,19 +102,20 @@ document.addEventListener('DOMContentLoaded', function() {
                 scrollToItem(currentIndex + 1);
             }
         });
-        
+
         let isScrolling;
         gallery.addEventListener('scroll', function() {
             window.clearTimeout(isScrolling);
             isScrolling = setTimeout(function() {
                 const currentIndex = getCurrentItemIndex();
                 updateButtonVisibility(currentIndex, gallery.children.length);
-            }, 100); 
+            }, 100);
         });
 
-        const initialIndex = getCurrentItemIndex();
+        const initialIndex = 0;
         updateButtonVisibility(initialIndex, gallery.children.length);
     });
 });
+
 </script>
 

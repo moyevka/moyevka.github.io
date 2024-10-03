@@ -473,11 +473,6 @@ h1 {
 	}
 }
 
-.top-spacer, .bottom-spacer {
-	width: 100%;
-	display: block;
-}
-
 img {
 	position: relative;
 	height: auto;
