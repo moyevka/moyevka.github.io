@@ -993,7 +993,7 @@ iframe {
 			drop-shadow(2px -2px 0 #fff) 
 			drop-shadow(-2px -2px 0 #fff) 
 			drop-shadow(-2px 2px 0 #fff);
-	perspective: 1px;
+	backface-visibility: hidden;
  }
 
  .pageend {
