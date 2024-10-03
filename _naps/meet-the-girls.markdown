@@ -167,7 +167,7 @@ const firstItem = document.getElementById("mainScroller");
 const backgroundScroller = document.getElementById("backgroundScroller");
 gallery.addEventListener('scroll', () => {
     const topPosition = firstItem.getBoundingClientRect().top;
-    backgroundScroller.style.transform = `translateY(${topPosition}px)`;
+    backgroundScroller.style.transform = `translate3d(0, ${topPosition}px, 0)`;
 });
 
 document.addEventListener('DOMContentLoaded', function() {

@@ -157,11 +157,8 @@ scrollToTopBtn.onclick = function() {
 }
 </style>
 
-<div class="section" style="background: linear-gradient(180deg, #f6f6f3 75%, #deddda 100%);filter:drop-shadow(0px 0px 2px rgba(0,0,0,0.5));scroll-snap-align:start;scroll-snap-stop:always;position:relative;top:unset">
+<div class="section" style="background: linear-gradient(180deg, #f6f6f3 75%, #deddda 100%);filter:drop-shadow(0px 0px 2px rgba(0,0,0,0.5));scroll-snap-align:start;scroll-snap-stop:always;position:relative;top:unset;height:auto">
     <p class="main-text bottom-tab" style="font-family:'DM Sans';font-weight:800;background:#f6f6f3">about me</p>
-    <div class="card" style="position:absolute;bottom:2rem">
-        <p style="margin:0;color:#979593" class="site"><i>drag the cats away if they're blocking stuff</i></p>
-    </div>
     <div class="bordered-grid" style="z-index:1;color:#201010">
         <div class="grid-item">
             <p style="text-align:left;margin:12pt">Hi! My name's Ian, creating online under the pseudonym <span style="font-family:'DM Sans';font-weight:700">moyevka</span>. I hope my work's spoken for itself! If not, I'm a designer, artist, video editor, photographer, so on. I work well in Illustrator, Clip Studio Paint, Photoshop, Lightroom, Premiere Pro, After Effects, Blender, Nuke, and more. Outside of all this creative stuff, I'm a karaoke nuisance, cat owner (that's them on this page!), and a pretty alright home cook.</p>
@@ -182,6 +179,7 @@ scrollToTopBtn.onclick = function() {
                     <img src="/assets/site/x-logo.svg" style="width:1em;vertical-align:sub"> @moyevka
                 </a>
             </p>
+            <p style="margin:0;color:#979593" class="site" style="align-self:bottom"><i>drag the cats away if they're blocking stuff</i></p>
         </div>
     </div>
     <div class="post-gallery" id="columnPlace-randomSort">
