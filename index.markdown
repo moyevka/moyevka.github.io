@@ -55,6 +55,10 @@ test: moyevka!
     }
 }
 @media (min-resolution: 144dpi) and (max-aspect-ratio: 1/1) {
+    .snap {
+        scroll-snap-align:none;
+        scroll-snap-stop:normal;
+    }
     .homeblock{
         max-width:600px;
         margin-left:4vh;
