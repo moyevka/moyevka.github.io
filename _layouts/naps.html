@@ -42,8 +42,8 @@
         </div>
     {% endfor %}
     <div class="navbuttons">
-        <a href="/" class="button naps roundicon" title="Back to Home" style="padding:0.33rem;border-radius:0.33rem"><img src="/assets/site/back.svg"></a>
-        <div class="button naps roundicon" id="scrollToTopBtn" title="Back to Top" style="padding:0.33rem;border-radius:0.33rem"><img src="/assets/site/top.svg"></div>
+        <a href="/" class="button naps roundicon" title="Back to Home"><img src="/assets/site/back.svg"></a>
+        <div class="button naps roundicon" id="scrollToTopBtn" title="Back to Top"><img src="/assets/site/top.svg"></div>
     </div>
 </body>
 <!-- randomise voice, snap binary elements to pixel grid  -->
@@ -63,35 +63,22 @@ function napsImgFix() {
     let napsImg = document.querySelectorAll('.naps-img');
     let binaryElements = document.querySelectorAll('.binary');
 
-    // Check if the devicePixelRatio is not 1
     if (window.devicePixelRatio !== 1) {
-        // Set image-rendering to auto for all .naps-img elements
         napsImg.forEach(img => {
             img.style.imageRendering = 'auto';
         });
 
-        // Adjust font-size for all .binary elements
         binaryElements.forEach(el => {
-            const currentFontSize = window.getComputedStyle(el).fontSize;
-            const numericFontSize = parseFloat(currentFontSize); // Convert '18px' to 18
-            if (window.devicePixelRatio >= 2) {
-                const newFontSize = (4 / window.devicePixelRatio) * numericFontSize;
-                el.style.filter = ` drop-shadow(2px 0px 0 #fff) 
-                                    drop-shadow(-2px 0px 0 #fff) 
-                                    drop-shadow(0px 2px 0 #fff) 
-                                    drop-shadow(0px -2px 0 #fff)
-                                    drop-shadow(2px 2px 0 #fff) 
-                                    drop-shadow(2px -2px 0 #fff) 
-                                    drop-shadow(-2px -2px 0 #fff) 
-                                    drop-shadow(-2px 2px 0 #fff)`;
-                el.style.fontSize = `${newFontSize}px`;
-            } else {
-                const newFontSize = (1 / window.devicePixelRatio) * numericFontSize;
-                el.style.fontSize = `${newFontSize}px`;
-            }
+            el.style.filter = ` drop-shadow(2px 0px 0 #fff) 
+                                drop-shadow(-2px 0px 0 #fff) 
+                                drop-shadow(0px 2px 0 #fff) 
+                                drop-shadow(0px -2px 0 #fff)
+                                drop-shadow(2px 2px 0 #fff) 
+                                drop-shadow(2px -2px 0 #fff) 
+                                drop-shadow(-2px -2px 0 #fff) 
+                                drop-shadow(-2px 2px 0 #fff)`;
         });
     } else {
-        // Retain the original image-rendering behavior when devicePixelRatio is 1
         napsImg.forEach(img => {
             const imgWidth = img.naturalWidth;
             const currentWidth = img.getBoundingClientRect().width;
@@ -102,7 +89,6 @@ function napsImgFix() {
             }
         });
 
-        // Reset font-size for .binary elements if needed
         binaryElements.forEach(el => {
             el.style.removeProperty('font-size');
         });

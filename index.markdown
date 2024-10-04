@@ -44,7 +44,7 @@ test: moyevka!
         bottom:4rem;
         z-index:5
     }
-@media (min-resolution: 144dpi) {
+@media (min-resolution: 144dpi) and (max-aspect-ratio: 1/1) {
     p {
         max-width:unset;
         margin-top:0;
