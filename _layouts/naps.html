@@ -79,7 +79,7 @@ function napsImgFix() {
                                     drop-shadow(-2px -2px 0 #fff) 
                                     drop-shadow(-2px 2px 0 #fff)`;
             } else {
-                el.style.removeProperty('filter');
+                el.style.filter = `url()`;
             }
         });
     } else {
