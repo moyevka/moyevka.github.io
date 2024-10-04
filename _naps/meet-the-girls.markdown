@@ -69,6 +69,7 @@ tags: illustration, design
 const gallery = document.querySelector('.g-gallery');
 const firstItem = document.getElementById("mainScroller");
 const backgroundScroller = document.getElementById("backgroundScroller");
+backgroundScroller.style.backfaceVisibility = `hidden`;
 gallery.addEventListener('scroll', () => {
     const topPosition = firstItem.getBoundingClientRect().top;
     backgroundScroller.style.transform = `translate3d(0, ${topPosition}px, 0)`;

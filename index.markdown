@@ -17,6 +17,63 @@ test: moyevka!
         overflow:visible;
         overflow-x:clip
     }
+
+    .homeblock {
+        max-width:505px
+    }
+
+    .moyevka {
+        font-family:'PP Pangaia';
+        font-size:96pt;
+    }
+
+    .moyevkaSub {
+        font-style:italic;
+        left:36pt;
+        bottom:-8pt;
+        position:relative;
+        margin:0;
+        font-size:20pt;
+        letter-spacing:-0.05em
+    }
+    .framed.viewer {
+        font-size: 18pt;
+    }
+    .card.tags {
+        position:absolute;
+        bottom:4rem;
+        z-index:5
+    }
+@media (min-resolution: 144dpi) {
+    p {
+        max-width:unset;
+        margin-top:0;
+    }
+    .homeblock{
+        max-width:600px;
+        margin-left:4vh;
+        margin-right:4vh;
+    }
+    .moyevka {
+        font-size:114pt;
+    }
+    .moyevkaSub {
+        left:27pt;
+        bottom:-8pt;
+        font-size:32pt;
+    }
+    .bottom-tab {
+        font-size: 2rem;
+        top: -64pt;
+        padding-bottom: 22pt
+    }
+    .framed.viewer {
+        font-size: 2rem;
+    }
+    .card.tags {
+        bottom: 10vh;
+    }
+}
 </style>
 
 <div class="navbuttons">
@@ -37,9 +94,9 @@ scrollToTopBtn.onclick = function() {
 <div class="snap"></div>
 
 <div class="section" style="background: linear-gradient(180deg, #f6f6f3 75%, #deddda 100%)">
-    <div style="text-align:left;max-width:505px;color:#201010">
-        <p style="font-style:italic;left:36pt;bottom:-8pt;position:relative;margin:0;font-size:20pt;letter-spacing:-0.05em"><i>oh hey! it's</i></p>
-        <p style="margin:0;font-family:'PP Pangaia';font-size:96pt;line-height:0.6;letter-spacing:-0.05em">moyevka!</p>
+    <div class="homeblock" style="text-align:left;color:#201010">
+        <p class="moyevkaSub"><i>oh hey! it's</i></p>
+        <p class="moyevka" style="margin:0;line-height:0.6;letter-spacing:-0.05em">moyevka!</p>
         <br>
         <p>visual artist, graphic designer, whatever you wanna call it, i just like to make stuff that looks cool. <br> let's create something together!</p>
     </div>
@@ -60,7 +117,7 @@ scrollToTopBtn.onclick = function() {
 <div class="section" style="background-image: url('/assets/splash/naps-splash.png'); background-color:white; min-height:100svh; background-repeat: no-repeat; background-position: center; background-size: auto 1325px; image-rendering: pixelated;filter:drop-shadow(0px 0px 2px rgba(32, 16, 16, 0.5))" id="napsbg">
     <p class="main-text bottom-tab"><i>scroll down to see my work!</i></p>
     <p><a href="/naps/" class="naps-title outlined">naps!</a></p>
-    <div class="card" style="position:absolute;bottom:4rem;z-index:5">
+    <div class="card tags">
         <p style="font-family:'DM Sans';font-weight:800;margin:0" class="site">personal | illustrative design, digital</p>
     </div>  
 </div>
@@ -92,14 +149,14 @@ scrollToTopBtn.onclick = function() {
 <div class="snap"></div>
 
 <div class="section" style="background:radial-gradient(ellipse at bottom, #fccc85 0%, #fc9800 100%);filter:drop-shadow(0px 0px 2px rgba(0,0,0,0.5))">
-    <p class="carle title white-text bottom-tab" style="margin:0;font-size:18pt;background:#fc9800;letter-spacing:0em;text-shadow: 1px 1px 2px rgba(0,0,0,0.5);">CARLE</p>
+    <p class="carle white-text bottom-tab" style="margin:0;font-weight:800;background:#fc9800;letter-spacing:0em;text-shadow: 1px 1px 2px rgba(0,0,0,0.5);">CARLE</p>
     <a href="/carle/" class="carle title white-text" style="z-index:2">
         <img src="/assets/carle/svg/carle-logo-stack.svg" class="carle-logo hover">
     </a> 
     <div style="position:absolute;height:100%;width:100%;overflow:clip;display:flex;justify-content:center;align-items:center">
         <img src="/assets/carle/svg/paint-2.svg" style="filter:drop-shadow(2px 2px 4px rgba(0,0,0,0.5));z-index:1;max-height:unset;width:2560px;min-width:2560px">
     </div>
-    <div class="card" style="position:absolute;bottom:4rem;z-index:5">
+    <div class="card tags">
         <p style="font-family:'DM Sans';font-weight:800;margin:0" class="site">commercial | design & advertising, photovideo</p>
     </div>  
 </div>
@@ -107,11 +164,11 @@ scrollToTopBtn.onclick = function() {
 <div class="snap"></div>
 
 <div class="section" style="background-image: url('/assets/framed/svg/Topography.svg');height:100svh;background-size:cover;background-attachment:fixed;filter:drop-shadow(0px 0px 2px rgba(0,0,0,0.5))">
-    <p class="framed viewer bottom-tab" style="font-size:18pt;background:#333;letter-spacing:0em">FRAMED</p>
+    <p class="framed viewer bottom-tab" style="background:#333;letter-spacing:0em">FRAMED</p>
     <a href="/framed/" style="width:576px;max-width:80%">
         <img src="/assets/framed/svg/FramedLogoLarge.svg" title="visit the site!" class="glow-hover">
     </a>
-    <div class="card" style="position:absolute;bottom:4rem;z-index:5">
+    <div class="card tags">
         <p style="font-family:'DM Sans';font-weight:800;margin:0" class="site">freelance | design & branding, digital</p>
     </div>  
 </div>
@@ -125,8 +182,8 @@ scrollToTopBtn.onclick = function() {
     gap: 0;
     align-items: center;                 
     justify-items: center;
-    width: 1200px;                         
-    max-width: 80%;
+    max-width: 1200px;                         
+    margin: 4vh;
     background: #f6f6f3;
     border-radius: 10pt;
     filter: drop-shadow(0px 0px 2px rgba(32, 16, 16, 0.25));
@@ -147,7 +204,6 @@ scrollToTopBtn.onclick = function() {
 @media (max-width: 1200px) {
 	.bordered-grid {
 		grid-template-columns: 1fr;
-		width:672px;
 	}
 
     .grid-item.divider {
@@ -182,7 +238,7 @@ scrollToTopBtn.onclick = function() {
             </p>
         </div>
     </div>
-    <div class="post-gallery" id="columnPlace-randomSort">
+    <div class="post-gallery" id="columnPlace-randomSort" style="overflow:clip">
     {% assign images = site.static_files | where: "image", true | sort: "name" | reverse %}
     {% for image in images %}
         {% if image.path contains 'site/cats/' %}

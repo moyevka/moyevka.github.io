@@ -4,6 +4,18 @@ title: FRAMED - moyevka
 permalink: /framed/
 ---
 
+<style>
+    .intro {
+        width:80%;
+    }
+
+@media (min-resolution: 144dpi) {
+    .intro {
+        width:unset;
+    }
+}
+</style>
+
 <div class="container">
     <div class="container-item" style="align-items:center">
         <a href="https://framedsc.com/index.htm" target="_blank" style="width:80%">
@@ -11,7 +23,7 @@ permalink: /framed/
         </a>
     </div>
     <div class="container-item" style="align-items:center;text-align:left">
-        <p class="framed fcard" style="width:80%;margin-top:18pt">I occasionally freelance for FRAMED, an online video game screenshotting community. Building upon existing cues, I worked on a cohesive theme for their site and overall appearance. I continue to contribute graphics as well as some technical writing every now and then.</p>
+        <p class="framed fcard intro" style="margin-top:18pt">I occasionally freelance for FRAMED, an online video game screenshotting community. Building upon existing cues, I worked on a cohesive theme for their site and overall appearance. I continue to contribute graphics as well as some technical writing every now and then.</p>
     </div>
 </div>
 

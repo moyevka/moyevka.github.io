@@ -23,6 +23,17 @@ tags: photography
     box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
     border-radius: 10pt;
   }
+  .hofcard {
+    line-height: 21pt;
+  }
+@media (min-resolution: 144dpi) {
+  .hofcard {
+    line-height: unset;
+    max-width: 92vw;
+    margin-left: 4vh;
+    margin-right:4vh;
+  }
+}
 </style>
 
 <div class="fcard" style="z-index:100;padding-bottom:0">
@@ -31,7 +42,7 @@ tags: photography
 </div>
 
 <p class="framed fcard viewer" style="z-index:100;position:absolute;top:14pt;padding-top:7pt;padding-bottom:7pt">CLICK & HOLD to drag images around, CLICK ONCE to inspect.</p>
-<p class="framed fcard" style="z-index:9999;position:absolute;bottom:14pt;padding-top:7pt;padding-bottom:7pt;line-height:21pt">View more screenshots from the rest of FRAMED!<br> 
+<p class="framed fcard hofcard" style="z-index:9999;position:absolute;bottom:14pt;padding-top:7pt;padding-bottom:7pt">View more screenshots from the rest of FRAMED!<br> 
 <a href="https://framedsc.com/HallOfFramed/" target="_blank" style="width:100%">
   <img src="/assets/framed/svg/HoFLogo.svg" title="Hall of FRAMED" class="glow-hover">
 </a>

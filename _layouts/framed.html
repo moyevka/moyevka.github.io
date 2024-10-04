@@ -38,6 +38,7 @@
         background-size: cover;
         z-index: -1;
         pointer-events: none; /* Prevent interaction with the background */
+        backface-visibility: hidden;
     }
 </style>
 <body>
@@ -48,7 +49,8 @@
             {{ section }}
         </div>
     {% endfor %}
-    <div class="section" style="min-height:unset;padding:0;height:auto;width:960px;max-width:90%;display:flex;justify-content:space-between;flex-direction:row;margin:0 auto;margin-bottom:4vh;overflow:visible">        <div class="framed fcard" style="color:#8A8A8A;font-style:italic;display:flex;flex-direction:row;width:100%;margin:0;padding-top:0;padding-bottom:0;justify-content:space-between;">
+    <div class="section" style="min-height:unset;padding:0;height:auto;display:flex;flex-direction:row;padding-bottom:4vh;padding-left:4vh;padding-right:4vh;overflow:visible">        
+        <div class="framed fcard" style="color:#8A8A8A;font-style:italic;display:flex;flex-direction:row;max-width:960px;margin:0;padding-top:0;padding-bottom:0;justify-content:space-between;">
             <p>moyevka, for FRAMED</p>
             <p style="text-align:right">all assets on this page used with permission</p>
         </div>

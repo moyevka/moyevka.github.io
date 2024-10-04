@@ -215,6 +215,7 @@ body {
 	overflow: clip;
 	position: relative;
 	padding:4vh;
+	backface-visibility: hidden;
 }
 
 i {
@@ -587,25 +588,12 @@ img::selection {
     -webkit-backdrop-filter: brightness(80%) blur(10px);
 }
 
-.svg-background {
-	background-origin: border-box;
-	background-repeat: no-repeat;
-	background-position: center;
-	filter: drop-shadow(2px 2px 4px black);
-}
 
 .post-gallery {
     position: absolute;
     width: 100vw;
     height: 100svh;
-}
-
-.parabola {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 200%;
+	backface-visibility: hidden;
 }
 
 .post-item {
@@ -616,6 +604,7 @@ img::selection {
 	transition: all 0.1s, left 0s, top 0s;
 	transform-origin: center;
 	scale: 95%;
+	backface-visibility: hidden;
 }
 
 .post-item.naps {
@@ -671,7 +660,7 @@ img::selection {
 	font-synthesis: none;
 	filter: url(#binary);
 	text-align: left;
-	perspective: 0;
+	backface-visibility: hidden;
 }
 
 a.naps-title {
@@ -888,6 +877,7 @@ hr {
     transform-origin: center;
 	transition: transform 0.1s ease;
 	cursor: zoom-in;
+	backface-visibility: hidden;
 }
 
 .naps-img {
@@ -919,7 +909,7 @@ hr {
     width: 100%;
     text-align: center;
     color: white;
-    pointer-events: none; /* So it doesn't interfere with clicks */
+    pointer-events: none;
 }
 
 .image-overlay .viewer-message {
@@ -928,7 +918,7 @@ hr {
     width: 100%;
     text-align: center;
     color: white;
-    pointer-events: none; /* So it doesn't interfere with clicks */
+    pointer-events: none;
 }
 
 iframe {
@@ -1032,16 +1022,106 @@ iframe {
 
 @media (min-resolution: 144dpi) {
 	body {
-		font-size: 1.5rem;
+		font-size: 2.4rem;
 	}
 	.carle {
-		font-size: 1.75rem;
+		font-size: 2rem;
 	}
     .framed {
-		font-size: 1.5rem;
+		font-size: 2.4rem;
 	}
 	.framed.subtitle {
 		font-size: 2rem;
+	}
+	h1 {
+		font-size: 4rem;
+	}
+	.navbuttons {
+		top: 4rem;
+		left: 4rem;
+		gap: 2rem;
+	}
+	
+	.button {
+		padding-top: 10pt;
+		padding-bottom: 10pt;
+		padding-left: 20pt;
+		padding-right: 20pt;
+		border-radius: 10pt;
+		background: #f6f6f3;
+		font-family: 'DM Sans', Helvetica, Arial, sans-serif;
+		font-size: 1rem;
+		font-weight: 800;
+		color: #201010;
+		border: unset;
+		transition: all 0.1s ease;
+		filter: drop-shadow(0 0 2px rgba(32,16,16,0.5));
+		cursor: pointer;
+		text-decoration: none;
+	}
+	
+	.button.naps {
+		background:white;
+		filter: url(#binary) contrast(1000);
+		border: solid 1px black;
+		transition: unset;
+		z-index: 10000
+	}
+	
+	.button.naps:hover {
+		filter: url(#binary) contrast(1000);
+		border: solid 2px black;
+		margin: -1px;
+	}
+	
+	.button.carle {
+		background: transparent;
+		color:white;
+		filter: drop-shadow(2px 2px 4px black);
+		backdrop-filter: brightness(50%) blur(10px);
+	}
+	
+	.button.framed {
+		background: #333;
+		filter: drop-shadow(0px 0px 5px rgba(0,0,0,0.75));
+	}
+	
+	.button:hover {
+		filter: drop-shadow(0 0 4px rgba(32,16,16,0.75));
+	}
+	
+	.button.carle:hover {
+		filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.5));
+		backdrop-filter: brightness(25%) blur(10px);
+	}
+	
+	.button.framed:hover {
+		filter: drop-shadow(0px 0px 10px rgba(0,0,0,0.5));
+	}
+	
+	.roundicon {
+		padding: 0.5em;
+		font-size:unset;
+		line-height:0;
+		border-radius: 1000pt;
+	}
+	
+	.roundicon img {
+		height: 2.4rem;
+		width: 2.4rem;
+		max-width: unset;
+		max-height: unset;
+	}
+	
+	.button.framed.roundicon img {
+		filter:invert(95%) sepia(3%) saturate(344%) hue-rotate(44deg) brightness(92%) contrast(97%);
+	}
+	
+	.button.framed.roundicon:hover img {
+		filter:
+		invert(95%) sepia(3%) saturate(344%) hue-rotate(44deg) brightness(92%) contrast(97%)
+		brightness(1.2)
+		drop-shadow(0 0 2px #dcdfd8);
 	}
 }
 
@@ -1059,6 +1139,7 @@ iframe {
 	justify-content:center;
 	width: auto;
 	align-content: center;
+	backface-visibility: hidden;
 }
 
 .g-item.header {
@@ -1081,6 +1162,7 @@ iframe {
 	scroll-snap-type: y mandatory; 
 	scrollbar-width: none;
 	overscroll-behavior: auto;
+	backface-visibility: hidden;
 }
 
 .g-gallery-item {
@@ -1089,13 +1171,15 @@ iframe {
 	scroll-snap-stop: always;
 	min-height:100svh;
 	align-content:center;
+	backface-visibility: hidden;
 }
 
 .g-gallery-item img {
 	border: solid 2px white;
 	max-width: 90vw;
 	width: auto;
-	image-rendering:-webkit-optimize-contrast
+	image-rendering:-webkit-optimize-contrast;
+	backface-visibility: hidden;
 }
 
 @media (max-width: 2104px) {
