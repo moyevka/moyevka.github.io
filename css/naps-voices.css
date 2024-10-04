@@ -86,3 +86,22 @@
 .Sorrel.bg {
     background:#364165;
 }
+
+@media (min-resolution: 144dpi) and (max-aspect-ratio: 1/1) {
+    .Mara {
+        line-height: 1.5;
+        font-size: 2rem;
+    }
+    .Sorrel {
+        line-height: 1.5;
+        font-size: 2rem;
+    }
+    .Choux {
+        line-height: 1.5;
+        font-size: 2rem;
+    }
+    .Keys {
+        line-height: 1.5;
+        font-size: 2rem;
+    }
+}

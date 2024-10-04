@@ -4,13 +4,27 @@ layout: naps
 tags: illustration, design
 ---
 
+<style>
+    .stickertext {
+        max-width: 480px;
+    }
+@media (max-aspect-ratio: 1/1) {
+    .stickertext {
+        max-width: 90%;
+    }
+    .image-gallery {
+      margin-top: 10rem;
+    }
+}
+</style>
+
 <div class="container">
     <div class="container-item" style="align-items:center;flex-flow:row">
-        <div id="stickerGallery" class="navbuttons" style="position:relative;top:unset;left:unset;margin:1rem">
-            <div class="button naps roundicon" id="previousItem" title="previous" style="padding:0.33rem;border-radius:0.33rem">
+        <div id="stickerGallery" class="navbuttons" style="top:unset;left:unset;margin:1rem">
+            <div class="button naps roundicon" id="previousItem" title="previous">
                 <img src="/assets/site/up.svg">
             </div>
-            <div class="button naps roundicon" id="nextItem" title="next" style="padding:0.33rem;border-radius:0.33rem">
+            <div class="button naps roundicon" id="nextItem" title="next">
                 <img src="/assets/site/down.svg">
             </div>
         </div>
@@ -26,9 +40,9 @@ tags: illustration, design
         </div>
         <div id="observer" style="position:absolute;height:20px;width:20px"></div>
     </div>
-    <div class="container-item header" style="z-index:2;background:white;padding:48px">
+    <div class="container-item header" style="z-index:2;background:white">
         <p class="naps-title">stickers</p>
-        <p class="binary" style="max-width:480px">made in under a weekend each, these 'stickers' are the ground zero for the naps project. a combination of illustration, design & typography packaged in 1-bit 512x512 images, they were born from experiments with a low fidelity artstyle that could be done quickly and still presented as punchy and distinct. i started to really lean into these during my time in national service, where i was only afforded a weekend of free time to pursue my hobbies. <br><br> made in clip studio paint, illustrator</p>
+        <p class="binary stickertext">made in under a weekend each, these 'stickers' are the ground zero for the naps project. a combination of illustration, design & typography packaged in 1-bit 512x512 images, they were born from experiments with a low fidelity artstyle that could be done quickly and still presented as punchy and distinct. i started to really lean into these during my time in national service, where i was only afforded a weekend of free time to pursue my hobbies. <br><br> made in clip studio paint, illustrator</p>
     </div>
 </div>
 

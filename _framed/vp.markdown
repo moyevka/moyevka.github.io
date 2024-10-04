@@ -26,7 +26,7 @@ tags: photography
   .hofcard {
     line-height: 21pt;
   }
-@media (min-resolution: 144dpi) {
+@media (min-resolution: 144dpi) and (max-aspect-ratio: 1/1) {
   .hofcard {
     line-height: unset;
     max-width: 92vw;

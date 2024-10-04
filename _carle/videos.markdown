@@ -54,14 +54,14 @@ tags: video
     <div class="container-item" style="align-items:center">
       <p class="carle title white-text" style="max-width:100%;font-size:48pt;line-height:1;position:relative">VEZEL 1.5 e:HEV 'X'</p>
       <iframe class="vertical" src="https://www.youtube-nocookie.com/embed/ItxVxU_1Lzw?si=NJsvUyapTykr17hJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="width:100%;box-shadow:2px 2px 4px black;z-index:2;position:relative"></iframe>
-      <div class="blur-box bottom" style="width:100%">
+      <div class="blur-box bottom" style="width:100%;max-width:90vw">
           <p class="carle white-text" style="margin:0 auto"><span style="font-style:italic">Quick B-roll of a "Sporty Style" Vezel, this time in vertical format. Responsible for everything.</span></p>
       </div>
     </div>
     <div class="container-item" style="align-items:center">
       <p class="carle title white-text" style="max-width:100%;font-size:48pt;line-height:1;position:relative">VEZEL, SHOWCASED</p>
       <iframe class="vertical" src="https://www.youtube-nocookie.com/embed/Y_tjO71J_wA?si=Sgw1mHs_IOqpdN_B" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="width:100%;box-shadow:2px 2px 4px black;z-index:2;position:relative"></iframe>
-      <div class="blur-box bottom" style="width:100%">
+      <div class="blur-box bottom" style="width:100%;max-width:90vw">
           <p class="carle white-text" style="margin:0 auto"><span style="font-style:italic">Narrated showcase video of the same car, also in vertical. Responsible for camera, audio, colours & edit.</span></p>
       </div>
     </div>

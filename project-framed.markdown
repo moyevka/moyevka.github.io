@@ -9,7 +9,7 @@ permalink: /framed/
         width:80%;
     }
 
-@media (min-resolution: 144dpi) {
+@media (min-resolution: 144dpi) and (max-aspect-ratio: 1/1) {
     .intro {
         width:unset;
     }

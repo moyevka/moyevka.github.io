@@ -69,14 +69,18 @@ function napsImgFix() {
         });
 
         binaryElements.forEach(el => {
-            el.style.filter = ` drop-shadow(2px 0px 0 #fff) 
-                                drop-shadow(-2px 0px 0 #fff) 
-                                drop-shadow(0px 2px 0 #fff) 
-                                drop-shadow(0px -2px 0 #fff)
-                                drop-shadow(2px 2px 0 #fff) 
-                                drop-shadow(2px -2px 0 #fff) 
-                                drop-shadow(-2px -2px 0 #fff) 
-                                drop-shadow(-2px 2px 0 #fff)`;
+            if (el.classList.contains('outlined')) {
+                el.style.filter =  `drop-shadow(2px 0px 0 #fff) 
+                                    drop-shadow(-2px 0px 0 #fff) 
+                                    drop-shadow(0px 2px 0 #fff) 
+                                    drop-shadow(0px -2px 0 #fff)
+                                    drop-shadow(2px 2px 0 #fff) 
+                                    drop-shadow(2px -2px 0 #fff) 
+                                    drop-shadow(-2px -2px 0 #fff) 
+                                    drop-shadow(-2px 2px 0 #fff)`;
+            } else {
+                el.style.removeProperty('filter');
+            }
         });
     } else {
         napsImg.forEach(img => {
@@ -87,10 +91,6 @@ function napsImgFix() {
             } else {
                 img.style.removeProperty('image-rendering');
             }
-        });
-
-        binaryElements.forEach(el => {
-            el.style.removeProperty('font-size');
         });
     }
 }
@@ -214,7 +214,7 @@ if (window.devicePixelRatio !== 1) {
     // Add the message to the card
     const message = document.createElement('p');
     let zoomFactor = (1/scaleFactor)*100;
-    message.innerHTML = `<strong>Your device scale is not 100%!</strong> <br> Content on this page may not display correctly. <br> <p style="font-family:'DM Sans';font-size:1rem">If you're on PC, set your browser zoom to <b>${zoomFactor.toFixed(3)}%</b> <br> and reload to view this page as it was intended.</p>`;
+    message.innerHTML = `<strong>Your device scale is not 100%!</strong> <br> Content on this page may not display correctly. <br> <p style="font-family:'DM Sans';font-size:0.8em">If you're on PC, set your browser zoom to <b>${zoomFactor.toFixed(3)}%</b> <br> and reload to view this page as it was intended.</p>`;
     card.appendChild(message);
 
     // Create the button

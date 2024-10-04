@@ -20,14 +20,17 @@ tags: design
     scale: 101%;
     filter: drop-shadow(4px 4px 8px rgba(0,0,0,0.5));
   }
-  @media (max-width: 1200px) {
+  .carle.title.white-text.banners {
+    margin:0;
+  }
+  @media (max-aspect-ratio: 1/1) {
     .image-gallery {
-      margin-top:50vh;
+      margin-top:55rem;
       padding-top:0;
-      padding-bottom:40vh;
+      padding-bottom:50rem;
     }
-    .container-item.header {
-      height:25vh;
+    .carle.title.white-text.banners {
+      margin-bottom: 5rem;
     }
   }
 </style>
@@ -46,7 +49,7 @@ tags: design
         </div>
     </div>
     <div class="container-item header" style="z-index:2;justify-self:center">
-        <p class="carle title white-text" style="margin:0">BANNERS</p>
+        <p class="carle title white-text banners">BANNERS</p>
         <p class="carle white-text" style="text-align:left;text-align-last:unset">In addition to the static ads, I was tasked with designing two standing banners that were placed outside the showroom.</p>
     </div>
 </div>

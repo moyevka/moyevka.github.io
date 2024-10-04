@@ -44,11 +44,17 @@ test: moyevka!
         bottom:4rem;
         z-index:5
     }
-@media (min-resolution: 144dpi) and (max-aspect-ratio: 1/1) {
-    p {
-        max-width:unset;
-        margin-top:0;
+    .card.contact {
+        position:absolute;
+        bottom:20vh;
     }
+@media (max-height:1080px) {
+    .card.contact {
+        bottom: 4rem;
+        right: 4rem
+    }
+}
+@media (min-resolution: 144dpi) and (max-aspect-ratio: 1/1) {
     .homeblock{
         max-width:600px;
         margin-left:4vh;
@@ -71,6 +77,9 @@ test: moyevka!
         font-size: 2rem;
     }
     .card.tags {
+        bottom: 10vh;
+    }
+    .card.contact {
         bottom: 10vh;
     }
 }
@@ -100,7 +109,7 @@ scrollToTopBtn.onclick = function() {
         <br>
         <p>visual artist, graphic designer, whatever you wanna call it, i just like to make stuff that looks cool. <br> let's create something together!</p>
     </div>
-    <div class="card" style="position:absolute;bottom:20vh">
+    <div class="card contact">
         <p style="margin:12pt;text-align:left" class="site">
             get in touch: <br>
             <a href="mailto:contact@moyevka.work" target="_blank" style="font-family:'DM Sans';font-weight:800;text-decoration:unset">
@@ -116,7 +125,7 @@ scrollToTopBtn.onclick = function() {
 
 <div class="section" style="background-image: url('/assets/splash/naps-splash.png'); background-color:white; min-height:100svh; background-repeat: no-repeat; background-position: center; background-size: auto 1325px; image-rendering: pixelated;filter:drop-shadow(0px 0px 2px rgba(32, 16, 16, 0.5))" id="napsbg">
     <p class="main-text bottom-tab"><i>scroll down to see my work!</i></p>
-    <p><a href="/naps/" class="naps-title outlined">naps!</a></p>
+    <p><a href="/naps/" class="naps-title main outlined">naps!</a></p>
     <div class="card tags">
         <p style="font-family:'DM Sans';font-weight:800;margin:0" class="site">personal | illustrative design, digital</p>
     </div>  
@@ -215,13 +224,12 @@ scrollToTopBtn.onclick = function() {
 
 <div class="section" style="background: linear-gradient(180deg, #f6f6f3 75%, #deddda 100%);filter:drop-shadow(0px 0px 2px rgba(0,0,0,0.5));scroll-snap-align:start;scroll-snap-stop:always;position:relative;top:unset;height:auto;padding-top:2rem;padding-bottom:2rem">
     <p class="main-text bottom-tab" style="font-family:'DM Sans';font-weight:800;background:#f6f6f3">about me</p>
-    <div class="bordered-grid" style="z-index:1;color:#201010">
+    <div class="bordered-grid" style="z-index:100;color:#201010">
         <div class="grid-item">
             <p style="text-align:left;margin:12pt">Hi! My name's Ian, creating online under the pseudonym <span style="font-family:'DM Sans';font-weight:700">moyevka</span>. I hope my work's spoken for itself! If not, I'm a designer, artist, video editor, photographer, so on. I work well in Illustrator, Clip Studio Paint, Photoshop, Lightroom, Premiere Pro, After Effects, Blender, Nuke, and more. Outside of all this creative stuff, I'm a karaoke nuisance, cat owner (that's them on this page!), and a pretty alright home cook.</p>
             <hr>
             <h1>about this site</h1> 
             <p style="text-align:left;margin:12pt"> This site is written from scratch! Pure HTML, CSS and JS, with Jekyll for a modular authoring setup and to build the site, which is then hosted on Github Pages. No w*x, no sq**r*sp*c*, no plugins for anything. <br><br> A main goal for this website was to have each project's page be presented in a unique theme of its own, highlighting my understanding of the project's design goals and aesthetic. I like to think that I've accomplished that. <br><br> <i>I am not a web developer. Please don't ask me to make your website.</i></p>
-            <p style="margin:0;color:#979593" class="site"><i>drag the cats away if they're blocking stuff</i></p>
         </div>
         <div class="grid-item divider"></div>
         <div class="grid-item">

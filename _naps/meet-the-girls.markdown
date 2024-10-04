@@ -4,9 +4,28 @@ title: 01 naps
 tags: illustration, design
 ---
 
+<style>
+    .mtgtitle {
+        font-style:normal;
+        line-height:1;
+        font-size:56pt;
+        margin:0;
+        margin-bottom:18px
+    }
+@media (min-resolution: 144dpi) and (max-aspect-ratio: 1/1) {
+    .mtgtitle {
+        font-size: 6rem;
+        margin-bottom: 5rem
+    }
+    .item-title.naps-title {
+        font-size: 5rem;
+    }
+}
+</style>
+
 <div class="g-container">
     <div class="g-item header">
-        <p class="naps-title outlined" style="font-style:normal;line-height:1;font-size:56pt;margin:0;margin-bottom:18px">meet the girls!</p>
+        <p class="naps-title outlined mtgtitle">meet the girls!</p>
         <p class="binary outlined">get to know Mara, Sorrel, Choux, and Keys, the 4 girls of the naps project, through these highly stylised stylesheets - summarising the design and personality of each of them. <br><br> these stylesheets were created with the goal of exploring each character's personality, through the way they dress, to the colours they prefer. this is where i really leaned into the dithered almost pixelated-halftone look of naps, with a limited colour palette used across the sheets to unify them together. individual identity was given through colour and background choice, with each character's key colour being paired with its complement, and distinct textures used to curate the aesthetic of each girl. <br><br> made in clip studio paint, illustrator</p>
         <div id="mtgGallery" class="navbuttons" style="position:relative;left:unset;flex-flow:row">
             <div class="button naps roundicon" id="previousItem" title="previous" style="padding:0.33rem;border-radius:0.33rem">
