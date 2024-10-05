@@ -226,7 +226,7 @@ scrollToTopBtn.onclick = function() {
 }
 </style>
 
-<div class="section" style="background: linear-gradient(180deg, #f6f6f3 75%, #deddda 100%);filter:drop-shadow(0px 0px 2px rgba(0,0,0,0.5));scroll-snap-align:start;scroll-snap-stop:always;position:relative;top:unset;height:auto;padding-top:2rem;padding-bottom:2rem">
+<div class="section" style="background: linear-gradient(180deg, #f6f6f3 75%, #deddda 100%);filter:drop-shadow(0px 0px 2px rgba(0,0,0,0.5));position:relative;top:unset;height:auto;padding-top:2rem;padding-bottom:2rem">
     <p class="main-text bottom-tab" style="font-family:'DM Sans';font-weight:800;background:#f6f6f3">about me</p>
     <div class="bordered-grid" style="z-index:100;color:#201010">
         <div class="grid-item">
@@ -239,12 +239,12 @@ scrollToTopBtn.onclick = function() {
         <div class="grid-item">
             <h1>find me here:</h1> 
             <p style="margin:12pt" class="site">
-                <a href="mailto:contact@moyevka.work" target="_blank" style="text-decoration:unset">
+                <a href="mailto:contact@moyevka.work" target="_blank" style="font-family:'DM Sans';font-weight:800;text-decoration:unset">
                     <img src="/assets/site/mail.svg" style="width:1.5em;vertical-align:bottom"> contact@moyevka.work
                 </a>
             </p>
             <p style="margin:12pt" class="site">
-                <a href="https://x.com/moyevka" target="_blank" style="text-decoration:unset">
+                <a href="https://x.com/moyevka" target="_blank" style="font-family:'DM Sans';font-weight:800;text-decoration:unset">
                     <img src="/assets/site/x-logo.svg" style="width:1em;vertical-align:sub"> @moyevka
                 </a>
             </p>
@@ -262,3 +262,5 @@ scrollToTopBtn.onclick = function() {
     </div>
     <img src="/assets/splash/about-me.svg" style="max-height:unset;width:100vw;height:auto;position:absolute;bottom:0;z-index:-1">
 </div>
+
+<div class="snap"></div>
