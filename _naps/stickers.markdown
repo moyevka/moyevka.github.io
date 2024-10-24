@@ -1,5 +1,6 @@
 ---
-title: 02 naps
+order: 2
+title: stickers
 layout: naps
 tags: illustration, design
 ---

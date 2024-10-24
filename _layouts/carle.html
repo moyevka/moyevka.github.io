@@ -28,20 +28,79 @@
         <a href="/" class="button carle roundicon" title="Back to Home"><img src="/assets/site/back.svg" style="filter:invert(1)"></a>
         <div class="button carle roundicon" id="scrollToTopBtn" title="Back to Top"><img src="/assets/site/top.svg" style="filter:invert(1)"></div>
     </div>
+    <div class="navbuttonsBottom">
+        <div class="button carle roundicon" id="scrollUpBtn" title="prev" style="margin:0">
+            <img src="/assets/site/up.svg" style="filter:invert(1)">
+        </div>
+        <div class="button carle roundicon" id="scrollDownBtn" title="next" style="margin:0">
+            <img src="/assets/site/down.svg" style="filter:invert(1)">
+        </div>
+    </div>
 </body>
+<!-- navbutton code  -->
+<script type="text/javascript">
+    const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+    scrollToTopBtn.onclick = function() {
+        document.body.scroll({
+            top: 0, 
+            left: 0, 
+            behavior: 'smooth' 
+        });
+    };
+    
+    const sections = document.querySelectorAll('.snap');
+    let currentSectionIndex = 0;
+    const firstSection = sections[0];
+    
+    function getCurrentSectionIndex() {
+        let closestIndex = 0;
+        let closestDistance = Infinity;
+        sections.forEach((section, index) => {
+            const sectionTop = section.offsetTop;
+            const distance = Math.abs(-(firstSection.getBoundingClientRect().top) - sectionTop);
+            if (distance < closestDistance) {
+                closestDistance = distance;
+                closestIndex = index;
+            }
+        });
+        return closestIndex;
+    }
+    currentSectionIndex = getCurrentSectionIndex();
+    
+    function scrollToSection(index) {
+        const targetSection = sections[index];
+        if (targetSection) {
+            targetSection.scrollIntoView({ behavior: 'smooth' });
+            currentSectionIndex = index;
+        }
+    }
+    
+    let isScrolling;
+    document.body.addEventListener('scroll', function() {
+        window.clearTimeout(isScrolling);
+        isScrolling = setTimeout(function() {
+            const currentSectionIndex = getCurrentSectionIndex();
+        }, 100);
+    });
+    
+    const scrollUpBtn = document.getElementById('scrollUpBtn');
+    scrollUpBtn.addEventListener('click', function() {
+        const currentSectionIndex = getCurrentSectionIndex();
+        if (currentSectionIndex > 0) {
+            scrollToSection(currentSectionIndex - 1);
+        }
+    });
+    
+    const scrollDownBtn = document.getElementById('scrollDownBtn');
+    scrollDownBtn.addEventListener('click', function() {
+        const currentSectionIndex = getCurrentSectionIndex();
+        if (currentSectionIndex < sections.length - 1) {
+            scrollToSection(currentSectionIndex + 1);
+        }
+    });
+</script>
 <!-- randomise voice, snap binary elements to pixel grid  -->
 <script type="text/javascript">
-
-const scrollToTopBtn = document.getElementById("scrollToTopBtn");
-
-scrollToTopBtn.onclick = function() {
-    document.body.scroll({
-        top: 0, 
-        left: 0, 
-        behavior: 'smooth' 
-    });
-};
-
 document.addEventListener("DOMContentLoaded", function() {
 
 removeSplash();

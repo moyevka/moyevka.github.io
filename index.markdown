@@ -19,7 +19,7 @@ test: moyevka!
     }
 
     .homeblock {
-        max-width:505px
+        max-width:500px
     }
 
     .moyevka {
@@ -89,21 +89,6 @@ test: moyevka!
 }
 </style>
 
-<div class="navbuttons">
-    <div class="button roundicon" id="scrollToTopBtn" title="Back to Top"><img src="/assets/site/top.svg"></div>
-</div>
-
-<script>
-const scrollToTopBtn = document.getElementById("scrollToTopBtn");
-scrollToTopBtn.onclick = function() {
-    document.body.scroll({
-        top: 0, 
-        left: 0, 
-        behavior: 'smooth' 
-    });
-};
-</script>
-
 <div class="snap"></div>
 
 <div class="section" style="background: linear-gradient(180deg, #f6f6f3 75%, #deddda 100%)">
@@ -117,7 +102,7 @@ scrollToTopBtn.onclick = function() {
         <p style="margin:12pt;text-align:left" class="site">
             get in touch: <br>
             <a href="mailto:contact@moyevka.work" target="_blank" style="font-family:'DM Sans';font-weight:800;text-decoration:unset">
-                <img src="/assets/site/mail.svg" style="width:1.5em;vertical-align:bottom"> contact@moyevka.work
+                <img src="/assets/site/logo-mail.svg" style="width:1.25em;vertical-align:text-bottom;margin-right:0.25rem"> contact@moyevka.work
             </a>
         </p>
     </div>
@@ -238,14 +223,17 @@ scrollToTopBtn.onclick = function() {
         <div class="grid-item divider"></div>
         <div class="grid-item">
             <h1>find me here:</h1> 
-            <p style="margin:12pt" class="site">
+            <p style="margin:12pt;text-align:left;line-height:2" class="site">
                 <a href="mailto:contact@moyevka.work" target="_blank" style="font-family:'DM Sans';font-weight:800;text-decoration:unset">
-                    <img src="/assets/site/mail.svg" style="width:1.5em;vertical-align:bottom"> contact@moyevka.work
+                    <img src="/assets/site/logo-mail.svg" style="width:1.25em;vertical-align:text-bottom;margin-right:0.5rem"> contact@moyevka.work
                 </a>
-            </p>
-            <p style="margin:12pt" class="site">
+                <br>
                 <a href="https://x.com/moyevka" target="_blank" style="font-family:'DM Sans';font-weight:800;text-decoration:unset">
-                    <img src="/assets/site/x-logo.svg" style="width:1em;vertical-align:sub"> @moyevka
+                    <img src="/assets/site/logo-x.svg" style="width:1.25em;vertical-align:text-bottom;margin-right:0.5rem"> @moyevka
+                </a>
+                <br>
+                <a href="https://bsky.app/profile/moyevka.bsky.social" target="_blank" style="font-family:'DM Sans';font-weight:800;text-decoration:unset">
+                    <img src="/assets/site/logo-bsky.svg" style="width:1.25em;vertical-align:text-bottom;margin-right:0.5rem"> @moyevka.bsky.social
                 </a>
             </p>
         </div>

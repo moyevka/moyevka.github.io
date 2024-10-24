@@ -7,11 +7,112 @@
         body {
             scroll-snap-type: y proximity;
         }
+        #moyevcat {
+            padding: 0;
+            background-color: #f6f6f3;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.1s ease;
+	        filter: drop-shadow(0 0 2px rgba(32,16,16,0.5));
+            border-radius: 1000pt;
+        }
+        #moyevcat:hover {
+            filter: drop-shadow(0 0 4px rgba(32,16,16,0.75));
+        }
+
+        #moyevcat img {
+            filter: invert(10%) sepia(51%) saturate(396%) hue-rotate(22deg) brightness(96%) contrast(96%);
+            clip-path: circle(50%);
+            object-fit: contain;
+        }
+
+        #moyevcat:hover img {
+            filter: brightness(0) saturate(100%) invert(51%) sepia(79%) saturate(739%) hue-rotate(314deg) brightness(99%) contrast(97%);
+        }
     </style>
 </head>
 <body>
     {{ content }}
+    <div class="navbuttons">
+        <div id="moyevcat" title="moyevka!">
+            <img src="/assets/site/logo-cat.svg">
+        </div>
+        <div class="button home roundicon" id="scrollToTopBtn" title="Back to Top">
+            <img src="/assets/site/top.svg">
+        </div>
+    </div>
+    <div class="navbuttonsBottom">
+        <div class="button home roundicon" id="scrollUpBtn" title="prev">
+            <img src="/assets/site/up.svg">
+        </div>
+        <div class="button home roundicon" id="scrollDownBtn" title="next">
+            <img src="/assets/site/down.svg">
+        </div>
+    </div>    
 </body>
+<!-- navbutton code  -->
+<script type="text/javascript">
+    const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+    scrollToTopBtn.onclick = function() {
+        document.body.scroll({
+            top: 0, 
+            left: 0, 
+            behavior: 'smooth' 
+        });
+    };
+    
+    const sections = document.querySelectorAll('.snap');
+    let currentSectionIndex = 0;
+    const firstSection = sections[0];
+    
+    function getCurrentSectionIndex() {
+        let closestIndex = 0;
+        let closestDistance = Infinity;
+        sections.forEach((section, index) => {
+            const sectionTop = section.offsetTop;
+            const distance = Math.abs(-(firstSection.getBoundingClientRect().top) - sectionTop);
+            if (distance < closestDistance) {
+                closestDistance = distance;
+                closestIndex = index;
+            }
+        });
+        return closestIndex;
+    }
+    currentSectionIndex = getCurrentSectionIndex();
+    
+    function scrollToSection(index) {
+        const targetSection = sections[index];
+        if (targetSection) {
+            targetSection.scrollIntoView({ behavior: 'smooth' });
+            currentSectionIndex = index;
+        }
+    }
+    
+    let isScrolling;
+    document.body.addEventListener('scroll', function() {
+        window.clearTimeout(isScrolling);
+        isScrolling = setTimeout(function() {
+            const currentSectionIndex = getCurrentSectionIndex();
+        }, 100);
+    });
+    
+    const scrollUpBtn = document.getElementById('scrollUpBtn');
+    scrollUpBtn.addEventListener('click', function() {
+        const currentSectionIndex = getCurrentSectionIndex();
+        if (currentSectionIndex > 0) {
+            scrollToSection(currentSectionIndex - 1);
+        }
+    });
+    
+    const scrollDownBtn = document.getElementById('scrollDownBtn');
+    scrollDownBtn.addEventListener('click', function() {
+        const currentSectionIndex = getCurrentSectionIndex();
+        if (currentSectionIndex < sections.length - 1) {
+            scrollToSection(currentSectionIndex + 1);
+        }
+    });
+</script>
 <!-- snap binary elements to pixel grid  -->
 <script type="text/javascript">
 document.addEventListener("DOMContentLoaded", function() {

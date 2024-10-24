@@ -1,6 +1,7 @@
 ---
 layout: naps
-title: 01 naps
+order: 1
+title: meet the girls!
 tags: illustration, design
 ---
 

@@ -40,6 +40,7 @@ permalink: /naps/
 }  
 </style>
 
+<div class="section">
 <div class="container" style="max-width:1200px">
     <div class="container-item" style="max-height:67vh;padding:0;align-items:center">
         <img src="/assets/naps/thegirls-promo.png" title="the girls!" class="naps-img" style="z-index:-1;max-height:none">
@@ -65,8 +66,11 @@ permalink: /naps/
     </div>
 </div>
 
-{% assign posts = site.naps | sort: "title" %}
+</div>
+
+{% assign posts = site.naps | sort: "order" %}
 {% for post in posts %}
-<!-- split -->
-{{ post.content | raw }}
+<div class="section" id="{{ post.title | slugify }}">
+  {{ post.content | raw }}
+</div>
 {% endfor %}

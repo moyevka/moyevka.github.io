@@ -196,7 +196,6 @@ body {
 	scroll-snap-type: y mandatory;
 	overscroll-behavior: auto;
 	font-weight: normal;
-	min-height: 100%;
 	margin: 0;
 	font-family: 'PP Fragment Sans', Helvetica, Arial, sans-serif;
 	font-size: 1.16rem;
@@ -241,6 +240,10 @@ h1 {
 	color:#201010;
 	text-decoration: none;
 	transition: 0.1s ease;
+}
+
+.site a img {
+	filter: invert(10%) sepia(51%) saturate(396%) hue-rotate(22deg) brightness(96%) contrast(96%);
 }
 
 .site a:visited {
@@ -314,6 +317,16 @@ h1 {
 	position: absolute;
 	top: 2rem;
 	left: 2rem;
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	z-index: 9000;
+}
+
+.navbuttonsBottom {
+	position: absolute;
+	bottom: 2rem;
+	right: 2rem;
 	display: flex;
 	flex-direction: column;
 	gap: 1rem;
@@ -409,6 +422,14 @@ h1 {
 	invert(95%) sepia(3%) saturate(344%) hue-rotate(44deg) brightness(92%) contrast(97%)
 	brightness(1.2)
 	drop-shadow(0 0 2px #dcdfd8);
+}
+
+.button.home.roundicon img {
+	filter: invert(10%) sepia(51%) saturate(396%) hue-rotate(22deg) brightness(96%) contrast(96%);
+}
+
+.button.home.roundicon:hover img {
+	filter: brightness(0) saturate(100%) invert(51%) sepia(79%) saturate(739%) hue-rotate(314deg) brightness(99%) contrast(97%);
 }
 
 .wide-content {

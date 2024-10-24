@@ -1,5 +1,6 @@
 ---
-title: 04 naps
+order: 4
+title: miscellaneous
 layout: naps
 tags: illustration
 ---
