@@ -810,13 +810,13 @@ hr {
 	padding: 0;
 }
 
-.framed hr {
-	width:100%;
+.fcard hr {
+	width: calc(100% - 32pt);
 	border-color: #8a8a8a;
 	display: block;
 	height: 1px;
 	padding: 0;
-	margin:18pt;
+	margin: 18pt;
 }
 
 .opener {
@@ -1096,6 +1096,11 @@ iframe {
 		left: 4rem;
 		gap: 2rem;
 	}
+	.navbuttonsBottom {
+		bottom: 4rem;
+		right: 4rem;
+		gap: 2rem;
+	}
 	
 	.button {
 		padding-top: 10pt;
@@ -1184,6 +1189,14 @@ iframe {
 		invert(95%) sepia(3%) saturate(344%) hue-rotate(44deg) brightness(92%) contrast(97%)
 		brightness(1.2)
 		drop-shadow(0 0 2px #dcdfd8);
+	}
+
+	.post-item img {
+		max-width: 50vw;
+		max-height: 33vh;
+	}
+	.post-item.naps img {
+		max-width: 50vw;
 	}
 }
 
