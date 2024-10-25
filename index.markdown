@@ -228,8 +228,10 @@ test: moyevka!
                     <img src="/assets/site/logo-mail.svg" style="width:1.25em;vertical-align:text-bottom;margin-right:0.5rem"> contact@moyevka.work
                 </a>
                 <br>
-                <a href="https://x.com/moyevka" target="_blank" style="font-family:'DM Sans';font-weight:800;text-decoration:unset">
-                    <img src="/assets/site/logo-x.svg" style="width:1.25em;vertical-align:text-bottom;margin-right:0.5rem"> @moyevka
+                <a class="logotrans" href="https://x.com/moyevka" target="_blank" style="font-family:'DM Sans';font-weight:800;text-decoration:unset">
+                    <img class="logo-x" src="/assets/site/logo-x.svg" style="width:1.25em;vertical-align:text-bottom;margin-right:0.5rem">
+                    <img class="logo-twitter" src="/assets/site/logo-twitter.svg" style="width:1.25em;vertical-align:text-bottom;margin-right:0.5rem"> 
+                    <span style="left:-2.25rem;position:relative">@moyevka</span>
                 </a>
                 <br>
                 <a href="https://bsky.app/profile/moyevka.bsky.social" target="_blank" style="font-family:'DM Sans';font-weight:800;text-decoration:unset">

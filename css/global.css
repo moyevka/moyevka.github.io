@@ -432,6 +432,28 @@ h1 {
 	filter: brightness(0) saturate(100%) invert(51%) sepia(79%) saturate(739%) hue-rotate(314deg) brightness(99%) contrast(97%);
 }
 
+.logo-x {
+	transition: transform 0.1s ease, opacity 0.05s ease;
+	opacity: 1;
+	transform: translate(0rem) translateY(0rem);
+}
+
+.logo-twitter {
+	transition: transform 0.1s ease, opacity 0.05s ease;
+	opacity: 0;
+	transform: translateX(-2.25rem) translateY(-2.25rem);
+}
+
+.logotrans:hover .logo-x {
+	opacity: 0;
+	transform: translateX(0rem) translateY(2.25rem);
+}
+
+.logotrans:hover .logo-twitter {
+	opacity: 1;
+	transform: translateX(-2.25rem) translateY(0rem);
+}
+
 .wide-content {
 	max-width:90vw;
 	width:1440px;
