@@ -161,7 +161,7 @@ test: moyevka!
 
 <div class="snap"></div>
 
-<div class="section" style="background-image: url('/assets/framed/svg/Topography.svg');height:100svh;background-size:cover;background-attachment:fixed;filter:drop-shadow(0px 0px 2px rgba(0,0,0,0.5))">
+<div class="section" style="background: url('/assets/framed/svg/Topography.svg'), #333;height:100svh;background-size:cover;background-attachment:fixed;filter:drop-shadow(0px 0px 2px rgba(0,0,0,0.5))">
     <p class="framed viewer bottom-tab" style="background:#333;letter-spacing:0em">FRAMED</p>
     <a href="/framed/" style="width:576px;max-width:80%">
         <img src="/assets/framed/svg/FramedLogoLarge.svg" title="visit the site!" class="glow-hover">

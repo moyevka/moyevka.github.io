@@ -25,10 +25,16 @@
             filter: invert(10%) sepia(51%) saturate(396%) hue-rotate(22deg) brightness(96%) contrast(96%);
             clip-path: circle(50%);
             object-fit: contain;
+            width: 2.67rem;
         }
 
         #moyevcat:hover img {
             filter: brightness(0) saturate(100%) invert(51%) sepia(79%) saturate(739%) hue-rotate(314deg) brightness(99%) contrast(97%);
+        }
+        @media (min-resolution: 144dpi) and (max-aspect-ratio: 1/1) {
+            #moyevcat img {
+                width: 3.74rem;
+            }
         }
     </style>
 </head>
