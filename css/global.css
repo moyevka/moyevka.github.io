@@ -661,6 +661,7 @@ img::selection {
 	transform-origin: center;
 	scale: 95%;
 	backface-visibility: hidden;
+	touch-action: none;
 }
 
 .post-item.naps {

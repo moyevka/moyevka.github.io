@@ -335,6 +335,7 @@ function hoverSort(postItems, randomSort = false) {
 function dragMove(post) {
     let isDragging = false;
     let tapTimeout = null;
+    let wasDragged = false;
 
     post.onmousedown = function(event) {
         event.preventDefault();
@@ -342,33 +343,34 @@ function dragMove(post) {
     };
 
     post.ontouchstart = function(event) {
-        event.preventDefault();
         tapTimeout = setTimeout(() => {
+            event.preventDefault();
             isDragging = true;
-            startDragging(event.touches[0]); // Pass the first touch point
-        }, 100); // Delay to differentiate between tap and drag
+            startDragging(event.touches[0]);
+        }, 50);
     };
 
     post.ontouchend = function() {
         if (tapTimeout) {
-            clearTimeout(tapTimeout); // Cancel dragging if tap is quick
+            clearTimeout(tapTimeout);
         }
-        isDragging = false; // Reset dragging state
+        if (!wasDragged) {
+            post.click();
+        }
+        isDragging = false;
+        wasDragged = false;
     };
 
     function startDragging(event) {
+        wasDragged = true;
         const postRect = post.getBoundingClientRect();
         const parentRect = post.parentElement.getBoundingClientRect();
-
         let shiftX = event.clientX - postRect.left;
         let shiftY = event.clientY - postRect.top;
 
         function moveAt(pageX, pageY) {
-            // Calculate the new position in percentage
             let leftPercent = ((pageX - shiftX - parentRect.left) / parentRect.width) * 100;
             let topPercent = ((pageY - shiftY - parentRect.top) / parentRect.height) * 100;
-
-            // Set the position in percentage
             post.style.left = `${leftPercent}%`;
             post.style.top = `${topPercent}%`;
         }
@@ -381,7 +383,7 @@ function dragMove(post) {
 
         function onTouchMove(event) {
             if (isDragging) {
-                event.preventDefault(); // Prevent page scrolling when dragging
+                event.preventDefault();
                 moveAt(event.touches[0].pageX, event.touches[0].pageY);
                 post.style.zIndex = 9998;
                 post.style.transform = `rotate(0deg)`;
@@ -399,15 +401,11 @@ function dragMove(post) {
             post.style.zIndex = 9997;
         }
 
-        // Add mouse and touch event listeners
         document.addEventListener('mousemove', onMouseMove);
         document.addEventListener('mouseup', endDrag);
         document.addEventListener('mouseleave', endDrag);
         document.addEventListener('touchmove', onTouchMove, { passive: false });
         document.addEventListener('touchend', endDrag);
-
-        post.onmouseup = null; // Reset inline mouseup
-        post.ontouchend = null; // Reset inline touchend
     }
 
     post.ondragstart = function() {
